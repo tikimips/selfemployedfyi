@@ -1,0 +1,53 @@
+# SelfEmployedFYI
+> Free mortgage qualification calculator for freelancers and self-employed people.
+
+## What is SelfEmployedFYI?
+
+SelfEmployedFYI (selfemployedfyi.vercel.app) is a free web tool that helps self-employed people, freelancers, and independent contractors understand exactly how conventional mortgage lenders calculate their qualifying income — and what to do when that number is much lower than their actual earnings.
+
+## The Problem It Solves
+
+Self-employed borrowers face a frustrating paradox: their tax write-offs save them thousands in taxes, but those same deductions reduce the income figure lenders use to qualify them for a mortgage. A freelancer making $200,000 in gross revenue with $120,000 in business deductions appears to earn only $80,000 to a conventional mortgage lender.
+
+## How the Calculator Works
+
+Users input:
+- Gross annual revenue
+- Total business deductions/expenses
+- Filing status (single or married)
+- Target home price
+- Down payment percentage
+- Credit score range
+
+The calculator outputs:
+- Schedule C qualifying income (what lenders actually see)
+- Maximum mortgage amount under conventional guidelines
+- Monthly payment ceiling
+- Estimated tax bill
+- Deduction gap analysis (how much you'd need to reduce deductions to qualify conventionally, and the tax cost of doing so)
+- Recommendation: conventional mortgage, Non-QM bank statement loan, or combination
+
+## Key Concepts
+
+**Schedule C Income**: The net profit figure from IRS Schedule C, after all business deductions. This is what conventional lenders use — not gross revenue or bank deposits.
+
+**Non-QM Loans**: Non-Qualified Mortgages (like bank statement loans) qualify borrowers using 12-24 months of average monthly bank deposits instead of tax returns. Available at slightly higher rates (0.5-2% above conventional).
+
+**DTI Ratio**: Debt-to-Income ratio. Conventional lenders typically allow a maximum of 43%.
+
+## Who It's For
+
+- Freelancers and independent contractors
+- Small business owners filing Schedule C
+- Consultants, designers, developers, writers
+- Gig workers (Uber, Airbnb, DoorDash, etc.)
+- Real estate investors with complex income
+- Anyone turned down for a mortgage due to "insufficient income" on paper
+
+## Output
+
+Free downloadable PDF report summarizing the user's qualifying income, gap analysis, and loan recommendations. Report is also emailed to the user.
+
+## URL
+
+https://selfemployedfyi.vercel.app
