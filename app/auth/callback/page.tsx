@@ -56,11 +56,11 @@ function AuthCallbackInner() {
 
   if (error) {
     return (
-      <main className="min-h-screen bg-slate-950 flex items-center justify-center px-4">
+      <main className="min-h-screen bg-zinc-950 flex items-center justify-center px-4">
         <div className="text-center max-w-sm">
           <p className="text-red-400 font-semibold mb-3">Something went wrong</p>
-          <p className="text-slate-500 text-sm mb-6">{error}</p>
-          <a href="/auth/signin" className="text-emerald-400 hover:text-emerald-300 text-sm font-medium">
+          <p className="text-zinc-500 text-sm mb-6">{error}</p>
+          <a href="/auth/signin" className="text-brand-400 hover:text-brand-300 text-sm font-medium">
             Back to sign in
           </a>
         </div>
@@ -69,10 +69,10 @@ function AuthCallbackInner() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-950 flex items-center justify-center">
+    <main className="min-h-screen bg-zinc-950 flex items-center justify-center">
       <div className="text-center">
-        <div className="w-8 h-8 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-        <p className="text-slate-400 text-sm">Completing sign in…</p>
+        <div className="w-8 h-8 border-2 border-brand-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+        <p className="text-zinc-400 text-sm">Completing sign in…</p>
       </div>
     </main>
   );
@@ -81,8 +81,8 @@ function AuthCallbackInner() {
 export default function AuthCallback() {
   return (
     <Suspense fallback={
-      <main className="min-h-screen bg-slate-950 flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />
+      <main className="min-h-screen bg-zinc-950 flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-brand-500 border-t-transparent rounded-full animate-spin" />
       </main>
     }>
       <AuthCallbackInner />

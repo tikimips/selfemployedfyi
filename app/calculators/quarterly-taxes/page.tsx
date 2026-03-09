@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "quarterly tax deadline 2026",
   ],
   alternates: {
-    canonical: "https://selfemployedfyi.com/calculators/quarterly-taxes",
+    canonical: "https://propped.org/calculators/quarterly-taxes",
   },
   openGraph: {
     title: "Quarterly Tax Estimator — How Much Do I Owe?",
@@ -40,7 +40,7 @@ export default function QuarterlyTaxesPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen bg-zinc-950">
       <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <Nav />
@@ -48,15 +48,15 @@ export default function QuarterlyTaxesPage() {
       {/* Header */}
       <section className="pt-12 pb-2 px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-800/50 text-emerald-300 text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
-            <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-brand-950/60 border border-brand-800/50 text-brand-300 text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
+            <span className="w-1.5 h-1.5 bg-brand-400 rounded-full animate-pulse" />
             Q1 deadline: April 15, 2026
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-3">
             How much do I owe in{" "}
-            <span className="text-emerald-400">quarterly taxes?</span>
+            <span className="text-brand-400">quarterly taxes?</span>
           </h1>
-          <p className="text-slate-400 text-base max-w-xl mx-auto leading-relaxed">
+          <p className="text-zinc-400 text-base max-w-xl mx-auto leading-relaxed">
             Enter your expected income and expenses. Get your exact quarterly payment,
             the right set-aside percentage, and your full 2026 payment schedule.
           </p>
@@ -67,7 +67,7 @@ export default function QuarterlyTaxesPage() {
       <QuarterlyTaxCalculator />
 
       {/* FAQ — structured for AI Overviews */}
-      <section className="border-t border-slate-800/50 py-14 px-4">
+      <section className="border-t border-zinc-800/50 py-14 px-4">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-xl font-bold text-white mb-8">Common questions</h2>
           <div className="space-y-6">
@@ -97,9 +97,9 @@ export default function QuarterlyTaxesPage() {
                 a: "No — this calculator covers federal self-employment tax and federal income tax only. Most states also charge income tax (California tops out at 13.3%). Add another 5–10% on top of your federal estimate depending on your state.",
               },
             ].map(({ q, a }) => (
-              <div key={q} className="border-b border-slate-800 pb-6">
+              <div key={q} className="border-b border-zinc-800 pb-6">
                 <h3 className="text-sm font-semibold text-white mb-2">{q}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{a}</p>
+                <p className="text-sm text-zinc-400 leading-relaxed">{a}</p>
               </div>
             ))}
           </div>

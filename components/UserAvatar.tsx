@@ -23,14 +23,14 @@ export default function UserAvatar() {
   }, []);
 
   if (loading) {
-    return <div className="w-8 h-8 rounded-full bg-slate-800 animate-pulse" />;
+    return <div className="w-8 h-8 rounded-full bg-zinc-800 animate-pulse" />;
   }
 
   if (!user) {
     return (
       <Link
         href="/auth/signin"
-        className="text-sm font-semibold text-slate-300 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 hover:border-slate-500 transition-all"
+        className="text-sm font-semibold text-zinc-300 hover:text-white px-3 py-1.5 rounded-lg border border-zinc-700 hover:border-zinc-500 transition-all"
       >
         Sign in
       </Link>
@@ -60,27 +60,27 @@ export default function UserAvatar() {
           <img
             src={profile.avatar_url}
             alt={displayName}
-            className="w-8 h-8 rounded-full object-cover ring-2 ring-slate-700 group-hover:ring-emerald-600 transition-all"
+            className="w-8 h-8 rounded-full object-cover ring-2 ring-zinc-700 group-hover:ring-brand-600 transition-all"
           />
         ) : (
-          <div className="w-8 h-8 rounded-full bg-emerald-700 flex items-center justify-center ring-2 ring-slate-700 group-hover:ring-emerald-600 transition-all">
+          <div className="w-8 h-8 rounded-full bg-brand-700 flex items-center justify-center ring-2 ring-zinc-700 group-hover:ring-brand-600 transition-all">
             <span className="text-xs font-bold text-white">{initials}</span>
           </div>
         )}
-        <ChevronDown size={13} className="text-slate-500 hidden sm:block" />
+        <ChevronDown size={13} className="text-zinc-500 hidden sm:block" />
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 w-52 bg-slate-900 border border-slate-700 rounded-xl shadow-xl shadow-black/40 z-50 py-1">
-          <div className="px-4 py-3 border-b border-slate-800">
+        <div className="absolute right-0 top-full mt-2 w-52 bg-zinc-900 border border-zinc-700 rounded-xl shadow-xl shadow-black/40 z-50 py-1">
+          <div className="px-4 py-3 border-b border-zinc-800">
             <p className="text-sm font-semibold text-white truncate">{displayName}</p>
-            <p className="text-xs text-slate-500 truncate">{user.email}</p>
+            <p className="text-xs text-zinc-500 truncate">{user.email}</p>
           </div>
 
           <Link
             href="/settings/account"
             onClick={() => setOpen(false)}
-            className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
+            className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors"
           >
             <User size={14} />
             Account
@@ -88,16 +88,16 @@ export default function UserAvatar() {
           <Link
             href="/settings"
             onClick={() => setOpen(false)}
-            className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
+            className="flex items-center gap-3 px-4 py-2.5 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors"
           >
             <Settings size={14} />
             Settings
           </Link>
 
-          <div className="border-t border-slate-800 mt-1 pt-1">
+          <div className="border-t border-zinc-800 mt-1 pt-1">
             <button
               onClick={handleSignOut}
-              className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-red-400 hover:text-red-300 hover:bg-slate-800 transition-colors"
+              className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-red-400 hover:text-red-300 hover:bg-zinc-800 transition-colors"
             >
               <LogOut size={14} />
               Sign out

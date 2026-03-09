@@ -60,9 +60,9 @@ function CurrencyInput({
 
   return (
     <div className="space-y-1.5">
-      <label className="text-sm font-medium text-slate-300">{label}</label>
+      <label className="text-sm font-medium text-zinc-300">{label}</label>
       <div className="relative">
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-medium">
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 font-medium">
           $
         </span>
         <input
@@ -84,10 +84,10 @@ function CurrencyInput({
             const num = parseInt(cleaned, 10);
             if (!isNaN(num)) onChange(num);
           }}
-          className="w-full bg-slate-800 border border-slate-700 rounded-lg pl-8 pr-4 py-3 text-slate-100 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-colors"
+          className="w-full bg-zinc-800 border border-zinc-700 rounded-lg pl-8 pr-4 py-3 text-zinc-100 text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500/30 transition-colors"
         />
       </div>
-      {hint && <p className="text-xs text-slate-500">{hint}</p>}
+      {hint && <p className="text-xs text-zinc-500">{hint}</p>}
     </div>
   );
 }
@@ -111,26 +111,26 @@ function StatCard({
     <div
       className={`rounded-xl p-4 border ${
         accent
-          ? "bg-emerald-950/40 border-emerald-800/50"
+          ? "bg-brand-950/40 border-brand-800/50"
           : danger
           ? "bg-red-950/30 border-red-900/40"
-          : "bg-slate-800/50 border-slate-700/50"
+          : "bg-zinc-800/50 border-zinc-700/50"
       }`}
     >
       <div className="flex items-start justify-between">
-        <p className="text-xs font-medium text-slate-400 uppercase tracking-wider">
+        <p className="text-xs font-medium text-zinc-400 uppercase tracking-wider">
           {label}
         </p>
-        {icon && <span className="text-slate-500">{icon}</span>}
+        {icon && <span className="text-zinc-500">{icon}</span>}
       </div>
       <p
         className={`text-2xl font-bold mt-1 ${
-          accent ? "text-emerald-400" : danger ? "text-red-400" : "text-slate-100"
+          accent ? "text-brand-400" : danger ? "text-red-400" : "text-zinc-100"
         }`}
       >
         {value}
       </p>
-      {sub && <p className="text-xs text-slate-500 mt-0.5">{sub}</p>}
+      {sub && <p className="text-xs text-zinc-500 mt-0.5">{sub}</p>}
     </div>
   );
 }
@@ -158,22 +158,22 @@ export default function Calculator() {
       <div className="max-w-5xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-10">
-          <span className="inline-flex items-center gap-2 bg-emerald-950/50 border border-emerald-800/50 text-emerald-400 text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
-            <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+          <span className="inline-flex items-center gap-2 bg-brand-950/50 border border-brand-800/50 text-brand-400 text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
+            <span className="w-1.5 h-1.5 bg-brand-400 rounded-full animate-pulse" />
             LIVE CALCULATOR
           </span>
           <h2 className="text-3xl font-bold text-white">
             Your Numbers, Right Now
           </h2>
-          <p className="text-slate-400 mt-2 text-sm">
+          <p className="text-zinc-400 mt-2 text-sm">
             Fill in your details below — results update in real-time.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6">
           {/* ── Inputs ── */}
-          <div className="bg-slate-900 rounded-2xl border border-slate-800 p-6 space-y-5">
-            <h3 className="font-semibold text-slate-200 text-sm uppercase tracking-wider">
+          <div className="bg-zinc-900 rounded-2xl border border-zinc-800 p-6 space-y-5">
+            <h3 className="font-semibold text-zinc-200 text-sm uppercase tracking-wider">
               Your Info
             </h3>
 
@@ -192,7 +192,7 @@ export default function Calculator() {
             />
 
             <div className="space-y-1.5">
-              <label className="text-sm font-medium text-slate-300">
+              <label className="text-sm font-medium text-zinc-300">
                 Filing Status
               </label>
               <div className="grid grid-cols-2 gap-2">
@@ -202,8 +202,8 @@ export default function Calculator() {
                     onClick={() => update("filingStatus", status)}
                     className={`py-2.5 rounded-lg text-sm font-medium border transition-all ${
                       inputs.filingStatus === status
-                        ? "bg-emerald-900/50 border-emerald-600 text-emerald-400"
-                        : "bg-slate-800 border-slate-700 text-slate-400 hover:border-slate-600"
+                        ? "bg-brand-900/50 border-brand-600 text-brand-400"
+                        : "bg-zinc-800 border-zinc-700 text-zinc-400 hover:border-zinc-600"
                     }`}
                   >
                     {status === "single" ? "Single" : "Married / Joint"}
@@ -212,8 +212,8 @@ export default function Calculator() {
               </div>
             </div>
 
-            <div className="border-t border-slate-800 pt-4">
-              <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">
+            <div className="border-t border-zinc-800 pt-4">
+              <h4 className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-3">
                 Target Home
               </h4>
               <div className="space-y-4">
@@ -225,12 +225,12 @@ export default function Calculator() {
 
                 <div className="space-y-1.5">
                   <div className="flex justify-between">
-                    <label className="text-sm font-medium text-slate-300">
+                    <label className="text-sm font-medium text-zinc-300">
                       Down Payment
                     </label>
-                    <span className="text-sm font-bold text-emerald-400">
+                    <span className="text-sm font-bold text-brand-400">
                       {inputs.downPaymentPct}%{" "}
-                      <span className="text-slate-500 font-normal text-xs">
+                      <span className="text-zinc-500 font-normal text-xs">
                         ({formatCurrency(outputs.downPaymentAmount)})
                       </span>
                     </span>
@@ -244,22 +244,22 @@ export default function Calculator() {
                     onChange={(e) =>
                       update("downPaymentPct", Number(e.target.value))
                     }
-                    className="w-full accent-emerald-500 cursor-pointer"
+                    className="w-full accent-brand-500 cursor-pointer"
                   />
-                  <div className="flex justify-between text-xs text-slate-600">
+                  <div className="flex justify-between text-xs text-zinc-600">
                     <span>3%</span>
                     <span>50%</span>
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-sm font-medium text-slate-300">
+                  <label className="text-sm font-medium text-zinc-300">
                     Credit Score Range
                   </label>
                   <select
                     value={inputs.creditScoreRange}
                     onChange={(e) => update("creditScoreRange", e.target.value)}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-slate-100 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-colors"
+                    className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-3 text-zinc-100 text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500/30 transition-colors"
                   >
                     {CREDIT_SCORE_OPTIONS.map((opt) => (
                       <option key={opt.value} value={opt.value}>
@@ -338,19 +338,19 @@ export default function Calculator() {
             )}
 
             {canQualify && (
-              <div className="bg-emerald-950/30 border border-emerald-800/40 rounded-xl p-4">
+              <div className="bg-brand-950/30 border border-brand-800/40 rounded-xl p-4">
                 <div className="flex items-start gap-3">
                   <CheckCircle2
                     size={16}
-                    className="text-emerald-400 mt-0.5 shrink-0"
+                    className="text-brand-400 mt-0.5 shrink-0"
                   />
                   <div>
-                    <p className="text-sm font-semibold text-emerald-300">
+                    <p className="text-sm font-semibold text-brand-300">
                       You qualify at your target price
                     </p>
-                    <p className="text-xs text-emerald-700 mt-1">
+                    <p className="text-xs text-brand-700 mt-1">
                       Your Schedule C income is high enough to support a{" "}
-                      <strong className="text-emerald-500">
+                      <strong className="text-brand-500">
                         {formatCurrency(outputs.targetMortgageNeeded)}
                       </strong>{" "}
                       mortgage conventionally.
@@ -361,19 +361,19 @@ export default function Calculator() {
             )}
 
             {/* Recommendation */}
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+            <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
               <div className="flex items-center gap-2 mb-2">
-                <Info size={14} className="text-emerald-400" />
-                <p className="text-xs font-semibold text-emerald-400 uppercase tracking-wider">
+                <Info size={14} className="text-brand-400" />
+                <p className="text-xs font-semibold text-brand-400 uppercase tracking-wider">
                   Recommendation
                 </p>
               </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm text-zinc-300 leading-relaxed">
                 {outputs.recommendationText}
               </p>
               {outputs.nonQmNote && (
-                <p className="text-xs text-slate-500 mt-2 leading-relaxed border-t border-slate-800 pt-2">
-                  <span className="text-slate-400 font-medium">Non-QM note:</span>{" "}
+                <p className="text-xs text-zinc-500 mt-2 leading-relaxed border-t border-zinc-800 pt-2">
+                  <span className="text-zinc-400 font-medium">Non-QM note:</span>{" "}
                   {outputs.nonQmNote}
                 </p>
               )}
@@ -382,12 +382,12 @@ export default function Calculator() {
             {/* CTA */}
             <button
               onClick={() => setShowReport(true)}
-              className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:shadow-emerald-900/40 active:scale-[0.99]"
+              className="w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:shadow-brand-900/40 active:scale-[0.99]"
             >
               Download Full PDF Report
               <ArrowRight size={16} />
             </button>
-            <p className="text-xs text-slate-600 text-center">
+            <p className="text-xs text-zinc-600 text-center">
               Free — we'll email you a copy too
             </p>
           </div>

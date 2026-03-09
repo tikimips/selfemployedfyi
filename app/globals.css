@@ -4,26 +4,48 @@
 
 @layer base {
   :root {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 160 84% 39%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 160 84% 39%;
-    --radius: 0.5rem;
+    /* ── Propped Design Tokens ──────────────────────────── */
+    /* Deep charcoal backgrounds — zinc-based, slightly green-tinted */
+    --bg-base:     #09100C;   /* page background    */
+    --bg-surface:  #111911;   /* cards, panels      */
+    --bg-elevated: #192118;   /* hover, raised      */
+    --bg-input:    #141C12;   /* form inputs        */
+
+    /* Borders */
+    --border-subtle: #1E2B1F; /* default border     */
+    --border-mid:    #283A2A; /* emphasized         */
+    --border-strong: #344D36; /* focus rings, etc.  */
+
+    /* Brand — Bank Note Green */
+    --brand:       #00C96B;
+    --brand-dark:  #003018;
+    --brand-glow:  rgba(0, 201, 107, 0.15);
+
+    /* Gold accent */
+    --gold:        #D4AF37;
+    --gold-dim:    rgba(212, 175, 55, 0.15);
+
+    /* Radix/shadcn tokens — remapped to charcoal palette */
+    --background:  9 39% 6%;   /* ~#09100C */
+    --foreground:  120 10% 96%;
+    --card:        140 22% 9%;
+    --card-foreground: 120 10% 96%;
+    --popover:     140 22% 9%;
+    --popover-foreground: 120 10% 96%;
+    --primary:     149 100% 39%;
+    --primary-foreground: 120 10% 4%;
+    --secondary:   140 15% 14%;
+    --secondary-foreground: 120 10% 96%;
+    --muted:       140 15% 14%;
+    --muted-foreground: 140 10% 50%;
+    --accent:      140 15% 14%;
+    --accent-foreground: 120 10% 96%;
+    --destructive: 0 63% 30%;
+    --destructive-foreground: 120 10% 96%;
+    --border:      140 15% 14%;
+    --input:       140 15% 10%;
+    --ring:        149 100% 39%;
+    --radius:      0.75rem;
   }
 }
 
@@ -31,38 +53,88 @@
   * {
     @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
-    @apply bg-slate-950 text-slate-100;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: var(--bg-base);
+    color: #e8f0e9;
+    font-feature-settings: "rlig" 1, "calt" 1, "cv11" 1;
+    letter-spacing: -0.01em;
+  }
+
+  /* Tighten default heading tracking for premium feel */
+  h1, h2, h3, h4 {
+    letter-spacing: -0.03em;
+    font-weight: 800;
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #0f172a;
-}
-::-webkit-scrollbar-thumb {
-  background: #334155;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+/* ── Propped utility classes ──────────────────────────────────────────────── */
+@layer components {
+  .bg-base     { background-color: var(--bg-base); }
+  .bg-surface  { background-color: var(--bg-surface); }
+  .bg-elevated { background-color: var(--bg-elevated); }
+  .bg-input    { background-color: var(--bg-input); }
+
+  .border-subtle { border-color: var(--border-subtle); }
+  .border-mid    { border-color: var(--border-mid); }
+  .border-strong { border-color: var(--border-strong); }
+
+  /* Premium card style */
+  .card-propped {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1rem;
+  }
+
+  /* Noise texture overlay for premium depth */
+  .noise::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  /* Gold shimmer accent line */
+  .gold-line {
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    height: 1px;
+    opacity: 0.4;
+  }
 }
 
-/* Number input arrows removal */
+/* ── Scrollbar ────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb {
+  background: var(--border-mid);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+
+/* ── Number input ─────────────────────────────────────────────────────────── */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-input[type="number"] {
-  -moz-appearance: textfield;
+input[type="number"] { -moz-appearance: textfield; }
+
+/* ── Focus ring — brand green ─────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
 }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
+/* ── Selection ────────────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(0, 201, 107, 0.2);
+  color: #e8f0e9;
 }

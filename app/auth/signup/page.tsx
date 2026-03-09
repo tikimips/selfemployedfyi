@@ -75,21 +75,21 @@ export default function SignUpPage() {
 
   if (done) {
     return (
-      <main className="min-h-screen bg-slate-950 flex items-center justify-center px-4">
+      <main className="min-h-screen bg-zinc-950 flex items-center justify-center px-4">
         <div className="w-full max-w-sm text-center">
-          <div className="w-16 h-16 bg-emerald-900/40 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle2 size={32} className="text-emerald-400" />
+          <div className="w-16 h-16 bg-brand-900/40 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle2 size={32} className="text-brand-400" />
           </div>
           <h1 className="text-2xl font-bold text-white mb-3">Check your email</h1>
-          <p className="text-slate-400 text-sm leading-relaxed mb-6">
+          <p className="text-zinc-400 text-sm leading-relaxed mb-6">
             We sent a verification link to <strong className="text-white">{email}</strong>.
             Click it to activate your account.
           </p>
-          <p className="text-xs text-slate-600">
+          <p className="text-xs text-zinc-600">
             Didn&apos;t get it? Check spam, or{" "}
             <button
               onClick={() => setDone(false)}
-              className="text-emerald-400 hover:text-emerald-300 underline"
+              className="text-brand-400 hover:text-brand-300 underline"
             >
               try again
             </button>
@@ -101,31 +101,31 @@ export default function SignUpPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-950 flex items-center justify-center px-4">
+    <main className="min-h-screen bg-zinc-950 flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2">
-            <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
-              <span className="text-white text-sm font-black">FH</span>
+            <div className="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center">
+              <span className="text-white text-sm font-black">PR</span>
             </div>
-            <span className="font-bold text-white text-lg">Freehold</span>
+            <span className="font-bold text-white text-lg">Propped</span>
           </Link>
-          <p className="text-slate-400 text-sm mt-3">Create your free account</p>
+          <p className="text-zinc-400 text-sm mt-3">Create your free account</p>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-7">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-7">
           <div className="space-y-3 mb-6">
             <button
               onClick={handleGoogle}
-              className="w-full flex items-center justify-center gap-3 bg-white hover:bg-slate-100 text-slate-900 font-semibold text-sm px-4 py-3 rounded-xl transition-all"
+              className="w-full flex items-center justify-center gap-3 bg-white hover:bg-zinc-100 text-zinc-900 font-semibold text-sm px-4 py-3 rounded-xl transition-all"
             >
               <GoogleIcon />
               Continue with Google
             </button>
             <button
               onClick={handleApple}
-              className="w-full flex items-center justify-center gap-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm px-4 py-3 rounded-xl border border-slate-700 transition-all"
+              className="w-full flex items-center justify-center gap-3 bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-sm px-4 py-3 rounded-xl border border-zinc-700 transition-all"
             >
               <AppleIcon />
               Continue with Apple
@@ -133,35 +133,35 @@ export default function SignUpPage() {
           </div>
 
           <div className="flex items-center gap-3 mb-6">
-            <div className="flex-1 h-px bg-slate-800" />
-            <span className="text-xs text-slate-600">or</span>
-            <div className="flex-1 h-px bg-slate-800" />
+            <div className="flex-1 h-px bg-zinc-800" />
+            <span className="text-xs text-zinc-600">or</span>
+            <div className="flex-1 h-px bg-zinc-800" />
           </div>
 
           <form onSubmit={handleSignUp} className="space-y-4">
             <div>
-              <label className="block text-xs font-medium text-slate-400 mb-1.5">Full name</label>
+              <label className="block text-xs font-medium text-zinc-400 mb-1.5">Full name</label>
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Your name"
-                className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-600 transition-colors"
+                className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-brand-600 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate-400 mb-1.5">Email</label>
+              <label className="block text-xs font-medium text-zinc-400 mb-1.5">Email</label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="you@example.com"
-                className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-600 transition-colors"
+                className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-brand-600 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate-400 mb-1.5">Password</label>
+              <label className="block text-xs font-medium text-zinc-400 mb-1.5">Password</label>
               <div className="relative">
                 <input
                   type={showPw ? "text" : "password"}
@@ -169,12 +169,12 @@ export default function SignUpPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder="At least 8 characters"
-                  className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 pr-11 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-600 transition-colors"
+                  className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 pr-11 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-brand-600 transition-colors"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPw(!showPw)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300"
                 >
                   {showPw ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
@@ -191,24 +191,24 @@ export default function SignUpPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 rounded-xl transition-all"
+              className="w-full bg-brand-600 hover:bg-brand-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 rounded-xl transition-all"
             >
               {loading ? "Creating account…" : "Create account"}
             </button>
           </form>
         </div>
 
-        <p className="text-center text-sm text-slate-500 mt-6">
+        <p className="text-center text-sm text-zinc-500 mt-6">
           Already have an account?{" "}
-          <Link href="/auth/signin" className="text-emerald-400 hover:text-emerald-300 font-medium">
+          <Link href="/auth/signin" className="text-brand-400 hover:text-brand-300 font-medium">
             Sign in
           </Link>
         </p>
-        <p className="text-center text-xs text-slate-700 mt-4">
+        <p className="text-center text-xs text-zinc-700 mt-4">
           By creating an account, you agree to our{" "}
-          <Link href="/legal/terms" className="hover:text-slate-500 underline">Terms</Link>{" "}
+          <Link href="/legal/terms" className="hover:text-zinc-500 underline">Terms</Link>{" "}
           and{" "}
-          <Link href="/legal/privacy" className="hover:text-slate-500 underline">Privacy Policy</Link>.
+          <Link href="/legal/privacy" className="hover:text-zinc-500 underline">Privacy Policy</Link>.
         </p>
       </div>
     </main>

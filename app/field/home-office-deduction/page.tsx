@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "The Home Office Deduction: What Actually Qualifies",
   description: "The home office deduction is one of the most valuable available to freelancers and one of the most misunderstood. Here's exactly what qualifies and how to calculate it.",
   keywords: ["home office deduction self employed", "home office tax deduction rules", "can i deduct my home office freelancer", "schedule c home office"],
-  alternates: { canonical: "https://selfemployedfyi.com/field/home-office-deduction" },
+  alternates: { canonical: "https://propped.org/field/home-office-deduction" },
 };
 
 const article = getArticle("home-office-deduction")!;
@@ -31,14 +31,14 @@ export default function Article() {
         To claim a home office deduction, the space must meet two tests:
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-4">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-4">
         <div>
           <p className="text-sm font-semibold text-white">1. Regular and exclusive use</p>
-          <p className="text-sm text-slate-400 mt-1">The space must be used regularly for business AND only for business. A dedicated spare room used only as your office qualifies. Your kitchen table where you also eat and the kids do homework does not. Your bedroom where you sometimes open a laptop does not.</p>
+          <p className="text-sm text-zinc-400 mt-1">The space must be used regularly for business AND only for business. A dedicated spare room used only as your office qualifies. Your kitchen table where you also eat and the kids do homework does not. Your bedroom where you sometimes open a laptop does not.</p>
         </div>
         <div>
           <p className="text-sm font-semibold text-white">2. Principal place of business</p>
-          <p className="text-sm text-slate-400 mt-1">The home office must be your principal place of business, OR a place where you regularly meet clients, OR a separate structure (detached garage, studio, etc.) used for business. For most freelancers working from home, principal place of business is the relevant test.</p>
+          <p className="text-sm text-zinc-400 mt-1">The home office must be your principal place of business, OR a place where you regularly meet clients, OR a separate structure (detached garage, studio, etc.) used for business. For most freelancers working from home, principal place of business is the relevant test.</p>
         </div>
       </div>
 
@@ -82,7 +82,7 @@ export default function Article() {
         total home square footage), then apply that percentage to your home expenses.
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2">
         <p className="text-sm font-semibold text-white mb-3">Example: 200 sq ft office in a 1,400 sq ft home (14.3%)</p>
         <div className="space-y-2 text-sm">
           {[
@@ -91,20 +91,20 @@ export default function Article() {
             ["Renter's insurance", "$300", "$43"],
             ["Internet (100% if home = office)", "$1,200", "$1,200"],
           ].map(([item, total, deduction]) => (
-            <div key={item as string} className="flex justify-between text-slate-400">
+            <div key={item as string} className="flex justify-between text-zinc-400">
               <span>{item as string}</span>
               <div className="flex gap-6">
-                <span className="text-slate-600">{total as string} total</span>
-                <span className="text-emerald-300 w-16 text-right">{deduction as string}</span>
+                <span className="text-zinc-600">{total as string} total</span>
+                <span className="text-brand-300 w-16 text-right">{deduction as string}</span>
               </div>
             </div>
           ))}
-          <div className="flex justify-between font-semibold border-t border-slate-700 pt-2 mt-1">
+          <div className="flex justify-between font-semibold border-t border-zinc-700 pt-2 mt-1">
             <span className="text-white">Total deduction</span>
-            <span className="text-emerald-300">~$5,015</span>
+            <span className="text-brand-300">~$5,015</span>
           </div>
         </div>
-        <p className="text-xs text-slate-600 mt-2">vs. $1,000 with the simplified method for the same space</p>
+        <p className="text-xs text-zinc-600 mt-2">vs. $1,000 with the simplified method for the same space</p>
       </div>
 
       <p>

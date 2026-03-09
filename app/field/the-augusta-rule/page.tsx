@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "The Augusta Rule: Rent Your Home to Your Business Tax-Free",
   description: "Section 280A lets you rent your home to your business for up to 14 days a year, collect the rental income tax-free, and let the business deduct it. Most self-employed people have never heard of it.",
   keywords: ["augusta rule tax strategy", "section 280a tax strategy", "rent home to business self employed", "14 day home rental tax free"],
-  alternates: { canonical: "https://selfemployedfyi.com/field/the-augusta-rule" },
+  alternates: { canonical: "https://propped.org/field/the-augusta-rule" },
 };
 
 const article = getArticle("the-augusta-rule")!;
@@ -49,13 +49,13 @@ export default function Article() {
         a similar use. This is important: you cannot invent a number. Document it.
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2">
         <p className="text-sm font-semibold text-white mb-3">Example for someone in Los Angeles</p>
-        <div className="space-y-2 text-sm text-slate-400">
+        <div className="space-y-2 text-sm text-zinc-400">
           <div className="flex justify-between"><span>Fair market rate for home meeting space</span><span className="text-white">$1,500/day</span></div>
           <div className="flex justify-between"><span>Days rented to business (max 14)</span><span className="text-white">14 days</span></div>
-          <div className="flex justify-between font-semibold border-t border-slate-700 pt-2 mt-2">
-            <span className="text-white">Total rental income (tax-free)</span><span className="text-emerald-300">$21,000</span>
+          <div className="flex justify-between font-semibold border-t border-zinc-700 pt-2 mt-2">
+            <span className="text-white">Total rental income (tax-free)</span><span className="text-brand-300">$21,000</span>
           </div>
           <div className="flex justify-between"><span>Business deduction (if S-corp in 24% bracket)</span><span className="text-white">~$5,040 tax savings</span></div>
         </div>
@@ -78,12 +78,12 @@ export default function Article() {
         Document everything:
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-2 text-sm text-slate-400">
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>A written rental agreement between you and your business</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>An agenda for each meeting/activity held at your home</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Comparable venue pricing documentation (Airbnb or event space rates in your area)</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Proof of payment from the business to you (actual transfers, not just entries)</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Attendee lists or minutes for meetings</div>
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-2 text-sm text-zinc-400">
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>A written rental agreement between you and your business</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>An agenda for each meeting/activity held at your home</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Comparable venue pricing documentation (Airbnb or event space rates in your area)</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Proof of payment from the business to you (actual transfers, not just entries)</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Attendee lists or minutes for meetings</div>
       </div>
 
       <h2>Who can use this</h2>
@@ -115,7 +115,7 @@ export default function Article() {
 
       <div className="bg-amber-950/40 border border-amber-800/40 rounded-xl p-5 my-2">
         <p className="text-amber-300 font-semibold text-sm mb-1">Do this with your CPA</p>
-        <p className="text-slate-400 text-sm leading-relaxed">
+        <p className="text-zinc-400 text-sm leading-relaxed">
           The Augusta Rule is legitimate and powerful but requires proper documentation and
           setup to survive scrutiny. Do not implement it without walking through the specifics
           with a CPA who has done it before. The structure matters.

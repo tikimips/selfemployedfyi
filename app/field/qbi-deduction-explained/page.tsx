@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "The QBI Deduction: The Pass-Through Tax Break Most Freelancers Miss",
   description: "The Qualified Business Income deduction lets eligible self-employed people deduct up to 20% of their business income. Here's who qualifies, who doesn't, and how to calculate it.",
   keywords: ["qualified business income deduction self employed", "qbi deduction freelancer", "20 percent pass-through deduction", "section 199a deduction"],
-  alternates: { canonical: "https://selfemployedfyi.com/field/qbi-deduction-explained" },
+  alternates: { canonical: "https://propped.org/field/qbi-deduction-explained" },
 };
 
 const article = getArticle("qbi-deduction-explained")!;
@@ -47,20 +47,20 @@ export default function Article() {
         Below certain income levels, the QBI deduction is straightforward. Above them, it gets complex.
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2">
         <div className="space-y-3">
           {[
-            { range: "Under $191,950 (single) / $383,900 (MFJ)", desc: "Simple. Deduct 20% of QBI. No additional tests required.", color: "text-emerald-400" },
+            { range: "Under $191,950 (single) / $383,900 (MFJ)", desc: "Simple. Deduct 20% of QBI. No additional tests required.", color: "text-brand-400" },
             { range: "$191,950-$241,950 (single) / $383,900-$483,900 (MFJ)", desc: "Phase-out zone. The W-2 wage limit and SSTB restrictions phase in gradually.", color: "text-amber-400" },
             { range: "Above $241,950 (single) / $483,900 (MFJ)", desc: "Full limitations apply. W-2 wage tests and SSTB rules are fully active.", color: "text-red-400" },
           ].map(({ range, desc, color }) => (
             <div key={range}>
               <p className={`text-sm font-semibold ${color}`}>{range}</p>
-              <p className="text-sm text-slate-400 mt-1">{desc}</p>
+              <p className="text-sm text-zinc-400 mt-1">{desc}</p>
             </div>
           ))}
         </div>
-        <p className="text-xs text-slate-600 mt-3">2024 thresholds. Adjust annually for inflation.</p>
+        <p className="text-xs text-zinc-600 mt-3">2024 thresholds. Adjust annually for inflation.</p>
       </div>
 
       <h2>The SSTB problem</h2>
@@ -77,7 +77,7 @@ export default function Article() {
 
       <div className="bg-amber-950/40 border border-amber-800/40 rounded-xl p-5 my-2 grid grid-cols-2 gap-2">
         {["Health (doctors, dentists, therapists)", "Law", "Accounting", "Actuarial science", "Performing arts", "Consulting", "Athletics", "Financial services", "Brokerage services", "Any business where the principal asset is the reputation/skill of its owner"].map(item => (
-          <div key={item} className="flex items-start gap-2 text-sm text-slate-400">
+          <div key={item} className="flex items-start gap-2 text-sm text-zinc-400">
             <span className="text-amber-500 shrink-0">!</span>{item}
           </div>
         ))}
@@ -103,13 +103,13 @@ export default function Article() {
         filing single:
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 font-mono text-sm space-y-2">
-        <div className="flex justify-between text-slate-400"><span>Net business income (QBI)</span><span>$100,000</span></div>
-        <div className="flex justify-between text-slate-400"><span>QBI deduction (20%)</span><span>($20,000)</span></div>
-        <div className="flex justify-between text-slate-400"><span>Standard deduction</span><span>($15,000)</span></div>
-        <div className="flex justify-between font-semibold text-white border-t border-slate-700 pt-2 mt-2"><span>Taxable income</span><span>$65,000</span></div>
-        <div className="flex justify-between text-slate-400"><span>Without QBI, taxable income would be</span><span>$85,000</span></div>
-        <div className="flex justify-between text-emerald-300 mt-1"><span>Approximate tax savings (22% bracket)</span><span>~$4,400</span></div>
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 font-mono text-sm space-y-2">
+        <div className="flex justify-between text-zinc-400"><span>Net business income (QBI)</span><span>$100,000</span></div>
+        <div className="flex justify-between text-zinc-400"><span>QBI deduction (20%)</span><span>($20,000)</span></div>
+        <div className="flex justify-between text-zinc-400"><span>Standard deduction</span><span>($15,000)</span></div>
+        <div className="flex justify-between font-semibold text-white border-t border-zinc-700 pt-2 mt-2"><span>Taxable income</span><span>$65,000</span></div>
+        <div className="flex justify-between text-zinc-400"><span>Without QBI, taxable income would be</span><span>$85,000</span></div>
+        <div className="flex justify-between text-brand-300 mt-1"><span>Approximate tax savings (22% bracket)</span><span>~$4,400</span></div>
       </div>
 
       <h2>Current status</h2>

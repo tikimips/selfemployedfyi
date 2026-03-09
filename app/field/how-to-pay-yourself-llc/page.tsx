@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "How to Pay Yourself as a Freelancer or LLC Owner",
   description: "Owner's draw, salary, distributions: what they mean, how they work, and the right way to move money from your business to your personal account without tax surprises.",
   keywords: ["how to pay yourself llc", "owner's draw vs salary self employed", "how to pay yourself freelancer", "paying yourself single member llc"],
-  alternates: { canonical: "https://selfemployedfyi.com/field/how-to-pay-yourself-llc" },
+  alternates: { canonical: "https://propped.org/field/how-to-pay-yourself-llc" },
 };
 
 const article = getArticle("how-to-pay-yourself-llc")!;
@@ -45,9 +45,9 @@ export default function Article() {
         account does not change your tax bill. Your taxable income is your net profit.
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2">
         <p className="text-sm font-semibold text-white mb-2">The system that works</p>
-        <p className="text-sm text-slate-400 leading-relaxed">Set a recurring transfer from your business account to your personal account, like a paycheck. Weekly or bi-weekly. An amount that covers your personal expenses comfortably without draining the business. Keep the rest in the business account as operating buffer and tax savings. This creates a predictable personal cash flow without requiring formal payroll.</p>
+        <p className="text-sm text-zinc-400 leading-relaxed">Set a recurring transfer from your business account to your personal account, like a paycheck. Weekly or bi-weekly. An amount that covers your personal expenses comfortably without draining the business. Keep the rest in the business account as operating buffer and tax savings. This creates a predictable personal cash flow without requiring formal payroll.</p>
       </div>
 
       <h2>Multi-member LLC</h2>
@@ -93,7 +93,7 @@ export default function Article() {
         A useful framework for sole props and single-member LLCs:
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-2">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-2">
         {[
           ["Taxes", "25-35% of revenue (into tax savings account)"],
           ["Business operating expenses", "Whatever is needed — software, insurance, etc."],
@@ -102,7 +102,7 @@ export default function Article() {
         ].map(([category, note]) => (
           <div key={category as string} className="flex justify-between items-start gap-4">
             <span className="text-sm font-semibold text-white shrink-0">{category as string}</span>
-            <span className="text-sm text-slate-400 text-right">{note as string}</span>
+            <span className="text-sm text-zinc-400 text-right">{note as string}</span>
           </div>
         ))}
       </div>

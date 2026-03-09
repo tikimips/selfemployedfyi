@@ -4,8 +4,8 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Freehold",
-  description: "Privacy Policy for Freehold, a product of General Public.",
+  title: "Privacy Policy | Propped",
+  description: "Privacy Policy for Propped, a product of General Public.",
   robots: { index: true, follow: false },
 };
 
@@ -13,24 +13,24 @@ const EFFECTIVE_DATE = "March 1, 2026";
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen bg-zinc-950">
       <Nav />
       <article className="max-w-3xl mx-auto px-4 py-16">
         <div className="mb-10">
-          <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Legal</p>
+          <p className="text-xs font-bold text-zinc-500 uppercase tracking-wider mb-3">Legal</p>
           <h1 className="text-3xl font-black text-white mb-2">Privacy Policy</h1>
-          <p className="text-slate-500 text-sm">Effective date: {EFFECTIVE_DATE}</p>
+          <p className="text-zinc-500 text-sm">Effective date: {EFFECTIVE_DATE}</p>
         </div>
 
-        <div className="space-y-8 text-slate-400 text-sm leading-relaxed">
+        <div className="space-y-8 text-zinc-400 text-sm leading-relaxed">
           <section>
             <p>
               This Privacy Policy explains how General Public, Inc. ("General Public," "we," "us," or "our")
-              collects, uses, and protects information when you use Freehold ("Service"). We take your privacy
+              collects, uses, and protects information when you use Propped ("Service"). We take your privacy
               seriously and are committed to being transparent about our data practices.
             </p>
             <p className="mt-3">
-              If you have questions, contact us at <a href="mailto:privacy@generalpublic.ai" className="text-emerald-400 hover:text-emerald-300">privacy@generalpublic.ai</a>.
+              If you have questions, contact us at <a href="mailto:privacy@generalpublic.ai" className="text-brand-400 hover:text-brand-300">privacy@generalpublic.ai</a>.
             </p>
           </section>
 
@@ -154,7 +154,7 @@ To exercise any of these rights, email us at privacy@generalpublic.ai. We will r
             },
             {
               title: "9. Children's Privacy",
-              content: `Freehold is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected personal information from a child under 13, we will take steps to delete that information promptly.
+              content: `Propped is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected personal information from a child under 13, we will take steps to delete that information promptly.
 
 If you believe we may have information from or about a child under 13, please contact us at privacy@generalpublic.ai.`,
             },
@@ -191,23 +191,23 @@ We aim to respond to all privacy inquiries within 30 days.`,
               {content && <div className="whitespace-pre-line">{content}</div>}
               {subsections && subsections.map((sub: any) => (
                 <div key={sub.heading} className="mb-4">
-                  <h3 className="text-sm font-semibold text-slate-300 mb-2">{sub.heading}</h3>
+                  <h3 className="text-sm font-semibold text-zinc-300 mb-2">{sub.heading}</h3>
                   <div className="whitespace-pre-line">{sub.text}</div>
                 </div>
               ))}
             </section>
           ))}
 
-          <div className="border-t border-slate-800 pt-8">
-            <p className="text-xs text-slate-600">
-              Freehold is operated by General Public, Inc. &middot; Los Angeles, CA &middot;{" "}
-              <a href="https://generalpublic.ai" target="_blank" rel="noopener noreferrer" className="hover:text-slate-400">
+          <div className="border-t border-zinc-800 pt-8">
+            <p className="text-xs text-zinc-600">
+              Propped is operated by General Public, Inc. &middot; Los Angeles, CA &middot;{" "}
+              <a href="https://generalpublic.ai" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-400">
                 generalpublic.ai
               </a>
             </p>
-            <p className="text-xs text-slate-600 mt-2">
+            <p className="text-xs text-zinc-600 mt-2">
               See also:{" "}
-              <Link href="/legal/terms" className="hover:text-slate-400">Terms of Service</Link>
+              <Link href="/legal/terms" className="hover:text-zinc-400">Terms of Service</Link>
             </p>
           </div>
         </div>

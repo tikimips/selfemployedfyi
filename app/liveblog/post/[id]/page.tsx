@@ -14,12 +14,12 @@ const supabase = createClient(
 );
 
 const COLOR_MAP: Record<string, { dot: string; badge: string }> = {
-  emerald: { dot: "bg-emerald-400", badge: "bg-emerald-950/50 border-emerald-800/50 text-emerald-300" },
+  emerald: { dot: "bg-brand-400", badge: "bg-brand-950/50 border-brand-800/50 text-brand-300" },
   blue:    { dot: "bg-blue-400",    badge: "bg-blue-950/50 border-blue-800/50 text-blue-300"         },
   amber:   { dot: "bg-amber-400",   badge: "bg-amber-950/50 border-amber-800/50 text-amber-300"      },
   green:   { dot: "bg-green-400",   badge: "bg-green-950/50 border-green-800/50 text-green-300"      },
   purple:  { dot: "bg-purple-400",  badge: "bg-purple-950/50 border-purple-800/50 text-purple-300"   },
-  slate:   { dot: "bg-slate-400",   badge: "bg-slate-800/50 border-slate-700/50 text-slate-300"      },
+  slate:   { dot: "bg-zinc-400",   badge: "bg-zinc-800/50 border-zinc-700/50 text-zinc-300"      },
 };
 
 function timeAgo(dateStr: string): string {
@@ -92,11 +92,11 @@ export default function PostPage() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-slate-950">
+      <main className="min-h-screen bg-zinc-950">
         <Nav />
         <div className="max-w-2xl mx-auto px-4 pt-16 space-y-4">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="bg-slate-900 rounded-xl h-8 animate-pulse" style={{ width: `${70 + i * 7}%` }} />
+            <div key={i} className="bg-zinc-900 rounded-xl h-8 animate-pulse" style={{ width: `${70 + i * 7}%` }} />
           ))}
         </div>
       </main>
@@ -105,12 +105,12 @@ export default function PostPage() {
 
   if (notFound || !post) {
     return (
-      <main className="min-h-screen bg-slate-950">
+      <main className="min-h-screen bg-zinc-950">
         <Nav />
         <div className="max-w-2xl mx-auto px-4 py-20 text-center">
           <p className="text-2xl mb-2">📰</p>
-          <p className="text-slate-400">Post not found.</p>
-          <Link href="/liveblog" className="text-emerald-400 hover:text-emerald-300 mt-4 inline-block text-sm">
+          <p className="text-zinc-400">Post not found.</p>
+          <Link href="/liveblog" className="text-brand-400 hover:text-brand-300 mt-4 inline-block text-sm">
             ← Back to Live Blog
           </Link>
         </div>
@@ -120,17 +120,17 @@ export default function PostPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen bg-zinc-950">
       <Nav />
 
       <article className="max-w-2xl mx-auto px-4 pt-10 pb-16">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs text-slate-500 mb-8 flex-wrap">
-          <Link href="/liveblog" className="hover:text-slate-300 transition-colors">Live Blog</Link>
+        <div className="flex items-center gap-2 text-xs text-zinc-500 mb-8 flex-wrap">
+          <Link href="/liveblog" className="hover:text-zinc-300 transition-colors">Live Blog</Link>
           {category && (
             <>
               <span>/</span>
-              <Link href={`/liveblog/${post.category_slug}`} className="hover:text-slate-300 transition-colors">
+              <Link href={`/liveblog/${post.category_slug}`} className="hover:text-zinc-300 transition-colors">
                 {category.icon} {category.name}
               </Link>
             </>
@@ -147,12 +147,12 @@ export default function PostPage() {
               </span>
             </Link>
           )}
-          <span className="flex items-center gap-1 text-xs text-slate-500">
+          <span className="flex items-center gap-1 text-xs text-zinc-500">
             <Clock size={11} />
             {timeAgo(post.published_at)}
           </span>
           {post.source_name && ["Josh Smart"].includes(post.source_name) && (
-            <span className="text-xs text-slate-500">by {post.source_name}</span>
+            <span className="text-xs text-zinc-500">by {post.source_name}</span>
           )}
         </div>
 
@@ -163,14 +163,14 @@ export default function PostPage() {
 
         {/* Summary */}
         {post.summary && (
-          <p className="text-lg text-slate-300 leading-relaxed mb-6 border-l-2 border-slate-700 pl-4">
+          <p className="text-lg text-zinc-300 leading-relaxed mb-6 border-l-2 border-zinc-700 pl-4">
             {post.summary}
           </p>
         )}
 
         {/* Hero image */}
         {post.image_url && (
-          <div className="rounded-xl overflow-hidden mb-8 aspect-video bg-slate-800">
+          <div className="rounded-xl overflow-hidden mb-8 aspect-video bg-zinc-800">
             <img
               src={post.image_url}
               alt={post.image_alt || post.title}
@@ -183,7 +183,7 @@ export default function PostPage() {
 
         {/* Content */}
         {post.content && post.content !== post.summary && (
-          <div className="text-slate-300 leading-relaxed space-y-4 mb-8 text-[15px]">
+          <div className="text-zinc-300 leading-relaxed space-y-4 mb-8 text-[15px]">
             {post.content.split("\n\n").filter(Boolean).map((para: string, i: number) => (
               <p key={i}>{para.replace(/\n/g, " ")}</p>
             ))}
@@ -194,20 +194,20 @@ export default function PostPage() {
         {post.tags && post.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-8">
             {post.tags.map((tag: string) => (
-              <span key={tag} className="text-xs text-slate-500 bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-full">
+              <span key={tag} className="text-xs text-zinc-500 bg-zinc-800 border border-zinc-700 px-2.5 py-1 rounded-full">
                 #{tag}
               </span>
             ))}
           </div>
         )}
 
-        {/* No external source link — posts are original Freehold content */}
+        {/* No external source link — posts are original Propped content */}
 
         {/* Back */}
-        <div className="border-t border-slate-800 pt-8">
+        <div className="border-t border-zinc-800 pt-8">
           <Link
             href={`/liveblog/${post.category_slug}`}
-            className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
           >
             <ArrowLeft size={14} />
             {category ? `Back to ${category.name}` : "Back to live blog"}
@@ -217,9 +217,9 @@ export default function PostPage() {
 
       {/* Related */}
       {related.length > 0 && (
-        <section className="border-t border-slate-800/50 py-10 px-4">
+        <section className="border-t border-zinc-800/50 py-10 px-4">
           <div className="max-w-2xl mx-auto">
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">
+            <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">
               More from {category?.name || "Live Blog"}
             </p>
             <div className="space-y-3">
@@ -227,18 +227,18 @@ export default function PostPage() {
                 <Link
                   key={r.id}
                   href={`/liveblog/post/${r.id}`}
-                  className="flex items-start gap-3 bg-slate-900 border border-slate-800 hover:border-slate-600 rounded-xl p-4 transition-all group"
+                  className="flex items-start gap-3 bg-zinc-900 border border-zinc-800 hover:border-zinc-600 rounded-xl p-4 transition-all group"
                 >
                   {r.image_url && (
-                    <div className="w-16 h-10 rounded-lg overflow-hidden bg-slate-800 shrink-0 hidden sm:block">
+                    <div className="w-16 h-10 rounded-lg overflow-hidden bg-zinc-800 shrink-0 hidden sm:block">
                       <img src={r.image_url} alt={r.title} className="w-full h-full object-cover" width={64} height={40} />
                     </div>
                   )}
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold text-white leading-snug line-clamp-2 group-hover:text-slate-200 transition-colors">
+                    <p className="text-sm font-semibold text-white leading-snug line-clamp-2 group-hover:text-zinc-200 transition-colors">
                       {r.title}
                     </p>
-                    <p className="text-xs text-slate-600 mt-1">{timeAgo(r.published_at)}</p>
+                    <p className="text-xs text-zinc-600 mt-1">{timeAgo(r.published_at)}</p>
                   </div>
                 </Link>
               ))}

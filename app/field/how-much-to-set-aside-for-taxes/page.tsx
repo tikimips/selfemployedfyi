@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Everyone says set aside 30% of your freelance income for taxes. Here's when that's right, when it's not enough, and how to actually pick your number.",
   keywords: ["how much to set aside for taxes self employed", "freelancer tax savings percentage", "30 percent rule taxes freelancer"],
-  alternates: { canonical: "https://selfemployedfyi.com/field/how-much-to-set-aside-for-taxes" },
+  alternates: { canonical: "https://propped.org/field/how-much-to-set-aside-for-taxes" },
 };
 
 const article = getArticle("how-much-to-set-aside-for-taxes")!;
@@ -35,27 +35,27 @@ export default function Article() {
 
       <p>The rule is trying to cover three things at once:</p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-3">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-3">
         <div className="flex justify-between items-start">
           <div>
             <p className="text-sm font-semibold text-white">Self-employment tax</p>
-            <p className="text-xs text-slate-500">Social Security + Medicare, both sides</p>
+            <p className="text-xs text-zinc-500">Social Security + Medicare, both sides</p>
           </div>
-          <span className="font-mono text-sm text-slate-300">~14-15%</span>
+          <span className="font-mono text-sm text-zinc-300">~14-15%</span>
         </div>
         <div className="flex justify-between items-start">
           <div>
             <p className="text-sm font-semibold text-white">Federal income tax</p>
-            <p className="text-xs text-slate-500">Depends on your bracket and deductions</p>
+            <p className="text-xs text-zinc-500">Depends on your bracket and deductions</p>
           </div>
-          <span className="font-mono text-sm text-slate-300">10-24%+</span>
+          <span className="font-mono text-sm text-zinc-300">10-24%+</span>
         </div>
         <div className="flex justify-between items-start">
           <div>
             <p className="text-sm font-semibold text-white">State income tax</p>
-            <p className="text-xs text-slate-500">Zero in Texas and Florida. Eye-watering in California.</p>
+            <p className="text-xs text-zinc-500">Zero in Texas and Florida. Eye-watering in California.</p>
           </div>
-          <span className="font-mono text-sm text-slate-300">0-13%</span>
+          <span className="font-mono text-sm text-zinc-300">0-13%</span>
         </div>
       </div>
 
@@ -72,7 +72,7 @@ export default function Article() {
 
       <h2>Calibrate for your actual situation</h2>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-3">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-3">
         {[
           ["Under $50K net, low-tax state", "20-25%"],
           ["$50-100K net, average state", "25-30%"],
@@ -82,8 +82,8 @@ export default function Article() {
           ["First year of freelancing", "Just go 35% until you know your numbers"],
         ].map(([scenario, rate]) => (
           <div key={scenario as string} className="flex justify-between items-center gap-4">
-            <span className="text-sm text-slate-300">{scenario as string}</span>
-            <span className="font-mono text-sm text-emerald-300 shrink-0">{rate as string}</span>
+            <span className="text-sm text-zinc-300">{scenario as string}</span>
+            <span className="font-mono text-sm text-brand-300 shrink-0">{rate as string}</span>
           </div>
         ))}
       </div>
@@ -110,7 +110,7 @@ export default function Article() {
 
       <div className="bg-amber-950/40 border border-amber-800/40 rounded-xl p-5 my-2">
         <p className="text-amber-200 font-semibold text-sm mb-1">The timing matters more than the amount</p>
-        <p className="text-slate-400 text-sm leading-relaxed">
+        <p className="text-zinc-400 text-sm leading-relaxed">
           The most common way people end up in trouble is not saving too little per payment.
           It is spending the money before they move it. Setting aside 30% immediately when paid
           is more important than whether it is 28% or 32%. Move it first. Adjust later.
@@ -149,15 +149,15 @@ export default function Article() {
         Best feeling in April is moving the money out and realizing you kept a little extra.
       </p>
 
-      <div className="bg-emerald-950/40 border border-emerald-800/40 rounded-xl p-5 my-2">
-        <p className="text-emerald-300 font-semibold text-sm mb-2">Figure out your actual number</p>
-        <p className="text-slate-400 text-sm leading-relaxed mb-4">
+      <div className="bg-brand-950/40 border border-brand-800/40 rounded-xl p-5 my-2">
+        <p className="text-brand-300 font-semibold text-sm mb-2">Figure out your actual number</p>
+        <p className="text-zinc-400 text-sm leading-relaxed mb-4">
           The quarterly tax calculator works out exactly what you owe based on your income,
           expenses, filing status, and when the next deadline is.
         </p>
         <Link
           href="/calculators/quarterly-taxes"
-          className="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+          className="inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
         >
           Calculate my quarterly payment
         </Link>

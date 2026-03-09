@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "When to Hire a CPA (Signs You've Outgrown TurboTax)",
   description: "TurboTax is fine until it isn't. Here's how to know when your taxes have gotten complicated enough to need a real professional, and how to find one who actually knows self-employment.",
   keywords: ["when to hire a cpa self employed", "do i need an accountant freelancer", "cpa vs turbotax self employed", "find cpa for freelancers"],
-  alternates: { canonical: "https://selfemployedfyi.com/field/when-to-hire-a-cpa" },
+  alternates: { canonical: "https://propped.org/field/when-to-hire-a-cpa" },
 };
 
 const article = getArticle("when-to-hire-a-cpa")!;
@@ -38,9 +38,9 @@ export default function Article() {
           { signal: "You are paying more in taxes than you paid for a car last year", why: "At some amount, the professional advice is worth it. $800-2,000 for a CPA who saves you $5,000+ is an obvious trade." },
           { signal: "You got a letter from the IRS", why: "Just hire someone. Today." },
         ].map(({ signal, why }) => (
-          <div key={signal} className="bg-slate-800 border border-slate-700 rounded-xl p-4">
+          <div key={signal} className="bg-zinc-800 border border-zinc-700 rounded-xl p-4">
             <p className="text-sm font-semibold text-white mb-1">{signal}</p>
-            <p className="text-sm text-slate-400">{why}</p>
+            <p className="text-sm text-zinc-400">{why}</p>
           </div>
         ))}
       </div>
@@ -51,13 +51,13 @@ export default function Article() {
         A CPA who works with self-employed clients is not just filing your taxes. They are:
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-2 text-sm text-slate-400">
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Proactively telling you about strategies before year-end when there is still time to act</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Running the actual numbers on S-corp election vs. staying a sole prop for your specific situation</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Maximizing retirement contributions correctly (the SEP IRA vs. Solo 401k math is not trivial)</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Catching deductions you missed because you did not know they existed</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Representing you if you are ever audited</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Helping you plan for big financial moves (buying property, selling the business, large equipment purchases)</div>
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-2 text-sm text-zinc-400">
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Proactively telling you about strategies before year-end when there is still time to act</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Running the actual numbers on S-corp election vs. staying a sole prop for your specific situation</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Maximizing retirement contributions correctly (the SEP IRA vs. Solo 401k math is not trivial)</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Catching deductions you missed because you did not know they existed</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Representing you if you are ever audited</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Helping you plan for big financial moves (buying property, selling the business, large equipment purchases)</div>
       </div>
 
       <h2>What to look for in a CPA</h2>
@@ -68,11 +68,11 @@ export default function Article() {
         someone who:
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-2 text-sm text-slate-400">
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Works primarily with self-employed people, freelancers, or small business owners</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Has clients in your income range (a CPA who handles $10M companies charges differently and may not focus on your needs)</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Communicates proactively, not just at tax time</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Can explain things in plain English without making you feel dumb for asking</div>
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-2 text-sm text-zinc-400">
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Works primarily with self-employed people, freelancers, or small business owners</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Has clients in your income range (a CPA who handles $10M companies charges differently and may not focus on your needs)</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Communicates proactively, not just at tax time</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Can explain things in plain English without making you feel dumb for asking</div>
       </div>
 
       <h2>How to find one</h2>

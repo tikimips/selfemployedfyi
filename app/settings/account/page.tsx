@@ -75,49 +75,49 @@ export default function AccountPage() {
   if (loading || !user) return null;
 
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen bg-zinc-950">
       <Nav />
       <div className="max-w-2xl mx-auto px-4 py-12">
-        <Link href="/settings" className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-300 mb-8 transition-colors">
+        <Link href="/settings" className="inline-flex items-center gap-1.5 text-xs text-zinc-500 hover:text-zinc-300 mb-8 transition-colors">
           <ArrowLeft size={12} /> Settings
         </Link>
 
         <h1 className="text-2xl font-bold text-white mb-8">Account</h1>
 
         {/* Profile */}
-        <section className="bg-slate-900 border border-slate-800 rounded-xl p-6 mb-4">
+        <section className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 mb-4">
           <h2 className="text-sm font-bold text-white mb-5">Profile</h2>
           <form onSubmit={handleSaveName} className="space-y-4">
             <div>
-              <label className="block text-xs font-medium text-slate-400 mb-1.5">Display name</label>
+              <label className="block text-xs font-medium text-zinc-400 mb-1.5">Display name</label>
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Your name"
-                className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-600 transition-colors"
+                className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-brand-600 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate-400 mb-1.5">Email</label>
+              <label className="block text-xs font-medium text-zinc-400 mb-1.5">Email</label>
               <input
                 type="email"
                 value={user.email || ""}
                 disabled
-                className="w-full bg-slate-800/40 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-500 cursor-not-allowed"
+                className="w-full bg-zinc-800/40 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-500 cursor-not-allowed"
               />
-              <p className="text-xs text-slate-600 mt-1">Email cannot be changed here.</p>
+              <p className="text-xs text-zinc-600 mt-1">Email cannot be changed here.</p>
             </div>
             <div className="flex items-center gap-3">
               <button
                 type="submit"
                 disabled={savingName}
-                className="bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white font-semibold text-sm px-5 py-2 rounded-lg transition-all"
+                className="bg-brand-600 hover:bg-brand-500 disabled:opacity-50 text-white font-semibold text-sm px-5 py-2 rounded-lg transition-all"
               >
                 {savingName ? "Saving…" : "Save changes"}
               </button>
               {nameSuccess && (
-                <span className="flex items-center gap-1.5 text-xs text-emerald-400">
+                <span className="flex items-center gap-1.5 text-xs text-brand-400">
                   <CheckCircle2 size={13} /> Saved
                 </span>
               )}
@@ -127,11 +127,11 @@ export default function AccountPage() {
 
         {/* Password — only for email users */}
         {!isOAuthUser && (
-          <section className="bg-slate-900 border border-slate-800 rounded-xl p-6 mb-4">
+          <section className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 mb-4">
             <h2 className="text-sm font-bold text-white mb-5">Change password</h2>
             <form onSubmit={handleChangePassword} className="space-y-4">
               <div>
-                <label className="block text-xs font-medium text-slate-400 mb-1.5">Current password</label>
+                <label className="block text-xs font-medium text-zinc-400 mb-1.5">Current password</label>
                 <div className="relative">
                   <input
                     type={showPw ? "text" : "password"}
@@ -139,33 +139,33 @@ export default function AccountPage() {
                     onChange={(e) => setCurrentPw(e.target.value)}
                     required
                     placeholder="••••••••"
-                    className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 pr-11 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-600 transition-colors"
+                    className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 pr-11 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-brand-600 transition-colors"
                   />
-                  <button type="button" onClick={() => setShowPw(!showPw)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300">
+                  <button type="button" onClick={() => setShowPw(!showPw)} className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300">
                     {showPw ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-medium text-slate-400 mb-1.5">New password</label>
+                <label className="block text-xs font-medium text-zinc-400 mb-1.5">New password</label>
                 <input
                   type={showPw ? "text" : "password"}
                   value={newPw}
                   onChange={(e) => setNewPw(e.target.value)}
                   required
                   placeholder="At least 8 characters"
-                  className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-600 transition-colors"
+                  className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-brand-600 transition-colors"
                 />
               </div>
               <div>
-                <label className="block text-xs font-medium text-slate-400 mb-1.5">Confirm new password</label>
+                <label className="block text-xs font-medium text-zinc-400 mb-1.5">Confirm new password</label>
                 <input
                   type={showPw ? "text" : "password"}
                   value={confirmPw}
                   onChange={(e) => setConfirmPw(e.target.value)}
                   required
                   placeholder="Same again"
-                  className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-600 transition-colors"
+                  className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-brand-600 transition-colors"
                 />
               </div>
 
@@ -180,12 +180,12 @@ export default function AccountPage() {
                 <button
                   type="submit"
                   disabled={savingPw}
-                  className="bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white font-semibold text-sm px-5 py-2 rounded-lg transition-all"
+                  className="bg-brand-600 hover:bg-brand-500 disabled:opacity-50 text-white font-semibold text-sm px-5 py-2 rounded-lg transition-all"
                 >
                   {savingPw ? "Updating…" : "Update password"}
                 </button>
                 {pwSuccess && (
-                  <span className="flex items-center gap-1.5 text-xs text-emerald-400">
+                  <span className="flex items-center gap-1.5 text-xs text-brand-400">
                     <CheckCircle2 size={13} /> Updated
                   </span>
                 )}
@@ -195,8 +195,8 @@ export default function AccountPage() {
         )}
 
         {isOAuthUser && (
-          <section className="bg-slate-900 border border-slate-800 rounded-xl p-5 mb-4">
-            <p className="text-sm text-slate-400">
+          <section className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 mb-4">
+            <p className="text-sm text-zinc-400">
               You signed in with <span className="text-white capitalize">{user.app_metadata?.provider}</span>.
               Password management is handled by your identity provider.
             </p>
@@ -204,7 +204,7 @@ export default function AccountPage() {
         )}
 
         {/* Sign out */}
-        <section className="bg-slate-900 border border-slate-800 rounded-xl p-6 mb-4">
+        <section className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 mb-4">
           <h2 className="text-sm font-bold text-white mb-3">Session</h2>
           <button
             onClick={async () => { await signOut(); router.push("/"); }}
@@ -217,8 +217,8 @@ export default function AccountPage() {
         {/* Delete account */}
         <section className="bg-red-950/20 border border-red-900/40 rounded-xl p-6">
           <h2 className="text-sm font-bold text-red-400 mb-2">Delete account</h2>
-          <p className="text-xs text-slate-500 mb-4">
-            This permanently deletes your account and all data. Type <strong className="text-slate-400">DELETE</strong> to confirm.
+          <p className="text-xs text-zinc-500 mb-4">
+            This permanently deletes your account and all data. Type <strong className="text-zinc-400">DELETE</strong> to confirm.
           </p>
           <div className="flex items-center gap-3">
             <input
@@ -226,7 +226,7 @@ export default function AccountPage() {
               value={deleteConfirm}
               onChange={(e) => setDeleteConfirm(e.target.value)}
               placeholder="Type DELETE"
-              className="bg-slate-900 border border-red-900/40 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-700 focus:outline-none focus:border-red-600 transition-colors w-36"
+              className="bg-zinc-900 border border-red-900/40 rounded-lg px-3 py-2 text-sm text-white placeholder-zinc-700 focus:outline-none focus:border-red-600 transition-colors w-36"
             />
             <button
               onClick={handleDeleteAccount}

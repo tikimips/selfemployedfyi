@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Health Insurance for Freelancers: Your Actual Options",
   description: "Leaving employer health insurance is one of the scariest parts of going solo. Here's every real option for freelancers, what they cost, and how to choose.",
   keywords: ["health insurance for freelancers", "self employed health insurance options", "ACA marketplace freelancer", "health insurance independent contractor"],
-  alternates: { canonical: "https://selfemployedfyi.com/field/health-insurance-for-freelancers" },
+  alternates: { canonical: "https://propped.org/field/health-insurance-for-freelancers" },
 };
 
 const article = getArticle("health-insurance-for-freelancers")!;
@@ -42,15 +42,15 @@ export default function Article() {
         solid coverage for under $100/month.
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2">
         <p className="text-sm font-semibold text-white mb-3">2024 income thresholds for premium tax credits (single person)</p>
         <div className="space-y-2 text-sm">
-          <div className="flex justify-between text-slate-400"><span>Under $21,870 (138% FPL)</span><span className="text-emerald-400">Medicaid eligible (most states)</span></div>
-          <div className="flex justify-between text-slate-400"><span>$21,870 to $58,320</span><span className="text-emerald-400">Significant premium subsidies</span></div>
-          <div className="flex justify-between text-slate-400"><span>$58,320 to $87,480</span><span className="text-emerald-400">Reduced subsidies</span></div>
-          <div className="flex justify-between text-slate-400"><span>Above $87,480</span><span className="text-white">Full cost (but still deductible)</span></div>
+          <div className="flex justify-between text-zinc-400"><span>Under $21,870 (138% FPL)</span><span className="text-brand-400">Medicaid eligible (most states)</span></div>
+          <div className="flex justify-between text-zinc-400"><span>$21,870 to $58,320</span><span className="text-brand-400">Significant premium subsidies</span></div>
+          <div className="flex justify-between text-zinc-400"><span>$58,320 to $87,480</span><span className="text-brand-400">Reduced subsidies</span></div>
+          <div className="flex justify-between text-zinc-400"><span>Above $87,480</span><span className="text-white">Full cost (but still deductible)</span></div>
         </div>
-        <p className="text-xs text-slate-600 mt-3">These thresholds adjust annually. Check healthcare.gov for current year numbers.</p>
+        <p className="text-xs text-zinc-600 mt-3">These thresholds adjust annually. Check healthcare.gov for current year numbers.</p>
       </div>
 
       <p>

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "SEP IRA vs Solo 401(k): Which One Should You Open?",
   description: "Both let self-employed people save serious money for retirement with significant tax deductions. Here's the actual difference and which one makes sense for your situation.",
   keywords: ["sep ira vs solo 401k self employed", "best retirement account freelancer", "sep ira contribution limits 2024", "solo 401k self employed"],
-  alternates: { canonical: "https://selfemployedfyi.com/field/sep-ira-vs-solo-401k" },
+  alternates: { canonical: "https://propped.org/field/sep-ira-vs-solo-401k" },
 };
 
 const article = getArticle("sep-ira-vs-solo-401k")!;
@@ -62,18 +62,18 @@ export default function Article() {
         It has two contribution components:
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-4">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-4">
         <div>
           <p className="text-sm font-semibold text-white">Employee contribution (elective deferral)</p>
-          <p className="text-sm text-slate-400 mt-1">Up to $23,000 in 2024 ($30,500 if you are 50 or older). This is the same limit as a regular 401(k). The entire amount can be contributed regardless of how much you earn, as long as you have at least that much in compensation.</p>
+          <p className="text-sm text-zinc-400 mt-1">Up to $23,000 in 2024 ($30,500 if you are 50 or older). This is the same limit as a regular 401(k). The entire amount can be contributed regardless of how much you earn, as long as you have at least that much in compensation.</p>
         </div>
         <div>
           <p className="text-sm font-semibold text-white">Employer contribution (profit sharing)</p>
-          <p className="text-sm text-slate-400 mt-1">Up to 25% of net self-employment income (same as SEP IRA math). This is on top of the employee contribution.</p>
+          <p className="text-sm text-zinc-400 mt-1">Up to 25% of net self-employment income (same as SEP IRA math). This is on top of the employee contribution.</p>
         </div>
-        <div className="border-t border-slate-700 pt-3">
+        <div className="border-t border-zinc-700 pt-3">
           <p className="text-sm font-semibold text-white">Combined maximum</p>
-          <p className="text-sm text-slate-400 mt-1">$69,000 in 2024 ($76,500 if 50+). At lower income levels, the Solo 401(k) lets you contribute significantly more than a SEP IRA due to the flat employee contribution floor.</p>
+          <p className="text-sm text-zinc-400 mt-1">$69,000 in 2024 ($76,500 if 50+). At lower income levels, the Solo 401(k) lets you contribute significantly more than a SEP IRA due to the flat employee contribution floor.</p>
         </div>
       </div>
 
@@ -84,24 +84,24 @@ export default function Article() {
         with $60,000 in net self-employment income:
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2">
         <div className="space-y-3">
           <div className="flex justify-between">
             <div>
               <p className="text-sm font-semibold text-white">SEP IRA</p>
-              <p className="text-xs text-slate-500">25% of ~$56,470 net SE income</p>
+              <p className="text-xs text-zinc-500">25% of ~$56,470 net SE income</p>
             </div>
             <p className="text-sm font-bold text-white">~$14,000</p>
           </div>
           <div className="flex justify-between">
             <div>
               <p className="text-sm font-semibold text-white">Solo 401(k)</p>
-              <p className="text-xs text-slate-500">$23,000 employee + ~$14,000 employer</p>
+              <p className="text-xs text-zinc-500">$23,000 employee + ~$14,000 employer</p>
             </div>
-            <p className="text-sm font-bold text-emerald-300">~$37,000</p>
+            <p className="text-sm font-bold text-brand-300">~$37,000</p>
           </div>
         </div>
-        <p className="text-xs text-slate-600 mt-3">Same income. Very different contribution room.</p>
+        <p className="text-xs text-zinc-600 mt-3">Same income. Very different contribution room.</p>
       </div>
 
       <p>
@@ -142,10 +142,10 @@ export default function Article() {
 
       <h2>Which one should you open</h2>
 
-      <div className="bg-emerald-950/40 border border-emerald-800/40 rounded-xl p-5 my-2 space-y-3">
+      <div className="bg-brand-950/40 border border-brand-800/40 rounded-xl p-5 my-2 space-y-3">
         <div>
-          <p className="text-sm font-semibold text-emerald-300">Open a Solo 401(k) if:</p>
-          <ul className="text-sm text-slate-400 space-y-1 mt-1 list-disc list-inside">
+          <p className="text-sm font-semibold text-brand-300">Open a Solo 401(k) if:</p>
+          <ul className="text-sm text-zinc-400 space-y-1 mt-1 list-disc list-inside">
             <li>Your net SE income is under $150,000 (the contribution difference is significant)</li>
             <li>You want a Roth option</li>
             <li>You want to maximize contributions even in lower-income years</li>
@@ -154,7 +154,7 @@ export default function Article() {
         </div>
         <div>
           <p className="text-sm font-semibold text-white">Open a SEP IRA if:</p>
-          <ul className="text-sm text-slate-400 space-y-1 mt-1 list-disc list-inside">
+          <ul className="text-sm text-zinc-400 space-y-1 mt-1 list-disc list-inside">
             <li>You want the simplest possible setup</li>
             <li>Your income is high (above $200K) and the contribution difference is minimal</li>
             <li>You missed the December 31 deadline to establish a Solo 401(k) for this year</li>

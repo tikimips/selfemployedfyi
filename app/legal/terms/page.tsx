@@ -4,8 +4,8 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Freehold",
-  description: "Terms of Service for Freehold, a product of General Public.",
+  title: "Terms of Service | Propped",
+  description: "Terms of Service for Propped, a product of General Public.",
   robots: { index: true, follow: false },
 };
 
@@ -13,36 +13,36 @@ const EFFECTIVE_DATE = "March 1, 2026";
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen bg-zinc-950">
       <Nav />
       <article className="max-w-3xl mx-auto px-4 py-16">
         <div className="mb-10">
-          <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Legal</p>
+          <p className="text-xs font-bold text-zinc-500 uppercase tracking-wider mb-3">Legal</p>
           <h1 className="text-3xl font-black text-white mb-2">Terms of Service</h1>
-          <p className="text-slate-500 text-sm">Effective date: {EFFECTIVE_DATE}</p>
+          <p className="text-zinc-500 text-sm">Effective date: {EFFECTIVE_DATE}</p>
         </div>
 
-        <div className="prose prose-invert prose-sm max-w-none space-y-8 text-slate-300 leading-relaxed">
+        <div className="prose prose-invert prose-sm max-w-none space-y-8 text-zinc-300 leading-relaxed">
 
           <section>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              These Terms of Service ("Terms") govern your access to and use of Freehold ("Service"),
+            <p className="text-zinc-400 text-sm leading-relaxed">
+              These Terms of Service ("Terms") govern your access to and use of Propped ("Service"),
               a product operated by General Public, Inc. ("General Public," "we," "us," or "our"),
-              accessible at selfemployedfyi.com and associated domains. By creating an account or using
+              accessible at propped.org and associated domains. By creating an account or using
               the Service, you agree to these Terms. If you don't agree, don't use the Service.
             </p>
           </section>
 
           {[
             {
-              title: "1. About Freehold and General Public",
-              content: `Freehold is a financial tools and information platform designed for freelancers, founders, and self-employed individuals. It is operated by General Public, Inc., a technology company. General Public builds platforms and tools for independent operators.
+              title: "1. About Propped and General Public",
+              content: `Propped is a financial tools and information platform designed for freelancers, founders, and self-employed individuals. It is operated by General Public, Inc., a technology company. General Public builds platforms and tools for independent operators.
 
-Freehold provides calculators, guides, live news aggregation, and account features to help self-employed people understand their finances. Nothing on this Service constitutes financial, tax, legal, mortgage, or investment advice. All content is for informational and educational purposes only.`,
+Propped provides calculators, guides, live news aggregation, and account features to help self-employed people understand their finances. Nothing on this Service constitutes financial, tax, legal, mortgage, or investment advice. All content is for informational and educational purposes only.`,
             },
             {
               title: "2. Eligibility",
-              content: `You must be at least 18 years old to create an account or use the Service. By using Freehold, you represent and warrant that you meet this age requirement and have the legal capacity to enter into a binding agreement. The Service is intended for personal, non-commercial use unless otherwise agreed in writing with General Public.`,
+              content: `You must be at least 18 years old to create an account or use the Service. By using Propped, you represent and warrant that you meet this age requirement and have the legal capacity to enter into a binding agreement. The Service is intended for personal, non-commercial use unless otherwise agreed in writing with General Public.`,
             },
             {
               title: "3. Your Account",
@@ -67,7 +67,7 @@ We reserve the right to terminate your access for any violation of these rules, 
             },
             {
               title: "5. Intellectual Property",
-              content: `All content on Freehold — including text, calculations, graphics, code, data, and design — is owned by General Public, Inc. or its licensors and is protected by U.S. and international copyright, trademark, and other intellectual property laws.
+              content: `All content on Propped — including text, calculations, graphics, code, data, and design — is owned by General Public, Inc. or its licensors and is protected by U.S. and international copyright, trademark, and other intellectual property laws.
 
 You may access and use the Service for your personal, non-commercial use. You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any content from the Service without our express prior written consent.
 
@@ -75,7 +75,7 @@ User-provided content (such as data you enter into calculators) remains yours. B
             },
             {
               title: "6. Third-Party Content and Links",
-              content: `Freehold's Live Blog and other features may display content sourced, aggregated, or rewritten from third-party publications. Such content is attributed to its source and is provided for informational purposes. We do not endorse any third-party source, and we are not responsible for the accuracy, completeness, or timeliness of third-party content.
+              content: `Propped's Live Blog and other features may display content sourced, aggregated, or rewritten from third-party publications. Such content is attributed to its source and is provided for informational purposes. We do not endorse any third-party source, and we are not responsible for the accuracy, completeness, or timeliness of third-party content.
 
 The Service may contain links to third-party websites. We are not responsible for the content or privacy practices of those sites. Links do not constitute endorsement.`,
             },
@@ -140,20 +140,20 @@ legal@generalpublic.ai`,
           ].map(({ title, content }) => (
             <section key={title}>
               <h2 className="text-base font-bold text-white mb-3">{title}</h2>
-              <div className="text-slate-400 text-sm leading-relaxed whitespace-pre-line">{content}</div>
+              <div className="text-zinc-400 text-sm leading-relaxed whitespace-pre-line">{content}</div>
             </section>
           ))}
 
-          <div className="border-t border-slate-800 pt-8">
-            <p className="text-xs text-slate-600">
-              Freehold is operated by General Public, Inc. &middot; Los Angeles, CA &middot;{" "}
-              <a href="https://generalpublic.ai" target="_blank" rel="noopener noreferrer" className="hover:text-slate-400">
+          <div className="border-t border-zinc-800 pt-8">
+            <p className="text-xs text-zinc-600">
+              Propped is operated by General Public, Inc. &middot; Los Angeles, CA &middot;{" "}
+              <a href="https://generalpublic.ai" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-400">
                 generalpublic.ai
               </a>
             </p>
-            <p className="text-xs text-slate-600 mt-2">
+            <p className="text-xs text-zinc-600 mt-2">
               See also:{" "}
-              <Link href="/legal/privacy" className="hover:text-slate-400">Privacy Policy</Link>
+              <Link href="/legal/privacy" className="hover:text-zinc-400">Privacy Policy</Link>
             </p>
           </div>
         </div>

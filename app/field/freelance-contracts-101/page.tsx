@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Freelance Contracts 101: What to Include Before You Start Any Project",
   description: "You do not need a lawyer to have a good freelance contract. Here's what every agreement should cover and the clauses that will save you from the most common disasters.",
   keywords: ["freelance contract template", "what to include in freelance contract", "freelance agreement basics", "contractor agreement self employed"],
-  alternates: { canonical: "https://selfemployedfyi.com/field/freelance-contracts-101" },
+  alternates: { canonical: "https://propped.org/field/freelance-contracts-101" },
 };
 
 const article = getArticle("freelance-contracts-101")!;
@@ -60,31 +60,31 @@ export default function Article() {
             desc: "What happens if the client cancels the project after you have started? A kill fee (typically 25-50% of the remaining project value) compensates you for the time already spent and the opportunity cost of blocking out that time.",
           },
         ].map(({ title, desc }) => (
-          <div key={title} className="bg-slate-800 border border-slate-700 rounded-xl p-4">
+          <div key={title} className="bg-zinc-800 border border-zinc-700 rounded-xl p-4">
             <p className="text-sm font-semibold text-white mb-1">{title}</p>
-            <p className="text-sm text-slate-400 leading-relaxed">{desc}</p>
+            <p className="text-sm text-zinc-400 leading-relaxed">{desc}</p>
           </div>
         ))}
       </div>
 
       <h2>Clauses worth adding for larger projects</h2>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-3">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-3">
         <div>
           <p className="text-sm font-semibold text-white">Liability limitation</p>
-          <p className="text-sm text-slate-400 mt-0.5">Your liability is limited to the amount paid for the project. You are not responsible for business losses the client claims resulted from your work. Most clients accept this.</p>
+          <p className="text-sm text-zinc-400 mt-0.5">Your liability is limited to the amount paid for the project. You are not responsible for business losses the client claims resulted from your work. Most clients accept this.</p>
         </div>
         <div>
           <p className="text-sm font-semibold text-white">Independent contractor status</p>
-          <p className="text-sm text-slate-400 mt-0.5">Explicitly states that you are an independent contractor, not an employee. You control your hours, methods, and tools. This matters for tax classification and protects you from misclassification issues.</p>
+          <p className="text-sm text-zinc-400 mt-0.5">Explicitly states that you are an independent contractor, not an employee. You control your hours, methods, and tools. This matters for tax classification and protects you from misclassification issues.</p>
         </div>
         <div>
           <p className="text-sm font-semibold text-white">Confidentiality</p>
-          <p className="text-sm text-slate-400 mt-0.5">If you are working with sensitive business information, a mutual NDA or confidentiality clause protects both sides. Basic version: neither party shares confidential information with third parties during or after the engagement.</p>
+          <p className="text-sm text-zinc-400 mt-0.5">If you are working with sensitive business information, a mutual NDA or confidentiality clause protects both sides. Basic version: neither party shares confidential information with third parties during or after the engagement.</p>
         </div>
         <div>
           <p className="text-sm font-semibold text-white">Portfolio rights</p>
-          <p className="text-sm text-slate-400 mt-0.5">You can show the work in your portfolio unless the client explicitly restricts it. Include a clause stating you retain the right to display the work as samples of your work, unless otherwise agreed in writing.</p>
+          <p className="text-sm text-zinc-400 mt-0.5">You can show the work in your portfolio unless the client explicitly restricts it. Include a clause stating you retain the right to display the work as samples of your work, unless otherwise agreed in writing.</p>
         </div>
       </div>
 

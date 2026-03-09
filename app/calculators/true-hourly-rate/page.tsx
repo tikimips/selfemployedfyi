@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "self-employed true income calculator",
   ],
   alternates: {
-    canonical: "https://selfemployedfyi.com/calculators/true-hourly-rate",
+    canonical: "https://propped.org/calculators/true-hourly-rate",
   },
   openGraph: {
     title: "True Hourly Rate Calculator — What Do You Actually Make?",
@@ -60,7 +60,7 @@ export default function TrueHourlyPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen bg-zinc-950">
       <Script
         id="faq-schema"
         type="application/ld+json"
@@ -72,15 +72,15 @@ export default function TrueHourlyPage() {
       {/* Header */}
       <section className="pt-12 pb-2 px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-slate-800/60 border border-slate-700/50 text-slate-400 text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
+          <div className="inline-flex items-center gap-2 bg-zinc-800/60 border border-zinc-700/50 text-zinc-400 text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
             <span className="w-1.5 h-1.5 bg-red-400 rounded-full" />
             Most freelancers make 40–60% less than they think
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-3">
             What do you{" "}
-            <span className="text-emerald-400">actually</span> make per hour?
+            <span className="text-brand-400">actually</span> make per hour?
           </h1>
-          <p className="text-slate-400 text-base max-w-xl mx-auto leading-relaxed">
+          <p className="text-zinc-400 text-base max-w-xl mx-auto leading-relaxed">
             Your billing rate isn't your real rate. After taxes, overhead, and all the hours
             you never invoice for — the number is usually a lot lower. Find out exactly where yours lands.
           </p>
@@ -90,7 +90,7 @@ export default function TrueHourlyPage() {
       <TrueHourlyCalculator />
 
       {/* FAQ */}
-      <section className="border-t border-slate-800/50 py-14 px-4">
+      <section className="border-t border-zinc-800/50 py-14 px-4">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-xl font-bold text-white mb-8">Common questions</h2>
           <div className="space-y-6">
@@ -112,9 +112,9 @@ export default function TrueHourlyPage() {
                 a: "The fastest lever is raising your billing rate — it has an immediate, compounding effect on take-home with no extra hours required. The second lever is cutting admin time through better tools and processes (contract templates, automated invoicing, better onboarding). The third is tax optimization: tracking every deduction, contributing to a SEP IRA or Solo 401(k), and considering S-corp election if your net profit exceeds $60–80K.",
               },
             ].map(({ q, a }) => (
-              <div key={q} className="border-b border-slate-800 pb-6">
+              <div key={q} className="border-b border-zinc-800 pb-6">
                 <h3 className="text-sm font-semibold text-white mb-2">{q}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{a}</p>
+                <p className="text-sm text-zinc-400 leading-relaxed">{a}</p>
               </div>
             ))}
           </div>

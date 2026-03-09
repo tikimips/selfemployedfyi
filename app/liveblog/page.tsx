@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { getLiveBlogCategories, LiveBlogCategory } from "@/lib/supabase";
 
-const BASE_URL = "https://selfemployedfyi.com";
+const BASE_URL = "https://propped.org";
 
 export const metadata: Metadata = {
   title: "Live Blog — Real-Time News for the Self-Employed",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: `${BASE_URL}/liveblog`,
   },
   openGraph: {
-    title: "Live Blog — Freehold",
+    title: "Live Blog — Propped",
     description:
       "Real-time news for people who work for themselves. Stocks, rates, taxes, and the economy — through the lens of the self-employed.",
     url: `${BASE_URL}/liveblog`,
@@ -24,40 +24,40 @@ export const metadata: Metadata = {
 
 const COLOR_MAP: Record<string, { bg: string; border: string; dot: string; badge: string }> = {
   emerald: {
-    bg: "hover:border-emerald-700/60",
-    border: "border-slate-800",
-    dot: "bg-emerald-400",
-    badge: "bg-emerald-950/50 border-emerald-800/50 text-emerald-300",
+    bg: "hover:border-brand-700/60",
+    border: "border-zinc-800",
+    dot: "bg-brand-400",
+    badge: "bg-brand-950/50 border-brand-800/50 text-brand-300",
   },
   blue: {
     bg: "hover:border-blue-700/60",
-    border: "border-slate-800",
+    border: "border-zinc-800",
     dot: "bg-blue-400",
     badge: "bg-blue-950/50 border-blue-800/50 text-blue-300",
   },
   amber: {
     bg: "hover:border-amber-700/60",
-    border: "border-slate-800",
+    border: "border-zinc-800",
     dot: "bg-amber-400",
     badge: "bg-amber-950/50 border-amber-800/50 text-amber-300",
   },
   green: {
     bg: "hover:border-green-700/60",
-    border: "border-slate-800",
+    border: "border-zinc-800",
     dot: "bg-green-400",
     badge: "bg-green-950/50 border-green-800/50 text-green-300",
   },
   purple: {
     bg: "hover:border-purple-700/60",
-    border: "border-slate-800",
+    border: "border-zinc-800",
     dot: "bg-purple-400",
     badge: "bg-purple-950/50 border-purple-800/50 text-purple-300",
   },
   slate: {
-    bg: "hover:border-slate-600",
-    border: "border-slate-800",
-    dot: "bg-slate-400",
-    badge: "bg-slate-800/50 border-slate-700/50 text-slate-300",
+    bg: "hover:border-zinc-600",
+    border: "border-zinc-800",
+    dot: "bg-zinc-400",
+    badge: "bg-zinc-800/50 border-zinc-700/50 text-zinc-300",
   },
 };
 
@@ -76,20 +76,20 @@ export default async function LiveBlogPage() {
     "@context": "https://schema.org",
     "@type": "Blog",
     "@id": `${BASE_URL}/liveblog`,
-    name: "Freehold Live Blog",
+    name: "Propped Live Blog",
     description:
       "Real-time news and analysis for freelancers, founders, and the self-employed. Stocks, rates, taxes, and the economy — updated as it happens.",
     url: `${BASE_URL}/liveblog`,
     publisher: {
       "@type": "Organization",
-      name: "Freehold",
+      name: "Propped",
       url: BASE_URL,
     },
     inLanguage: "en-US",
   };
 
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen bg-zinc-950">
       <Nav />
 
       {/* Schema.org */}
@@ -99,7 +99,7 @@ export default async function LiveBlogPage() {
       />
 
       {/* Header */}
-      <section className="pt-16 pb-10 px-4 border-b border-slate-800/50">
+      <section className="pt-16 pb-10 px-4 border-b border-zinc-800/50">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
             <span className="relative flex h-3 w-3">
@@ -111,7 +111,7 @@ export default async function LiveBlogPage() {
           <h1 className="text-3xl sm:text-4xl font-black text-white mb-3">
             Live Blog
           </h1>
-          <p className="text-slate-400 text-lg max-w-2xl">
+          <p className="text-zinc-400 text-lg max-w-2xl">
             Real-time news on stocks, rates, taxes, and the economy — curated for freelancers,
             founders, and anyone who works for themselves.
           </p>
@@ -121,7 +121,7 @@ export default async function LiveBlogPage() {
       {/* Category Grid */}
       <section className="py-12 px-4">
         <div className="max-w-5xl mx-auto">
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-6">
+          <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-6">
             Choose a live blog
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -131,7 +131,7 @@ export default async function LiveBlogPage() {
                 <Link
                   key={cat.slug}
                   href={`/liveblog/${cat.slug}`}
-                  className={`group relative bg-slate-900 border ${c.border} ${c.bg} rounded-xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-black/30`}
+                  className={`group relative bg-zinc-900 border ${c.border} ${c.bg} rounded-xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-black/30`}
                 >
                   {/* Live indicator */}
                   {cat.is_live && (
@@ -140,15 +140,15 @@ export default async function LiveBlogPage() {
                         <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${c.dot} opacity-75`} />
                         <span className={`relative inline-flex rounded-full h-2 w-2 ${c.dot}`} />
                       </span>
-                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Live</span>
+                      <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Live</span>
                     </div>
                   )}
 
                   <div className="text-3xl mb-3">{cat.icon}</div>
-                  <h2 className="text-lg font-bold text-white mb-2 group-hover:text-slate-100">
+                  <h2 className="text-lg font-bold text-white mb-2 group-hover:text-zinc-100">
                     {cat.name}
                   </h2>
-                  <p className="text-sm text-slate-400 leading-relaxed line-clamp-3">
+                  <p className="text-sm text-zinc-400 leading-relaxed line-clamp-3">
                     {cat.description}
                   </p>
                   <div className="mt-4">
@@ -164,7 +164,7 @@ export default async function LiveBlogPage() {
           </div>
 
           {categories.length === 0 && (
-            <div className="text-center py-20 text-slate-600">
+            <div className="text-center py-20 text-zinc-600">
               <p className="text-lg">Loading live blogs…</p>
             </div>
           )}

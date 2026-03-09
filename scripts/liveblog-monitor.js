@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Freehold Live Blog Monitor
- * Monitors financial news RSS feeds, writes original Freehold posts via Gemini,
+ * Propped Live Blog Monitor
+ * Monitors financial news RSS feeds, writes original Propped posts via Gemini,
  * attributes them to "Josh Smart", and inserts into Supabase.
  *
  * Run: node scripts/liveblog-monitor.js
@@ -26,9 +26,9 @@ if (fs.existsSync(envPath)) {
     });
 }
 
-const SUPABASE_URL     = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const SUPABASE_URL      = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const GEMINI_API_KEY   = process.env.GEMINI_API_KEY || "AIzaSyBOzWBN4yt5NaFHLbPBNATHCzSEBHv05Fs";
+const OPENAI_API_KEY    = process.env.OPENAI_API_KEY;
 
 // ── RSS Sources ──────────────────────────────────────────────────────────────
 const SOURCES = [
@@ -117,18 +117,24 @@ function classifyCategory(title, description, defaultCategory) {
   return bestCat;
 }
 
-async function callGemini(prompt) {
+async function callOpenAI(prompt) {
   const body = JSON.stringify({
-    contents: [{ parts: [{ text: prompt }] }],
-    generationConfig: { temperature: 0.75, maxOutputTokens: 700 },
+    model: "gpt-4o-mini",
+    messages: [{ role: "user", content: prompt }],
+    temperature: 0.75,
+    max_tokens: 700,
   });
 
   return new Promise((resolve, reject) => {
     const options = {
-      hostname: "generativelanguage.googleapis.com",
-      path: `/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
+      hostname: "api.openai.com",
+      path: "/v1/chat/completions",
       method: "POST",
-      headers: { "Content-Type": "application/json", "Content-Length": Buffer.byteLength(body) },
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${OPENAI_API_KEY}`,
+        "Content-Length": Buffer.byteLength(body),
+      },
     };
     const req = https.request(options, (res) => {
       let data = "";
@@ -137,7 +143,7 @@ async function callGemini(prompt) {
         try {
           const parsed = JSON.parse(data);
           if (parsed.error) reject(new Error(parsed.error.message));
-          else resolve(parsed.candidates?.[0]?.content?.parts?.[0]?.text || "");
+          else resolve(parsed.choices?.[0]?.message?.content || "");
         } catch (e) { reject(e); }
       });
     });
@@ -152,12 +158,12 @@ async function generatePost(item, defaultCategory) {
   const desc  = (item.contentSnippet || item.content || item.summary || "").trim();
   const category = classifyCategory(title, desc, defaultCategory);
 
-  const prompt = `You are Josh Smart, a staff writer at Freehold — a platform for freelancers, founders, and the self-employed. You just spotted a news story and are writing an original Freehold post inspired by it.
+  const prompt = `You are Josh Smart, a staff writer at Propped — a platform for freelancers, founders, and the self-employed. You just spotted a news story and are writing an original Propped post inspired by it.
 
 Topic inspiration: "${title}"
 Context: "${desc.substring(0, 400)}"
 
-Write an ORIGINAL Freehold live blog post from scratch. Do NOT mention where you saw this story. Do NOT mention the original source or publication. Write as if you discovered this yourself and are reporting it through the Freehold lens.
+Write an ORIGINAL Propped live blog post from scratch. Do NOT mention where you saw this story. Do NOT mention the original source or publication. Write as if you discovered this yourself and are reporting it through the Propped lens.
 
 Style rules:
 - Direct, conversational, millennial-smart
@@ -176,7 +182,7 @@ Return JSON only:
 }`;
 
   try {
-    const raw = await callGemini(prompt);
+    const raw = await callOpenAI(prompt);
     const jsonMatch = raw.match(/\{[\s\S]*\}/);
     if (!jsonMatch) throw new Error("No JSON in response");
     const parsed = JSON.parse(jsonMatch[0]);
@@ -203,12 +209,12 @@ Return JSON only:
 
 // ── Main ─────────────────────────────────────────────────────────────────────
 async function main() {
-  console.log(`[${new Date().toISOString()}] Freehold Live Blog Monitor starting...`);
+  console.log(`[${new Date().toISOString()}] Propped Live Blog Monitor starting...`);
 
   const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   const parser = new RssParser({
     timeout: 10000,
-    headers: { "User-Agent": "Mozilla/5.0 (compatible; FreeholdBot/1.0; +https://selfemployedfyi.com)" },
+    headers: { "User-Agent": "Mozilla/5.0 (compatible; ProppedBot/1.0; +https://propped.org)" },
   });
 
   let totalNew = 0;

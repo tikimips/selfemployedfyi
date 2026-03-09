@@ -143,10 +143,10 @@ function CurrencyInput({
 
   return (
     <div className="space-y-1.5">
-      <label className="text-sm font-medium text-slate-300">{label}</label>
-      {hint && <p className="text-xs text-slate-500">{hint}</p>}
+      <label className="text-sm font-medium text-zinc-300">{label}</label>
+      {hint && <p className="text-xs text-zinc-500">{hint}</p>}
       <div className="relative">
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-medium text-sm">$</span>
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 font-medium text-sm">$</span>
         <input
           type="text"
           inputMode="numeric"
@@ -162,7 +162,7 @@ function CurrencyInput({
             onChange(isNaN(n) ? 0 : n);
           }}
           onChange={(e) => setRaw(e.target.value)}
-          className="w-full bg-slate-800 border border-slate-700 rounded-lg pl-7 pr-4 py-3 text-slate-100 text-sm placeholder-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-colors"
+          className="w-full bg-zinc-800 border border-zinc-700 rounded-lg pl-7 pr-4 py-3 text-zinc-100 text-sm placeholder-zinc-600 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500/30 transition-colors"
         />
       </div>
     </div>
@@ -188,21 +188,21 @@ function StatCard({
     <div
       className={`rounded-xl p-4 border ${
         highlight
-          ? "bg-emerald-900/30 border-emerald-700/50"
+          ? "bg-brand-900/30 border-brand-700/50"
           : warning
           ? "bg-red-900/20 border-red-800/40"
-          : "bg-slate-800/60 border-slate-700"
+          : "bg-zinc-800/60 border-zinc-700"
       }`}
     >
-      <p className="text-xs text-slate-400 mb-1">{label}</p>
+      <p className="text-xs text-zinc-400 mb-1">{label}</p>
       <p
         className={`text-xl font-bold ${
-          highlight ? "text-emerald-300" : warning ? "text-red-400" : "text-white"
+          highlight ? "text-brand-300" : warning ? "text-red-400" : "text-white"
         }`}
       >
         {value}
       </p>
-      {sub && <p className="text-xs text-slate-500 mt-0.5">{sub}</p>}
+      {sub && <p className="text-xs text-zinc-500 mt-0.5">{sub}</p>}
     </div>
   );
 }
@@ -289,31 +289,31 @@ export default function QuarterlyTaxCalculator() {
             ? "bg-red-950/50 border-red-800/50"
             : days <= 30
             ? "bg-amber-950/40 border-amber-800/40"
-            : "bg-slate-800/60 border-slate-700"
+            : "bg-zinc-800/60 border-zinc-700"
         }`}
       >
         <Clock
           size={16}
-          className={days <= 14 ? "text-red-400" : days <= 30 ? "text-amber-400" : "text-slate-400"}
+          className={days <= 14 ? "text-red-400" : days <= 30 ? "text-amber-400" : "text-zinc-400"}
         />
         <p className="text-sm">
           <span
             className={`font-semibold ${
-              days <= 14 ? "text-red-300" : days <= 30 ? "text-amber-300" : "text-slate-200"
+              days <= 14 ? "text-red-300" : days <= 30 ? "text-amber-300" : "text-zinc-200"
             }`}
           >
             {nextDeadline.q} payment due {nextDeadline.label}
           </span>
-          <span className="text-slate-400">
+          <span className="text-zinc-400">
             {" "}— {days} day{days !== 1 ? "s" : ""} away
           </span>
         </p>
       </div>
 
       {/* Inputs */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 mb-6">
+      <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 mb-6">
         <h2 className="text-base font-semibold text-white mb-5 flex items-center gap-2">
-          <Calculator size={16} className="text-emerald-400" />
+          <Calculator size={16} className="text-brand-400" />
           Your 2026 Numbers
         </h2>
 
@@ -334,19 +334,19 @@ export default function QuarterlyTaxCalculator() {
 
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <label className="text-sm font-medium text-slate-300">Filing Status</label>
+            <label className="text-sm font-medium text-zinc-300">Filing Status</label>
             <div className="relative">
               <select
                 value={filingStatus}
                 onChange={(e) => setFilingStatus(e.target.value)}
-                className="w-full appearance-none bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-slate-100 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-colors pr-8"
+                className="w-full appearance-none bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-3 text-zinc-100 text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500/30 transition-colors pr-8"
               >
                 <option value="single">Single</option>
                 <option value="mfj">Married Filing Jointly</option>
                 <option value="mfs">Married Filing Separately</option>
                 <option value="hoh">Head of Household</option>
               </select>
-              <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+              <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none" />
             </div>
           </div>
 
@@ -363,24 +363,24 @@ export default function QuarterlyTaxCalculator() {
       {hasResults && (
         <>
           {/* Hero result */}
-          <div className="bg-gradient-to-br from-emerald-900/40 to-slate-900 border border-emerald-700/40 rounded-2xl p-6 mb-4 text-center">
-            <p className="text-sm text-slate-400 mb-1">Your next quarterly payment ({nextDeadline.q})</p>
-            <p className="text-5xl font-black text-emerald-300 mb-1">{fmt(calc.perQuarter)}</p>
-            <p className="text-sm text-slate-400">
-              due <span className="text-slate-200 font-medium">{nextDeadline.label}</span>
+          <div className="bg-gradient-to-br from-brand-900/40 to-zinc-900 border border-brand-700/40 rounded-2xl p-6 mb-4 text-center">
+            <p className="text-sm text-zinc-400 mb-1">Your next quarterly payment ({nextDeadline.q})</p>
+            <p className="text-5xl font-black text-brand-300 mb-1">{fmt(calc.perQuarter)}</p>
+            <p className="text-sm text-zinc-400">
+              due <span className="text-zinc-200 font-medium">{nextDeadline.label}</span>
             </p>
 
-            <div className="mt-5 pt-5 border-t border-slate-700/50 grid grid-cols-3 gap-4 text-center">
+            <div className="mt-5 pt-5 border-t border-zinc-700/50 grid grid-cols-3 gap-4 text-center">
               <div>
-                <p className="text-xs text-slate-500 mb-0.5">Annual Tax</p>
+                <p className="text-xs text-zinc-500 mb-0.5">Annual Tax</p>
                 <p className="text-base font-bold text-white">{fmt(calc.totalAnnual)}</p>
               </div>
               <div>
-                <p className="text-xs text-slate-500 mb-0.5">Effective Rate</p>
+                <p className="text-xs text-zinc-500 mb-0.5">Effective Rate</p>
                 <p className="text-base font-bold text-white">{pct(calc.effectiveRate)}</p>
               </div>
               <div>
-                <p className="text-xs text-slate-500 mb-0.5">Set Aside</p>
+                <p className="text-xs text-zinc-500 mb-0.5">Set Aside</p>
                 <p className="text-base font-bold text-amber-300">
                   {pct(calc.setAsideRate)}
                 </p>
@@ -406,7 +406,7 @@ export default function QuarterlyTaxCalculator() {
           {/* Breakdown toggle */}
           <button
             onClick={() => setShowBreakdown(!showBreakdown)}
-            className="w-full flex items-center justify-between px-4 py-3 bg-slate-800/60 border border-slate-700 rounded-xl text-sm text-slate-400 hover:text-slate-200 hover:border-slate-600 transition-colors mb-4"
+            className="w-full flex items-center justify-between px-4 py-3 bg-zinc-800/60 border border-zinc-700 rounded-xl text-sm text-zinc-400 hover:text-zinc-200 hover:border-zinc-600 transition-colors mb-4"
           >
             <span className="flex items-center gap-2">
               <Info size={14} />
@@ -419,7 +419,7 @@ export default function QuarterlyTaxCalculator() {
           </button>
 
           {showBreakdown && (
-            <div className="bg-slate-800/40 border border-slate-700/60 rounded-xl p-4 mb-4 space-y-2 text-sm">
+            <div className="bg-zinc-800/40 border border-zinc-700/60 rounded-xl p-4 mb-4 space-y-2 text-sm">
               {[
                 ["Gross Revenue", fmt(grossIncome)],
                 ["− Business Expenses", `(${fmt(expenses)})`],
@@ -437,8 +437,8 @@ export default function QuarterlyTaxCalculator() {
                 <div
                   key={label as string}
                   className={`flex justify-between items-center ${
-                    bold ? "font-semibold text-white border-t border-slate-700 pt-2 mt-2" : "text-slate-400"
-                  } ${highlight ? "text-emerald-300" : ""}`}
+                    bold ? "font-semibold text-white border-t border-zinc-700 pt-2 mt-2" : "text-zinc-400"
+                  } ${highlight ? "text-brand-300" : ""}`}
                 >
                   <span>{label as string}</span>
                   <span className="font-mono">{value as string}</span>
@@ -448,8 +448,8 @@ export default function QuarterlyTaxCalculator() {
           )}
 
           {/* All 4 quarters */}
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 mb-6">
-            <h3 className="text-sm font-semibold text-slate-300 mb-4">2026 Payment Schedule</h3>
+          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 mb-6">
+            <h3 className="text-sm font-semibold text-zinc-300 mb-4">2026 Payment Schedule</h3>
             <div className="space-y-2">
               {DEADLINES.map((d) => {
                 const isPast = d.due <= new Date();
@@ -459,33 +459,33 @@ export default function QuarterlyTaxCalculator() {
                     key={d.q}
                     className={`flex items-center justify-between rounded-lg px-4 py-3 ${
                       isNext
-                        ? "bg-emerald-900/30 border border-emerald-700/40"
+                        ? "bg-brand-900/30 border border-brand-700/40"
                         : isPast
-                        ? "opacity-40 bg-slate-800/30"
-                        : "bg-slate-800/40"
+                        ? "opacity-40 bg-zinc-800/30"
+                        : "bg-zinc-800/40"
                     }`}
                   >
                     <div>
                       <span
                         className={`text-xs font-bold uppercase tracking-wider mr-2 ${
-                          isNext ? "text-emerald-400" : "text-slate-500"
+                          isNext ? "text-brand-400" : "text-zinc-500"
                         }`}
                       >
                         {d.q}
                       </span>
-                      <span className="text-sm text-slate-300">{d.period}</span>
+                      <span className="text-sm text-zinc-300">{d.period}</span>
                     </div>
                     <div className="text-right">
-                      <p className={`font-semibold text-sm ${isNext ? "text-emerald-300" : "text-white"}`}>
+                      <p className={`font-semibold text-sm ${isNext ? "text-brand-300" : "text-white"}`}>
                         {fmt(calc.perQuarter)}
                       </p>
-                      <p className="text-xs text-slate-500">{d.label}</p>
+                      <p className="text-xs text-zinc-500">{d.label}</p>
                     </div>
                   </div>
                 );
               })}
             </div>
-            <p className="text-xs text-slate-600 mt-3">
+            <p className="text-xs text-zinc-600 mt-3">
               Equal quarterly payments assume even income throughout the year. If your income is seasonal, annualized income method may save you money.
             </p>
           </div>
@@ -497,7 +497,7 @@ export default function QuarterlyTaxCalculator() {
               <p className="text-sm font-semibold text-amber-300 mb-1">
                 Set aside {pct(calc.setAsideRate)} of every payment you receive
               </p>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <p className="text-xs text-zinc-400 leading-relaxed">
                 Move this percentage into a separate savings account every time you get paid. When quarterly deadlines hit, the money is already there. No surprises.
               </p>
             </div>
@@ -505,22 +505,22 @@ export default function QuarterlyTaxCalculator() {
 
           {/* Email capture */}
           {emailStep === "done" ? (
-            <div className="bg-slate-900 border border-slate-700 rounded-2xl p-6 flex flex-col items-center text-center gap-3">
-              <div className="w-10 h-10 bg-emerald-900/40 border border-emerald-700/50 rounded-full flex items-center justify-center">
-                <CheckCircle2 size={20} className="text-emerald-400" />
+            <div className="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 flex flex-col items-center text-center gap-3">
+              <div className="w-10 h-10 bg-brand-900/40 border border-brand-700/50 rounded-full flex items-center justify-center">
+                <CheckCircle2 size={20} className="text-brand-400" />
               </div>
               <p className="font-semibold text-white">You're on the list</p>
-              <p className="text-sm text-slate-400">
+              <p className="text-sm text-zinc-400">
                 We'll remind you before each quarterly deadline with a heads-up and a link back to this calculator.
               </p>
             </div>
           ) : (
-            <div className="bg-slate-900 border border-slate-700 rounded-2xl p-6">
+            <div className="bg-zinc-900 border border-zinc-700 rounded-2xl p-6">
               <div className="flex items-start gap-3 mb-4">
-                <Calendar size={18} className="text-emerald-400 shrink-0 mt-0.5" />
+                <Calendar size={18} className="text-brand-400 shrink-0 mt-0.5" />
                 <div>
                   <p className="text-sm font-semibold text-white">Get a reminder before each deadline</p>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <p className="text-xs text-zinc-400 mt-0.5">
                     We'll email you 2 weeks before Q2, Q3, and Q4 payments are due. No spam — just the deadline, the amount, and a link back here.
                   </p>
                 </div>
@@ -535,12 +535,12 @@ export default function QuarterlyTaxCalculator() {
                   }}
                   onKeyDown={(e) => e.key === "Enter" && handleEmailSave()}
                   placeholder="you@example.com"
-                  className="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-colors"
+                  className="flex-1 bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500/30 transition-colors"
                 />
                 <button
                   onClick={handleEmailSave}
                   disabled={!isValidEmail || emailStep === "submitting"}
-                  className="bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-700 disabled:text-slate-500 text-white font-semibold px-4 py-2.5 rounded-lg text-sm flex items-center gap-1.5 transition-colors whitespace-nowrap"
+                  className="bg-brand-600 hover:bg-brand-500 disabled:bg-zinc-700 disabled:text-zinc-500 text-white font-semibold px-4 py-2.5 rounded-lg text-sm flex items-center gap-1.5 transition-colors whitespace-nowrap"
                 >
                   {emailStep === "submitting" ? (
                     <Loader2 size={14} className="animate-spin" />
@@ -554,7 +554,7 @@ export default function QuarterlyTaxCalculator() {
           )}
 
           {/* Disclaimer */}
-          <p className="text-xs text-slate-600 text-center mt-5 leading-relaxed">
+          <p className="text-xs text-zinc-600 text-center mt-5 leading-relaxed">
             Estimates based on 2025 federal tax rates. Does not include state income tax, NIIT, or AMT.
             Actual tax may vary. Consult a tax professional for personalized advice.
           </p>

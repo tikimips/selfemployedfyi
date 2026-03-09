@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Quarterly Estimated Taxes: The Complete Guide for Freelancers",
   description: "How quarterly estimated tax payments work, when they're due, how much to pay, and how to avoid underpayment penalties. Everything you need in one place.",
   keywords: ["quarterly estimated taxes freelancer", "how to pay quarterly taxes self employed", "estimated tax payment deadlines 2026", "1040-ES instructions"],
-  alternates: { canonical: "https://selfemployedfyi.com/field/quarterly-estimated-taxes-guide" },
+  alternates: { canonical: "https://propped.org/field/quarterly-estimated-taxes-guide" },
 };
 
 const article = getArticle("quarterly-estimated-taxes-guide")!;
@@ -44,7 +44,7 @@ export default function Article() {
 
       <h2>The 2026 deadlines</h2>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2">
         <div className="space-y-3">
           {[
             { q: "Q1", period: "Income earned Jan 1 – Mar 31", due: "April 15, 2026", urgent: true },
@@ -52,16 +52,16 @@ export default function Article() {
             { q: "Q3", period: "Income earned Jun 1 – Aug 31", due: "September 15, 2026", urgent: false },
             { q: "Q4", period: "Income earned Sep 1 – Dec 31", due: "January 15, 2027", urgent: false },
           ].map(({ q, period, due, urgent }) => (
-            <div key={q} className={`flex items-center justify-between p-3 rounded-lg ${urgent ? "bg-amber-950/40 border border-amber-800/40" : "bg-slate-700/30"}`}>
+            <div key={q} className={`flex items-center justify-between p-3 rounded-lg ${urgent ? "bg-amber-950/40 border border-amber-800/40" : "bg-zinc-700/30"}`}>
               <div>
-                <span className={`text-xs font-bold uppercase tracking-wider ${urgent ? "text-amber-400" : "text-slate-500"}`}>{q}</span>
-                <p className="text-sm text-slate-300 mt-0.5">{period}</p>
+                <span className={`text-xs font-bold uppercase tracking-wider ${urgent ? "text-amber-400" : "text-zinc-500"}`}>{q}</span>
+                <p className="text-sm text-zinc-300 mt-0.5">{period}</p>
               </div>
               <p className={`text-sm font-semibold ${urgent ? "text-amber-300" : "text-white"}`}>{due}</p>
             </div>
           ))}
         </div>
-        <p className="text-xs text-slate-600 mt-3">Note: Q2 covers only 2 months, not 3. This confuses everyone.</p>
+        <p className="text-xs text-zinc-600 mt-3">Note: Q2 covers only 2 months, not 3. This confuses everyone.</p>
       </div>
 
       <p>
@@ -108,18 +108,18 @@ export default function Article() {
         Three options, all easy:
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-3">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-3">
         <div>
           <p className="text-sm font-semibold text-white">IRS Direct Pay (free)</p>
-          <p className="text-sm text-slate-400 mt-0.5">Pay directly from your bank account at irs.gov/payments. No account needed. Confirm payment immediately. This is the cleanest option.</p>
+          <p className="text-sm text-zinc-400 mt-0.5">Pay directly from your bank account at irs.gov/payments. No account needed. Confirm payment immediately. This is the cleanest option.</p>
         </div>
         <div>
           <p className="text-sm font-semibold text-white">EFTPS (free, requires enrollment)</p>
-          <p className="text-sm text-slate-400 mt-0.5">The IRS's Electronic Federal Tax Payment System. Takes a few days to set up but lets you schedule payments in advance. Good if you want to set it and forget it.</p>
+          <p className="text-sm text-zinc-400 mt-0.5">The IRS's Electronic Federal Tax Payment System. Takes a few days to set up but lets you schedule payments in advance. Good if you want to set it and forget it.</p>
         </div>
         <div>
           <p className="text-sm font-semibold text-white">Mail Form 1040-ES with a check</p>
-          <p className="text-sm text-slate-400 mt-0.5">It still works. Most people do not use it. The IRS accepts it. Use certified mail if you go this route.</p>
+          <p className="text-sm text-zinc-400 mt-0.5">It still works. Most people do not use it. The IRS accepts it. Use certified mail if you go this route.</p>
         </div>
       </div>
 
@@ -158,12 +158,12 @@ export default function Article() {
         IRS Direct Pay. Takes about 10 minutes.
       </p>
 
-      <div className="bg-emerald-950/40 border border-emerald-800/40 rounded-xl p-5 my-2">
-        <p className="text-emerald-300 font-semibold text-sm mb-2">Calculate exactly what you owe right now</p>
-        <p className="text-slate-400 text-sm leading-relaxed mb-4">
+      <div className="bg-brand-950/40 border border-brand-800/40 rounded-xl p-5 my-2">
+        <p className="text-brand-300 font-semibold text-sm mb-2">Calculate exactly what you owe right now</p>
+        <p className="text-zinc-400 text-sm leading-relaxed mb-4">
           Enter your expected income and expenses and get your Q1 payment amount, the full 2026 schedule, and your set-aside percentage.
         </p>
-        <Link href="/calculators/quarterly-taxes" className="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
+        <Link href="/calculators/quarterly-taxes" className="inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
           Open quarterly tax calculator
         </Link>
       </div>

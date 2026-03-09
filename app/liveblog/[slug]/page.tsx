@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { getLiveBlogCategories, getLiveBlogPosts, LiveBlogPost } from "@/lib/supabase";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 
-const BASE_URL = "https://selfemployedfyi.com";
+const BASE_URL = "https://propped.org";
 
 export const revalidate = 60; // ISR: revalidate every 60s
 
@@ -27,9 +27,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const categories = await getLiveBlogCategories();
     const cat = categories.find((c) => c.slug === params.slug);
-    if (!cat) return { title: "Live Blog | Freehold" };
+    if (!cat) return { title: "Live Blog | Propped" };
 
-    const title = `${cat.name} — Live Blog | Freehold`;
+    const title = `${cat.name} — Live Blog | Propped`;
     const desc = cat.description;
     const url = `${BASE_URL}/liveblog/${cat.slug}`;
 
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: desc,
         url,
         type: "website",
-        siteName: "Freehold",
+        siteName: "Propped",
       },
       twitter: {
         card: "summary_large_image",
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     };
   } catch {
-    return { title: "Live Blog | Freehold" };
+    return { title: "Live Blog | Propped" };
   }
 }
 
@@ -77,12 +77,12 @@ function formatDate(dateStr: string): string {
 }
 
 const COLOR_MAP: Record<string, { dot: string; badge: string; accent: string }> = {
-  emerald: { dot: "bg-emerald-400", badge: "bg-emerald-950/50 border-emerald-800/50 text-emerald-300", accent: "text-emerald-400" },
+  emerald: { dot: "bg-brand-400", badge: "bg-brand-950/50 border-brand-800/50 text-brand-300", accent: "text-brand-400" },
   blue:    { dot: "bg-blue-400",    badge: "bg-blue-950/50 border-blue-800/50 text-blue-300",         accent: "text-blue-400"    },
   amber:   { dot: "bg-amber-400",   badge: "bg-amber-950/50 border-amber-800/50 text-amber-300",      accent: "text-amber-400"   },
   green:   { dot: "bg-green-400",   badge: "bg-green-950/50 border-green-800/50 text-green-300",      accent: "text-green-400"   },
   purple:  { dot: "bg-purple-400",  badge: "bg-purple-950/50 border-purple-800/50 text-purple-300",   accent: "text-purple-400"  },
-  slate:   { dot: "bg-slate-400",   badge: "bg-slate-800/50 border-slate-700/50 text-slate-300",      accent: "text-slate-400"   },
+  slate:   { dot: "bg-zinc-400",   badge: "bg-zinc-800/50 border-zinc-700/50 text-zinc-300",      accent: "text-zinc-400"   },
 };
 
 export default async function LiveBlogCategoryPage({ params }: Props) {
@@ -98,11 +98,11 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
 
   if (!cat) {
     return (
-      <main className="min-h-screen bg-slate-950">
+      <main className="min-h-screen bg-zinc-950">
         <Nav />
         <div className="max-w-3xl mx-auto px-4 py-20 text-center">
-          <p className="text-slate-400">Live blog not found.</p>
-          <Link href="/liveblog" className="text-emerald-400 hover:text-emerald-300 mt-4 inline-block">
+          <p className="text-zinc-400">Live blog not found.</p>
+          <Link href="/liveblog" className="text-brand-400 hover:text-brand-300 mt-4 inline-block">
             ← Back to Live Blog
           </Link>
         </div>
@@ -125,7 +125,7 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
     dateModified: cat.last_updated || new Date().toISOString(),
     publisher: {
       "@type": "Organization",
-      name: "Freehold",
+      name: "Propped",
       url: BASE_URL,
     },
     coverageStartTime: cat.created_at,
@@ -139,12 +139,12 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
       image: p.image_url
         ? { "@type": "ImageObject", url: p.image_url, width: 1200, height: 675 }
         : undefined,
-      author: { "@type": "Organization", name: "Freehold" },
+      author: { "@type": "Organization", name: "Propped" },
     })),
   };
 
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen bg-zinc-950">
       <Nav />
 
       <script
@@ -153,11 +153,11 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
       />
 
       {/* Header */}
-      <section className="pt-12 pb-8 px-4 border-b border-slate-800/50">
+      <section className="pt-12 pb-8 px-4 border-b border-zinc-800/50">
         <div className="max-w-3xl mx-auto">
           <Link
             href="/liveblog"
-            className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-300 mb-6 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-zinc-500 hover:text-zinc-300 mb-6 transition-colors"
           >
             <ArrowLeft size={12} /> Live Blog
           </Link>
@@ -175,11 +175,11 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
                 </div>
               </div>
               <h1 className="text-3xl sm:text-4xl font-black text-white mb-2">{cat.name}</h1>
-              <p className="text-slate-400 max-w-xl">{cat.description}</p>
+              <p className="text-zinc-400 max-w-xl">{cat.description}</p>
             </div>
           </div>
 
-          <div className="mt-4 text-xs text-slate-600">
+          <div className="mt-4 text-xs text-zinc-600">
             {posts.length} update{posts.length !== 1 ? "s" : ""} · Last updated{" "}
             {posts[0] ? timeAgo(posts[0].published_at) : "recently"}
           </div>
@@ -190,7 +190,7 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
       <section className="py-10 px-4">
         <div className="max-w-3xl mx-auto space-y-8">
           {posts.length === 0 && (
-            <div className="text-center py-20 text-slate-600">
+            <div className="text-center py-20 text-zinc-600">
               <p className="text-2xl mb-2">{cat.icon}</p>
               <p>First update incoming — check back shortly.</p>
             </div>
@@ -199,13 +199,13 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
           {posts.map((post) => (
             <article
               key={post.id}
-              className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden"
+              className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden"
               itemScope
               itemType="https://schema.org/BlogPosting"
             >
               {/* Image */}
               {post.image_url && (
-                <div className="relative w-full aspect-video bg-slate-800">
+                <div className="relative w-full aspect-video bg-zinc-800">
                   <img
                     src={post.image_url}
                     alt={post.image_alt || post.title}
@@ -226,10 +226,10 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
                     {cat.name}
                   </span>
                   {post.source_name && ["Josh Smart"].includes(post.source_name) && (
-                    <span className="text-xs text-slate-500">by {post.source_name}</span>
+                    <span className="text-xs text-zinc-500">by {post.source_name}</span>
                   )}
                   <time
-                    className="text-xs text-slate-600 ml-auto"
+                    className="text-xs text-zinc-600 ml-auto"
                     dateTime={post.published_at}
                     itemProp="datePublished"
                     title={formatDate(post.published_at)}
@@ -240,14 +240,14 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
 
                 {/* Title */}
                 <h2 className="text-xl font-bold text-white mb-3 leading-snug" itemProp="headline">
-                  <Link href={`/liveblog/post/${post.id}`} className="hover:text-emerald-300 transition-colors">
+                  <Link href={`/liveblog/post/${post.id}`} className="hover:text-brand-300 transition-colors">
                     {post.title}
                   </Link>
                 </h2>
 
                 {/* Summary */}
                 {post.summary && (
-                  <p className="text-slate-300 text-sm leading-relaxed mb-4" itemProp="description">
+                  <p className="text-zinc-300 text-sm leading-relaxed mb-4" itemProp="description">
                     {post.summary}
                   </p>
                 )}
@@ -255,7 +255,7 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
                 {/* Content */}
                 {post.content && (
                   <div
-                    className="text-slate-400 text-sm leading-relaxed space-y-3 prose prose-invert prose-sm max-w-none"
+                    className="text-zinc-400 text-sm leading-relaxed space-y-3 prose prose-invert prose-sm max-w-none"
                     itemProp="articleBody"
                     dangerouslySetInnerHTML={{ __html: post.content.replace(/\n\n/g, "</p><p>").replace(/\n/g, "<br/>") }}
                   />
@@ -267,7 +267,7 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
                     {post.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs text-slate-500 bg-slate-800 px-2 py-0.5 rounded"
+                        className="text-xs text-zinc-500 bg-zinc-800 px-2 py-0.5 rounded"
                       >
                         #{tag}
                       </span>
@@ -281,7 +281,7 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
                     href={post.source_url}
                     target="_blank"
                     rel="noopener noreferrer nofollow"
-                    className="inline-flex items-center gap-1.5 text-xs text-slate-600 hover:text-slate-400 mt-4 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs text-zinc-600 hover:text-zinc-400 mt-4 transition-colors"
                   >
                     <ExternalLink size={11} />
                     Source: {post.source_name || post.source_url}
@@ -294,9 +294,9 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
       </section>
 
       {/* Other live blogs */}
-      <section className="py-10 px-4 border-t border-slate-800/50">
+      <section className="py-10 px-4 border-t border-zinc-800/50">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">More live blogs</p>
+          <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">More live blogs</p>
           <div className="flex flex-wrap gap-3">
             {categories
               .filter((other) => other.slug !== cat.slug)
@@ -304,7 +304,7 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
                 <Link
                   key={other.slug}
                   href={`/liveblog/${other.slug}`}
-                  className="inline-flex items-center gap-2 bg-slate-900 border border-slate-800 hover:border-slate-600 rounded-lg px-3 py-2 text-sm text-slate-300 hover:text-white transition-all"
+                  className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 hover:border-zinc-600 rounded-lg px-3 py-2 text-sm text-zinc-300 hover:text-white transition-all"
                 >
                   <span>{other.icon}</span>
                   {other.name}

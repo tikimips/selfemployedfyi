@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Do you actually need an LLC? When does an S-corp make sense? The real answers for freelancers and independent business owners, without the YouTube hype.",
   keywords: ["llc vs s corp vs sole proprietorship freelancer", "do i need an llc self employed", "s corp election when", "sole proprietor vs llc tax difference"],
-  alternates: { canonical: "https://selfemployedfyi.com/field/llc-vs-s-corp-vs-sole-proprietorship" },
+  alternates: { canonical: "https://propped.org/field/llc-vs-s-corp-vs-sole-proprietorship" },
 };
 
 const article = getArticle("llc-vs-s-corp-vs-sole-proprietorship")!;
@@ -72,9 +72,9 @@ export default function Article() {
         contract.
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2">
         <p className="text-sm font-semibold text-white mb-3">What an LLC actually costs</p>
-        <div className="space-y-2 text-sm text-slate-400">
+        <div className="space-y-2 text-sm text-zinc-400">
           <div className="flex justify-between"><span>State filing fee (one-time)</span><span className="text-white">$50-500 depending on state</span></div>
           <div className="flex justify-between"><span>Annual report fee (some states)</span><span className="text-white">$0-300/year</span></div>
           <div className="flex justify-between"><span>Registered agent (optional)</span><span className="text-white">$50-150/year</span></div>
@@ -108,20 +108,20 @@ export default function Article() {
         and distributions. You pay SE tax only on the salary portion.
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-3">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-3">
         <p className="text-sm font-semibold text-white">Example: $150,000 net profit</p>
         <div className="space-y-1 text-sm">
-          <div className="flex justify-between text-slate-400">
+          <div className="flex justify-between text-zinc-400">
             <span>Without S-corp (SE tax on full $150K)</span>
             <span className="text-red-400">~$21,240 SE tax</span>
           </div>
-          <div className="flex justify-between text-slate-400">
+          <div className="flex justify-between text-zinc-400">
             <span>With S-corp ($70K salary, $80K distributions)</span>
-            <span className="text-emerald-400">~$9,912 SE tax</span>
+            <span className="text-brand-400">~$9,912 SE tax</span>
           </div>
-          <div className="flex justify-between font-semibold border-t border-slate-700 pt-2 mt-2">
+          <div className="flex justify-between font-semibold border-t border-zinc-700 pt-2 mt-2">
             <span className="text-white">Annual savings</span>
-            <span className="text-emerald-300">~$11,328</span>
+            <span className="text-brand-300">~$11,328</span>
           </div>
         </div>
       </div>
@@ -147,7 +147,7 @@ export default function Article() {
 
       <h2>The order of operations</h2>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-4">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-4">
         {[
           { step: "1", label: "Start as a sole proprietor", detail: "Ship things. Make money. The IRS does not care about your entity structure when you are making $20K a year." },
           { step: "2", label: "Form an LLC when liability becomes real", detail: "Meaningful revenue, real liability exposure, or you want the legitimacy for bigger clients. Somewhere around $50K+ is a reasonable trigger." },
@@ -155,12 +155,12 @@ export default function Article() {
           { step: "4", label: "Talk to a CPA who works with self-employed clients", detail: "Not a general tax preparer. Someone who specializes in small business and freelancers. The difference in advice quality is real." },
         ].map(({ step, label, detail }) => (
           <div key={step} className="flex gap-4">
-            <div className="w-7 h-7 rounded-full bg-emerald-900/50 border border-emerald-800/50 flex items-center justify-center shrink-0">
-              <span className="text-xs font-bold text-emerald-400">{step}</span>
+            <div className="w-7 h-7 rounded-full bg-brand-900/50 border border-brand-800/50 flex items-center justify-center shrink-0">
+              <span className="text-xs font-bold text-brand-400">{step}</span>
             </div>
             <div>
               <p className="text-sm font-semibold text-white">{label}</p>
-              <p className="text-sm text-slate-400 mt-0.5">{detail}</p>
+              <p className="text-sm text-zinc-400 mt-0.5">{detail}</p>
             </div>
           </div>
         ))}
@@ -180,15 +180,15 @@ export default function Article() {
         This one is more expensive. A good CPA catches it. The internet does not always.
       </p>
 
-      <div className="bg-emerald-950/40 border border-emerald-800/40 rounded-xl p-5 my-2">
-        <p className="text-emerald-300 font-semibold text-sm mb-2">Know what you actually owe right now</p>
-        <p className="text-slate-400 text-sm leading-relaxed mb-4">
+      <div className="bg-brand-950/40 border border-brand-800/40 rounded-xl p-5 my-2">
+        <p className="text-brand-300 font-semibold text-sm mb-2">Know what you actually owe right now</p>
+        <p className="text-zinc-400 text-sm leading-relaxed mb-4">
           Whatever structure you are in, the quarterly tax calculator shows your current tax bill
           and what to set aside before the next deadline.
         </p>
         <Link
           href="/calculators/quarterly-taxes"
-          className="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+          className="inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
         >
           Calculate my quarterly taxes
         </Link>

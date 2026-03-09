@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "What Business Expenses Can I Deduct? The Real List",
   description: "A plain-English guide to self-employed tax deductions. What counts, what doesn't, and how to make sure you're not leaving money on the table every April.",
   keywords: ["self employed tax deductions list", "what can i deduct as a freelancer", "business expenses tax deductible", "schedule c deductions"],
-  alternates: { canonical: "https://selfemployedfyi.com/field/what-business-expenses-can-i-deduct" },
+  alternates: { canonical: "https://propped.org/field/what-business-expenses-can-i-deduct" },
 };
 
 const article = getArticle("what-business-expenses-can-i-deduct")!;
@@ -47,11 +47,11 @@ export default function Article() {
         benefit from calculating both.
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2">
         <p className="text-sm font-semibold text-white mb-3">Home office regular method includes:</p>
-        <div className="grid grid-cols-2 gap-1 text-sm text-slate-400">
+        <div className="grid grid-cols-2 gap-1 text-sm text-zinc-400">
           {["Rent (prorated %)", "Mortgage interest (prorated %)", "Utilities (prorated %)", "Renter's/homeowner's insurance", "Home repairs affecting office", "Internet (prorated %)"].map(item => (
-            <div key={item} className="flex items-center gap-2"><span className="text-emerald-500">+</span>{item}</div>
+            <div key={item} className="flex items-center gap-2"><span className="text-brand-500">+</span>{item}</div>
           ))}
         </div>
       </div>
@@ -63,12 +63,12 @@ export default function Article() {
         the receipts exist automatically.
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 grid grid-cols-2 gap-2">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 grid grid-cols-2 gap-2">
         {[
           "Laptop, monitor, keyboard", "Software subscriptions (Adobe, Figma, Notion)", "Cloud storage (Dropbox, iCloud business)", "Project management tools", "Video conferencing tools", "Domain names and hosting", "Security software", "External drives and peripherals", "Phone (business-use portion)", "Internet service (business portion)",
         ].map(item => (
-          <div key={item} className="flex items-start gap-2 text-sm text-slate-400">
-            <span className="text-emerald-500 shrink-0">+</span>{item}
+          <div key={item} className="flex items-start gap-2 text-sm text-zinc-400">
+            <span className="text-brand-500 shrink-0">+</span>{item}
           </div>
         ))}
       </div>
@@ -86,10 +86,10 @@ export default function Article() {
         a completely new career is not deductible.
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 grid grid-cols-2 gap-2">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 grid grid-cols-2 gap-2">
         {["Online courses and tutorials", "Industry books and publications", "Professional conferences", "Certifications and licenses", "Professional memberships", "Industry newsletters (paid)"].map(item => (
-          <div key={item} className="flex items-start gap-2 text-sm text-slate-400">
-            <span className="text-emerald-500 shrink-0">+</span>{item}
+          <div key={item} className="flex items-start gap-2 text-sm text-zinc-400">
+            <span className="text-brand-500 shrink-0">+</span>{item}
           </div>
         ))}
       </div>
@@ -102,41 +102,41 @@ export default function Article() {
         is their home office).
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-2">
-        <div className="flex items-start gap-2 text-sm text-slate-400"><span className="text-emerald-500 shrink-0">+</span>Mileage for client meetings (67 cents/mile in 2024)</div>
-        <div className="flex items-start gap-2 text-sm text-slate-400"><span className="text-emerald-500 shrink-0">+</span>Flights, hotels, meals for business trips (meals at 50%)</div>
-        <div className="flex items-start gap-2 text-sm text-slate-400"><span className="text-emerald-500 shrink-0">+</span>Parking and tolls for client visits</div>
-        <div className="flex items-start gap-2 text-sm text-slate-400"><span className="text-emerald-500 shrink-0">+</span>Rideshare to client meetings or the airport</div>
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-2">
+        <div className="flex items-start gap-2 text-sm text-zinc-400"><span className="text-brand-500 shrink-0">+</span>Mileage for client meetings (67 cents/mile in 2024)</div>
+        <div className="flex items-start gap-2 text-sm text-zinc-400"><span className="text-brand-500 shrink-0">+</span>Flights, hotels, meals for business trips (meals at 50%)</div>
+        <div className="flex items-start gap-2 text-sm text-zinc-400"><span className="text-brand-500 shrink-0">+</span>Parking and tolls for client visits</div>
+        <div className="flex items-start gap-2 text-sm text-zinc-400"><span className="text-brand-500 shrink-0">+</span>Rideshare to client meetings or the airport</div>
         <div className="flex items-start gap-2 text-sm text-red-400"><span className="text-red-500 shrink-0">-</span>Daily commute to a co-working space you go to every day</div>
         <div className="flex items-start gap-2 text-sm text-red-400"><span className="text-red-500 shrink-0">-</span>Personal vacations with one business meeting attached</div>
       </div>
 
       <h2>Marketing and client acquisition</h2>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 grid grid-cols-2 gap-2">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 grid grid-cols-2 gap-2">
         {["Website hosting and design", "Business cards", "Paid advertising (Google, social)", "Portfolio platform subscriptions", "Client gifts (up to $25/person/year)", "Meals with clients (50% deductible)"].map(item => (
-          <div key={item} className="flex items-start gap-2 text-sm text-slate-400">
-            <span className="text-emerald-500 shrink-0">+</span>{item}
+          <div key={item} className="flex items-start gap-2 text-sm text-zinc-400">
+            <span className="text-brand-500 shrink-0">+</span>{item}
           </div>
         ))}
       </div>
 
       <h2>Professional services</h2>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 grid grid-cols-2 gap-2">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 grid grid-cols-2 gap-2">
         {["CPA and tax preparation fees", "Attorney fees (business matters)", "Contract review", "Business coaching", "Bookkeeping services", "Payroll processing fees"].map(item => (
-          <div key={item} className="flex items-start gap-2 text-sm text-slate-400">
-            <span className="text-emerald-500 shrink-0">+</span>{item}
+          <div key={item} className="flex items-start gap-2 text-sm text-zinc-400">
+            <span className="text-brand-500 shrink-0">+</span>{item}
           </div>
         ))}
       </div>
 
       <h2>Insurance</h2>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 grid grid-cols-2 gap-2">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 grid grid-cols-2 gap-2">
         {["Professional liability (E&O) insurance", "General liability insurance", "Business property insurance", "Self-employed health insurance (separate deduction)", "Cyber liability insurance", "Business interruption insurance"].map(item => (
-          <div key={item} className="flex items-start gap-2 text-sm text-slate-400">
-            <span className="text-emerald-500 shrink-0">+</span>{item}
+          <div key={item} className="flex items-start gap-2 text-sm text-zinc-400">
+            <span className="text-brand-500 shrink-0">+</span>{item}
           </div>
         ))}
       </div>
@@ -159,11 +159,11 @@ export default function Article() {
 
       <div className="bg-amber-950/40 border border-amber-800/40 rounded-xl p-5 my-2 space-y-2">
         <p className="text-amber-300 font-semibold text-sm mb-2">Common mistakes</p>
-        <div className="flex items-start gap-2 text-sm text-slate-400"><span className="text-red-400 shrink-0">-</span>Clothing you could wear outside of work (suits, business casual)</div>
-        <div className="flex items-start gap-2 text-sm text-slate-400"><span className="text-red-400 shrink-0">-</span>Groceries and meals at home, even if you work from home</div>
-        <div className="flex items-start gap-2 text-sm text-slate-400"><span className="text-red-400 shrink-0">-</span>Personal entertainment that tangentially relates to your field</div>
-        <div className="flex items-start gap-2 text-sm text-slate-400"><span className="text-red-400 shrink-0">-</span>Your own salary or draw (not an expense)</div>
-        <div className="flex items-start gap-2 text-sm text-slate-400"><span className="text-red-400 shrink-0">-</span>Capital expenses in the year of purchase (depreciate instead, or use Section 179)</div>
+        <div className="flex items-start gap-2 text-sm text-zinc-400"><span className="text-red-400 shrink-0">-</span>Clothing you could wear outside of work (suits, business casual)</div>
+        <div className="flex items-start gap-2 text-sm text-zinc-400"><span className="text-red-400 shrink-0">-</span>Groceries and meals at home, even if you work from home</div>
+        <div className="flex items-start gap-2 text-sm text-zinc-400"><span className="text-red-400 shrink-0">-</span>Personal entertainment that tangentially relates to your field</div>
+        <div className="flex items-start gap-2 text-sm text-zinc-400"><span className="text-red-400 shrink-0">-</span>Your own salary or draw (not an expense)</div>
+        <div className="flex items-start gap-2 text-sm text-zinc-400"><span className="text-red-400 shrink-0">-</span>Capital expenses in the year of purchase (depreciate instead, or use Section 179)</div>
       </div>
 
       <h2>The actual move: track everything</h2>
@@ -180,13 +180,13 @@ export default function Article() {
         Done. The separation alone eliminates 80% of the headache.
       </p>
 
-      <div className="bg-emerald-950/40 border border-emerald-800/40 rounded-xl p-5 my-2">
-        <p className="text-emerald-300 font-semibold text-sm mb-2">See how deductions affect your tax bill</p>
-        <p className="text-slate-400 text-sm leading-relaxed mb-4">
+      <div className="bg-brand-950/40 border border-brand-800/40 rounded-xl p-5 my-2">
+        <p className="text-brand-300 font-semibold text-sm mb-2">See how deductions affect your tax bill</p>
+        <p className="text-zinc-400 text-sm leading-relaxed mb-4">
           The quarterly tax calculator lets you enter your expected expenses and see exactly
           how they reduce what you owe.
         </p>
-        <Link href="/calculators/quarterly-taxes" className="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
+        <Link href="/calculators/quarterly-taxes" className="inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
           Calculate my taxes
         </Link>
       </div>

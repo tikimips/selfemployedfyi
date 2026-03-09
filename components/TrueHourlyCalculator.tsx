@@ -116,10 +116,10 @@ function Slider({
   return (
     <div className="space-y-2">
       <div className="flex justify-between items-baseline">
-        <label className="text-sm font-medium text-slate-300">{label}</label>
-        <span className="text-sm font-bold text-emerald-300">{display}</span>
+        <label className="text-sm font-medium text-zinc-300">{label}</label>
+        <span className="text-sm font-bold text-brand-300">{display}</span>
       </div>
-      {hint && <p className="text-xs text-slate-500">{hint}</p>}
+      {hint && <p className="text-xs text-zinc-500">{hint}</p>}
       <input
         type="range"
         min={min}
@@ -127,12 +127,12 @@ function Slider({
         step={step}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full h-1.5 rounded-full appearance-none cursor-pointer accent-emerald-500"
+        className="w-full h-1.5 rounded-full appearance-none cursor-pointer accent-brand-500"
         style={{
           background: `linear-gradient(to right, rgb(16 185 129) ${pct}%, rgb(51 65 85) ${pct}%)`,
         }}
       />
-      <div className="flex justify-between text-xs text-slate-600">
+      <div className="flex justify-between text-xs text-zinc-600">
         <span>{min}</span>
         <span>{max}</span>
       </div>
@@ -162,10 +162,10 @@ function CurrencyInput({
 
   return (
     <div className="space-y-1.5">
-      <label className="text-sm font-medium text-slate-300">{label}</label>
-      {hint && <p className="text-xs text-slate-500">{hint}</p>}
+      <label className="text-sm font-medium text-zinc-300">{label}</label>
+      {hint && <p className="text-xs text-zinc-500">{hint}</p>}
       <div className="relative">
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-medium text-sm">$</span>
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 font-medium text-sm">$</span>
         <input
           type="text"
           inputMode="numeric"
@@ -178,7 +178,7 @@ function CurrencyInput({
             onChange(isNaN(n) ? 0 : n);
           }}
           onChange={(e) => setRaw(e.target.value)}
-          className="w-full bg-slate-800 border border-slate-700 rounded-lg pl-7 pr-4 py-3 text-slate-100 text-sm placeholder-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-colors"
+          className="w-full bg-zinc-800 border border-zinc-700 rounded-lg pl-7 pr-4 py-3 text-zinc-100 text-sm placeholder-zinc-600 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500/30 transition-colors"
         />
       </div>
     </div>
@@ -264,7 +264,7 @@ export default function TrueHourlyCalculator() {
 
   const severity = calc.gapPct > 0.6 ? "severe" : calc.gapPct > 0.4 ? "high" : calc.gapPct > 0.2 ? "medium" : "low";
 
-  const shareText = `I bill at ${fmtHr(calc.billedRate)}/hr. My true hourly rate after taxes, overhead & unpaid time: ${fmtHr(calc.trueHourly)}/hr. Reality check via Freehold → selfemployedfyi.com/calculators/true-hourly-rate`;
+  const shareText = `I bill at ${fmtHr(calc.billedRate)}/hr. My true hourly rate after taxes, overhead & unpaid time: ${fmtHr(calc.trueHourly)}/hr. Reality check via Propped → propped.org/calculators/true-hourly-rate`;
 
   function handleCopy() {
     navigator.clipboard.writeText(shareText).then(() => {
@@ -295,9 +295,9 @@ export default function TrueHourlyCalculator() {
     <div className="max-w-2xl mx-auto px-4 py-12">
 
       {/* Inputs */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 mb-6 space-y-6">
+      <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 mb-6 space-y-6">
         <h2 className="text-base font-semibold text-white flex items-center gap-2">
-          <Clock size={16} className="text-emerald-400" />
+          <Clock size={16} className="text-brand-400" />
           Your Work Reality
         </h2>
 
@@ -347,19 +347,19 @@ export default function TrueHourlyCalculator() {
             onChange={setExpenses}
           />
           <div className="space-y-1.5">
-            <label className="text-sm font-medium text-slate-300">Filing Status</label>
+            <label className="text-sm font-medium text-zinc-300">Filing Status</label>
             <div className="relative">
               <select
                 value={filingStatus}
                 onChange={(e) => setFilingStatus(e.target.value)}
-                className="w-full appearance-none bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-slate-100 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-colors pr-8"
+                className="w-full appearance-none bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-3 text-zinc-100 text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500/30 transition-colors pr-8"
               >
                 <option value="single">Single</option>
                 <option value="mfj">Married Filing Jointly</option>
                 <option value="mfs">Married Filing Separately</option>
                 <option value="hoh">Head of Household</option>
               </select>
-              <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+              <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none" />
             </div>
           </div>
         </div>
@@ -368,15 +368,15 @@ export default function TrueHourlyCalculator() {
       {/* THE REVEAL */}
       {hasResults && (
         <>
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 mb-4">
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-5">The reality</p>
+          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 mb-4">
+            <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-5">The reality</p>
 
             <div className="grid grid-cols-2 gap-4 mb-6">
               {/* Billed rate */}
-              <div className="bg-slate-800/60 rounded-xl p-4 text-center">
-                <p className="text-xs text-slate-400 mb-1">You bill at</p>
-                <p className="text-3xl font-black text-slate-300">{fmtHr(calc.billedRate)}</p>
-                <p className="text-xs text-slate-500 mt-1">per hour</p>
+              <div className="bg-zinc-800/60 rounded-xl p-4 text-center">
+                <p className="text-xs text-zinc-400 mb-1">You bill at</p>
+                <p className="text-3xl font-black text-zinc-300">{fmtHr(calc.billedRate)}</p>
+                <p className="text-xs text-zinc-500 mt-1">per hour</p>
               </div>
 
               {/* True rate */}
@@ -386,42 +386,42 @@ export default function TrueHourlyCalculator() {
                     ? "bg-red-900/30 border border-red-800/40"
                     : severity === "high"
                     ? "bg-amber-900/30 border border-amber-800/40"
-                    : "bg-emerald-900/20 border border-emerald-800/30"
+                    : "bg-brand-900/20 border border-brand-800/30"
                 }`}
               >
-                <p className="text-xs text-slate-400 mb-1">You actually make</p>
+                <p className="text-xs text-zinc-400 mb-1">You actually make</p>
                 <p
                   className={`text-3xl font-black ${
                     severity === "severe"
                       ? "text-red-400"
                       : severity === "high"
                       ? "text-amber-300"
-                      : "text-emerald-300"
+                      : "text-brand-300"
                   }`}
                 >
                   {fmtHr(calc.trueHourly)}
                 </p>
-                <p className="text-xs text-slate-500 mt-1">per hour</p>
+                <p className="text-xs text-zinc-500 mt-1">per hour</p>
               </div>
             </div>
 
             {/* Gap bar */}
             <div className="mb-5">
-              <div className="flex justify-between text-xs text-slate-500 mb-1.5">
+              <div className="flex justify-between text-xs text-zinc-500 mb-1.5">
                 <span>True rate</span>
-                <span className={severity === "severe" ? "text-red-400 font-semibold" : severity === "high" ? "text-amber-400 font-semibold" : "text-slate-400"}>
+                <span className={severity === "severe" ? "text-red-400 font-semibold" : severity === "high" ? "text-amber-400 font-semibold" : "text-zinc-400"}>
                   {Math.round(calc.gapPct * 100)}% of your billed rate disappears
                 </span>
               </div>
-              <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+              <div className="h-2 bg-zinc-700 rounded-full overflow-hidden">
                 <div
                   className={`h-full rounded-full transition-all duration-500 ${
-                    severity === "severe" ? "bg-red-500" : severity === "high" ? "bg-amber-500" : "bg-emerald-500"
+                    severity === "severe" ? "bg-red-500" : severity === "high" ? "bg-amber-500" : "bg-brand-500"
                   }`}
                   style={{ width: `${Math.max(5, (1 - calc.gapPct) * 100)}%` }}
                 />
               </div>
-              <div className="flex justify-between text-xs text-slate-600 mt-1">
+              <div className="flex justify-between text-xs text-zinc-600 mt-1">
                 <span>$0</span>
                 <span>{fmtHr(calc.billedRate)}</span>
               </div>
@@ -452,18 +452,18 @@ export default function TrueHourlyCalculator() {
                 <div key={label} className="flex items-center gap-3">
                   <div className={`w-2 h-2 rounded-full shrink-0 ${color}`} />
                   <div className="flex-1 flex items-center justify-between">
-                    <span className="text-xs text-slate-400">{label}</span>
-                    <span className="text-xs font-medium text-slate-300">
+                    <span className="text-xs text-zinc-400">{label}</span>
+                    <span className="text-xs font-medium text-zinc-300">
                       {fmt(amount)} ({Math.round(pct * 100)}%)
                     </span>
                   </div>
                 </div>
               ))}
-              <div className="flex items-center gap-3 pt-1 border-t border-slate-700">
-                <div className="w-2 h-2 rounded-full shrink-0 bg-emerald-500" />
+              <div className="flex items-center gap-3 pt-1 border-t border-zinc-700">
+                <div className="w-2 h-2 rounded-full shrink-0 bg-brand-500" />
                 <div className="flex-1 flex items-center justify-between">
                   <span className="text-xs font-semibold text-white">Take-home pay</span>
-                  <span className="text-xs font-bold text-emerald-300">{fmt(calc.takeHome)}</span>
+                  <span className="text-xs font-bold text-brand-300">{fmt(calc.takeHome)}</span>
                 </div>
               </div>
             </div>
@@ -471,35 +471,35 @@ export default function TrueHourlyCalculator() {
 
           {/* Insights */}
           <div className="grid sm:grid-cols-2 gap-3 mb-4">
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
-              <p className="text-xs text-slate-500 mb-1">Salary equivalent</p>
+            <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
+              <p className="text-xs text-zinc-500 mb-1">Salary equivalent</p>
               <p className="text-lg font-bold text-white">{fmt(calc.salaryEquivalent)}/yr</p>
-              <p className="text-xs text-slate-500 mt-1">W2 job with same take-home</p>
+              <p className="text-xs text-zinc-500 mt-1">W2 job with same take-home</p>
             </div>
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
-              <p className="text-xs text-slate-500 mb-1">Unpaid time per year</p>
+            <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
+              <p className="text-xs text-zinc-500 mb-1">Unpaid time per year</p>
               <p className="text-lg font-bold text-white">{calc.unpaidHoursPerYear.toLocaleString()} hrs</p>
-              <p className="text-xs text-slate-500 mt-1">Admin, emails, proposals, etc.</p>
+              <p className="text-xs text-zinc-500 mt-1">Admin, emails, proposals, etc.</p>
             </div>
           </div>
 
           {/* The Fix */}
           {calc.trueHourly < calc.billedRate * 0.7 && (
-            <div className="bg-emerald-950/30 border border-emerald-800/40 rounded-xl p-4 mb-4 flex gap-3">
-              <ArrowRight size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+            <div className="bg-brand-950/30 border border-brand-800/40 rounded-xl p-4 mb-4 flex gap-3">
+              <ArrowRight size={16} className="text-brand-400 shrink-0 mt-0.5" />
               <div>
-                <p className="text-sm font-semibold text-emerald-300 mb-1">
+                <p className="text-sm font-semibold text-brand-300 mb-1">
                   The levers you can pull
                 </p>
-                <ul className="text-xs text-slate-400 leading-relaxed space-y-1">
+                <ul className="text-xs text-zinc-400 leading-relaxed space-y-1">
                   <li>
-                    → <strong className="text-slate-300">Raise your rate:</strong> Every $10/hr billed rate increase adds {fmtHr(10 * (1 - calc.effectiveTaxRate))} to your true hourly
+                    → <strong className="text-zinc-300">Raise your rate:</strong> Every $10/hr billed rate increase adds {fmtHr(10 * (1 - calc.effectiveTaxRate))} to your true hourly
                   </li>
                   <li>
-                    → <strong className="text-slate-300">Cut admin time:</strong> Reducing unpaid hours from {adminHours} to {Math.max(0, adminHours - 5)}/wk adds {fmtHr((calc.takeHome / Math.max(1, ((billableHours + Math.max(0, adminHours - 5)) * weeksWorked))) - calc.trueHourly)} to your true hourly
+                    → <strong className="text-zinc-300">Cut admin time:</strong> Reducing unpaid hours from {adminHours} to {Math.max(0, adminHours - 5)}/wk adds {fmtHr((calc.takeHome / Math.max(1, ((billableHours + Math.max(0, adminHours - 5)) * weeksWorked))) - calc.trueHourly)} to your true hourly
                   </li>
                   <li>
-                    → <strong className="text-slate-300">Elect S-corp:</strong> At {fmt(calc.netIncome)}/yr net, you may save {fmt(Math.max(0, calc.netIncome * 0.9235 * 0.153 * 0.4))} in SE tax
+                    → <strong className="text-zinc-300">Elect S-corp:</strong> At {fmt(calc.netIncome)}/yr net, you may save {fmt(Math.max(0, calc.netIncome * 0.9235 * 0.153 * 0.4))} in SE tax
                   </li>
                 </ul>
               </div>
@@ -509,14 +509,14 @@ export default function TrueHourlyCalculator() {
           {/* Breakdown toggle */}
           <button
             onClick={() => setShowBreakdown(!showBreakdown)}
-            className="w-full flex items-center justify-between px-4 py-3 bg-slate-800/60 border border-slate-700 rounded-xl text-sm text-slate-400 hover:text-slate-200 hover:border-slate-600 transition-colors mb-4"
+            className="w-full flex items-center justify-between px-4 py-3 bg-zinc-800/60 border border-zinc-700 rounded-xl text-sm text-zinc-400 hover:text-zinc-200 hover:border-zinc-600 transition-colors mb-4"
           >
             <span className="flex items-center gap-2"><Info size={14} />Full calculation breakdown</span>
             <ChevronDown size={14} className={`transition-transform ${showBreakdown ? "rotate-180" : ""}`} />
           </button>
 
           {showBreakdown && (
-            <div className="bg-slate-800/40 border border-slate-700/60 rounded-xl p-4 mb-4 text-sm space-y-2">
+            <div className="bg-zinc-800/40 border border-zinc-700/60 rounded-xl p-4 mb-4 text-sm space-y-2">
               {[
                 ["Annual gross revenue", fmt(revenue)],
                 ["− Business expenses", `(${fmt(expenses)})`],
@@ -532,30 +532,30 @@ export default function TrueHourlyCalculator() {
                 value ? (
                   <div
                     key={label as string}
-                    className={`flex justify-between ${bold ? "font-semibold text-white border-t border-slate-700 pt-2 mt-2" : "text-slate-400"} ${highlight ? "text-emerald-300" : ""}`}
+                    className={`flex justify-between ${bold ? "font-semibold text-white border-t border-zinc-700 pt-2 mt-2" : "text-zinc-400"} ${highlight ? "text-brand-300" : ""}`}
                   >
                     <span>{label as string}</span>
                     <span className="font-mono">{value as string}</span>
                   </div>
                 ) : (
-                  <div key={label as string} className="text-xs text-slate-600 pl-2">{label as string}</div>
+                  <div key={label as string} className="text-xs text-zinc-600 pl-2">{label as string}</div>
                 )
               ))}
             </div>
           )}
 
           {/* Share */}
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 mb-4">
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Share your result</p>
-            <div className="bg-slate-800 rounded-xl p-3 mb-3">
-              <p className="text-sm text-slate-300 leading-relaxed">{shareText}</p>
+          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 mb-4">
+            <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-3">Share your result</p>
+            <div className="bg-zinc-800 rounded-xl p-3 mb-3">
+              <p className="text-sm text-zinc-300 leading-relaxed">{shareText}</p>
             </div>
             <button
               onClick={handleCopy}
-              className="w-full flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium text-sm py-2.5 rounded-lg transition-colors"
+              className="w-full flex items-center justify-center gap-2 bg-zinc-700 hover:bg-zinc-600 text-zinc-200 font-medium text-sm py-2.5 rounded-lg transition-colors"
             >
               {copied ? (
-                <><CheckCircle2 size={14} className="text-emerald-400" /> Copied!</>
+                <><CheckCircle2 size={14} className="text-brand-400" /> Copied!</>
               ) : (
                 <><Share2 size={14} /> Copy to share</>
               )}
@@ -564,19 +564,19 @@ export default function TrueHourlyCalculator() {
 
           {/* Email capture */}
           {emailStep === "done" ? (
-            <div className="bg-slate-900 border border-slate-700 rounded-2xl p-6 text-center">
-              <CheckCircle2 size={24} className="text-emerald-400 mx-auto mb-2" />
+            <div className="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 text-center">
+              <CheckCircle2 size={24} className="text-brand-400 mx-auto mb-2" />
               <p className="font-semibold text-white text-sm">You're on the list</p>
-              <p className="text-xs text-slate-400 mt-1">
+              <p className="text-xs text-zinc-400 mt-1">
                 We'll send you tools and guides for freelancers who want to earn more per real hour.
               </p>
             </div>
           ) : (
-            <div className="bg-slate-900 border border-slate-700 rounded-2xl p-5">
+            <div className="bg-zinc-900 border border-zinc-700 rounded-2xl p-5">
               <p className="text-sm font-semibold text-white mb-1">
                 Want to improve that number?
               </p>
-              <p className="text-xs text-slate-400 mb-4">
+              <p className="text-xs text-zinc-400 mb-4">
                 Get guides on raising rates, cutting admin time, and structuring your business to keep more of what you earn.
               </p>
               <div className="flex gap-2">
@@ -586,12 +586,12 @@ export default function TrueHourlyCalculator() {
                   onChange={(e) => setEmail(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleEmail()}
                   placeholder="you@example.com"
-                  className="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/30 transition-colors"
+                  className="flex-1 bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500/30 transition-colors"
                 />
                 <button
                   onClick={handleEmail}
                   disabled={!isValidEmail || emailStep === "submitting"}
-                  className="bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-700 disabled:text-slate-500 text-white font-semibold px-4 py-2.5 rounded-lg text-sm flex items-center gap-1.5 transition-colors whitespace-nowrap"
+                  className="bg-brand-600 hover:bg-brand-500 disabled:bg-zinc-700 disabled:text-zinc-500 text-white font-semibold px-4 py-2.5 rounded-lg text-sm flex items-center gap-1.5 transition-colors whitespace-nowrap"
                 >
                   {emailStep === "submitting" ? (
                     <Loader2 size={14} className="animate-spin" />
@@ -603,7 +603,7 @@ export default function TrueHourlyCalculator() {
             </div>
           )}
 
-          <p className="text-xs text-slate-600 text-center mt-5 leading-relaxed">
+          <p className="text-xs text-zinc-600 text-center mt-5 leading-relaxed">
             Federal tax estimate based on 2025 rates. Excludes state income tax, NIIT, and health insurance deductions.
           </p>
         </>

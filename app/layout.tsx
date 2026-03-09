@@ -3,18 +3,23 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/components/AuthProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
+});
 
-const BASE_URL = "https://selfemployedfyi.com";
+const BASE_URL = "https://propped.org";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Freehold — Tools & Guides for People Who Work for Themselves",
-    template: "%s | Freehold",
+    default: "Propped — Tools & Guides for People Who Work for Themselves",
+    template: "%s | Propped",
   },
   description:
-    "Freehold is the platform for freelancers, founders, and the self-employed. Calculators, guides, and tools to help you understand your taxes, mortgage, finances, and business — at every stage.",
+    "Propped is the platform for freelancers, founders, and the self-employed. Calculators, guides, and tools to help you understand your taxes, mortgage, finances, and business — at every stage.",
   keywords: [
     "self-employed tools",
     "freelancer resources",
@@ -27,9 +32,9 @@ export const metadata: Metadata = {
     "quarterly tax estimator",
     "freelancer financial tools",
   ],
-  authors: [{ name: "Freehold" }],
-  creator: "Freehold",
-  publisher: "Freehold",
+  authors: [{ name: "Propped" }],
+  creator: "Propped",
+  publisher: "Propped",
   robots: {
     index: true,
     follow: true,
@@ -46,8 +51,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: BASE_URL,
-    siteName: "Freehold",
-    title: "Freehold — Tools & Guides for People Who Work for Themselves",
+    siteName: "Propped",
+    title: "Propped — Tools & Guides for People Who Work for Themselves",
     description:
       "Calculators, guides, and tools for freelancers and the self-employed. Know your numbers. Own your future.",
     images: [
@@ -55,14 +60,14 @@ export const metadata: Metadata = {
         url: `${BASE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Freehold — The Platform for Independent Operators",
+        alt: "Propped — The Platform for Independent Operators",
       },
     ],
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Freehold — Tools & Guides for People Who Work for Themselves",
+    title: "Propped — Tools & Guides for People Who Work for Themselves",
     description:
       "Calculators, guides, and tools for freelancers and the self-employed. Know your numbers. Own your future.",
     images: [`${BASE_URL}/og-image.png`],
@@ -87,7 +92,7 @@ export default function RootLayout({
                   "@type": "WebSite",
                   "@id": `${BASE_URL}/#website`,
                   url: BASE_URL,
-                  name: "Freehold",
+                  name: "Propped",
                   description:
                     "The platform for freelancers, founders, and the self-employed. Tools, calculators, and guides at every stage of building your independent business.",
                   publisher: {
@@ -97,10 +102,10 @@ export default function RootLayout({
                 {
                   "@type": "Organization",
                   "@id": `${BASE_URL}/#organization`,
-                  name: "Freehold",
+                  name: "Propped",
                   url: BASE_URL,
                   description:
-                    "Freehold builds tools and resources for people who work for themselves.",
+                    "Propped builds tools and resources for people who work for themselves.",
                 },
                 {
                   "@type": "WebApplication",
@@ -162,7 +167,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${inter.className}`}>
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>

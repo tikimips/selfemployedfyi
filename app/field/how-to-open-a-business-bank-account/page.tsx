@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "How to Open a Business Bank Account (And Why You Can't Wait)",
   description: "Mixing personal and business money is the number one bookkeeping mistake freelancers make. Here's how to fix it and what to look for in a business account.",
   keywords: ["business bank account freelancer", "best business checking account self employed", "open business bank account llc", "separate business personal finances"],
-  alternates: { canonical: "https://selfemployedfyi.com/field/how-to-open-a-business-bank-account" },
+  alternates: { canonical: "https://propped.org/field/how-to-open-a-business-bank-account" },
 };
 
 const article = getArticle("how-to-open-a-business-bank-account")!;
@@ -52,11 +52,11 @@ export default function Article() {
         As a sole proprietor (no LLC), you typically need:
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-2 text-sm text-slate-400">
-        <div className="flex items-center gap-2"><span className="text-emerald-400">+</span>Government-issued ID</div>
-        <div className="flex items-center gap-2"><span className="text-emerald-400">+</span>Social Security Number (or EIN if you have one)</div>
-        <div className="flex items-center gap-2"><span className="text-emerald-400">+</span>Business name (your legal name works for sole props)</div>
-        <div className="flex items-center gap-2"><span className="text-emerald-400">+</span>Initial deposit (some banks require $25-100, many online banks have no minimum)</div>
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-2 text-sm text-zinc-400">
+        <div className="flex items-center gap-2"><span className="text-brand-400">+</span>Government-issued ID</div>
+        <div className="flex items-center gap-2"><span className="text-brand-400">+</span>Social Security Number (or EIN if you have one)</div>
+        <div className="flex items-center gap-2"><span className="text-brand-400">+</span>Business name (your legal name works for sole props)</div>
+        <div className="flex items-center gap-2"><span className="text-brand-400">+</span>Initial deposit (some banks require $25-100, many online banks have no minimum)</div>
       </div>
 
       <p>
@@ -76,7 +76,7 @@ export default function Article() {
         Online business banks built for freelancers and small businesses are usually better:
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-4">
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-4">
         {[
           { name: "Mercury", desc: "Clean interface, no fees, no minimums, great for freelancers and startups. FDIC insured. Strong API if you ever need integrations.", verdict: "Best overall for most freelancers" },
           { name: "Relay", desc: "No fees, multiple sub-accounts (useful for tax savings buckets), solid bookkeeping integrations.", verdict: "Best if you want built-in money separation" },
@@ -85,8 +85,8 @@ export default function Article() {
         ].map(({ name, desc, verdict }) => (
           <div key={name}>
             <p className="text-sm font-semibold text-white">{name}</p>
-            <p className="text-sm text-slate-400 mt-0.5">{desc}</p>
-            <p className="text-xs text-emerald-400 mt-1">{verdict}</p>
+            <p className="text-sm text-zinc-400 mt-0.5">{desc}</p>
+            <p className="text-xs text-brand-400 mt-1">{verdict}</p>
           </div>
         ))}
       </div>

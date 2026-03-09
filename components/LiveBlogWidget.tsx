@@ -21,24 +21,24 @@ interface Post {
 }
 
 const COLOR_DOT: Record<string, string> = {
-  emerald: "bg-emerald-400",
+  emerald: "bg-brand-400",
   blue:    "bg-blue-400",
   amber:   "bg-amber-400",
   green:   "bg-green-400",
   purple:  "bg-purple-400",
-  slate:   "bg-slate-400",
+  slate:   "bg-zinc-400",
 };
 
 const COLOR_BADGE: Record<string, string> = {
-  emerald: "bg-emerald-950/60 border-emerald-800/60 text-emerald-300",
+  emerald: "bg-brand-950/60 border-brand-800/60 text-brand-300",
   blue:    "bg-blue-950/60 border-blue-800/60 text-blue-300",
   amber:   "bg-amber-950/60 border-amber-800/60 text-amber-300",
   green:   "bg-green-950/60 border-green-800/60 text-green-300",
   purple:  "bg-purple-950/60 border-purple-800/60 text-purple-300",
-  slate:   "bg-slate-800/60 border-slate-700/60 text-slate-300",
+  slate:   "bg-zinc-800/60 border-zinc-700/60 text-zinc-300",
 };
 
-// Only show byline for Freehold writers, not legacy source publication names
+// Only show byline for Propped writers, not legacy source publication names
 const FREEHOLD_WRITERS = ["Josh Smart"];
 function isWriter(name: string) { return FREEHOLD_WRITERS.includes(name); }
 
@@ -88,7 +88,7 @@ export default function LiveBlogWidget() {
   }, [fetchPosts]);
 
   return (
-    <section className="py-12 px-4 border-t border-slate-800/50" aria-label="Live Blog Widget">
+    <section className="py-12 px-4 border-t border-zinc-800/50" aria-label="Live Blog Widget">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
@@ -107,20 +107,20 @@ export default function LiveBlogWidget() {
           </div>
           <div className="flex items-center gap-4">
             {lastUpdated && (
-              <span className="text-xs text-slate-600 hidden sm:block">
+              <span className="text-xs text-zinc-600 hidden sm:block">
                 Updated {timeAgo(lastUpdated.toISOString())}
               </span>
             )}
             <button
               onClick={() => fetchPosts(true)}
-              className="text-slate-600 hover:text-slate-300 transition-colors"
+              className="text-zinc-600 hover:text-zinc-300 transition-colors"
               aria-label="Refresh"
             >
               <RefreshCw size={13} />
             </button>
             <Link
               href="/liveblog"
-              className="hidden sm:flex items-center gap-1.5 text-sm text-emerald-400 hover:text-emerald-300 font-medium transition-colors"
+              className="hidden sm:flex items-center gap-1.5 text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors"
             >
               All live blogs <ArrowRight size={14} />
             </Link>
@@ -131,12 +131,12 @@ export default function LiveBlogWidget() {
         {loading ? (
           <div className="space-y-3">
             {[...Array(3)].map((_, i) => (
-              <div key={i} className="bg-slate-900/60 border border-slate-800 rounded-xl h-20 animate-pulse" />
+              <div key={i} className="bg-zinc-900/60 border border-zinc-800 rounded-xl h-20 animate-pulse" />
             ))}
           </div>
         ) : posts.length === 0 ? (
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-8 text-center">
-            <p className="text-slate-500 text-sm">Live updates coming soon — check back shortly.</p>
+          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 text-center">
+            <p className="text-zinc-500 text-sm">Live updates coming soon — check back shortly.</p>
           </div>
         ) : (
           <div className="space-y-3">
@@ -150,11 +150,11 @@ export default function LiveBlogWidget() {
                 <Link
                   key={post.id}
                   href={`/liveblog/post/${post.id}`}
-                  className="flex items-start gap-4 bg-slate-900 border border-slate-800 hover:border-slate-600 rounded-xl p-4 transition-all group"
+                  className="flex items-start gap-4 bg-zinc-900 border border-zinc-800 hover:border-zinc-600 rounded-xl p-4 transition-all group"
                 >
                   {/* Thumbnail */}
                   {post.image_url && (
-                    <div className="hidden sm:block flex-shrink-0 w-20 h-12 rounded-lg overflow-hidden bg-slate-800">
+                    <div className="hidden sm:block flex-shrink-0 w-20 h-12 rounded-lg overflow-hidden bg-zinc-800">
                       <img
                         src={post.image_url}
                         alt={post.title}
@@ -180,18 +180,18 @@ export default function LiveBlogWidget() {
                         </span>
                       )}
                     </div>
-                    <p className="text-sm font-semibold text-white leading-snug line-clamp-2 group-hover:text-slate-200 transition-colors">
+                    <p className="text-sm font-semibold text-white leading-snug line-clamp-2 group-hover:text-zinc-200 transition-colors">
                       {post.title}
                     </p>
                     {post.summary && (
-                      <p className="text-xs text-slate-500 mt-1 line-clamp-1">{post.summary}</p>
+                      <p className="text-xs text-zinc-500 mt-1 line-clamp-1">{post.summary}</p>
                     )}
                   </div>
 
                   <div className="flex-shrink-0 text-right hidden sm:block">
-                    <p className="text-xs text-slate-600">{timeAgo(post.published_at)}</p>
+                    <p className="text-xs text-zinc-600">{timeAgo(post.published_at)}</p>
                     {post.source_name && isWriter(post.source_name) && (
-                      <p className="text-[10px] text-slate-500 mt-0.5">by {post.source_name}</p>
+                      <p className="text-[10px] text-zinc-500 mt-0.5">by {post.source_name}</p>
                     )}
                   </div>
                 </Link>
@@ -204,7 +204,7 @@ export default function LiveBlogWidget() {
         <div className="mt-4 flex justify-end sm:hidden">
           <Link
             href="/liveblog"
-            className="flex items-center gap-1.5 text-sm text-emerald-400 hover:text-emerald-300 font-medium transition-colors"
+            className="flex items-center gap-1.5 text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors"
           >
             All live blogs <ArrowRight size={14} />
           </Link>
@@ -219,8 +219,8 @@ export default function LiveBlogWidget() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "ItemList",
-              name: "Freehold Live Blog — Recent Updates",
-              url: "https://selfemployedfyi.com/liveblog",
+              name: "Propped Live Blog — Recent Updates",
+              url: "https://propped.org/liveblog",
               itemListElement: posts.map((p, idx) => ({
                 "@type": "ListItem",
                 position: idx + 1,
@@ -229,8 +229,8 @@ export default function LiveBlogWidget() {
                   headline: p.title,
                   description: p.summary,
                   datePublished: p.published_at,
-                  url: `https://selfemployedfyi.com/liveblog/${p.category_slug}`,
-                  author: { "@type": "Organization", name: "Freehold" },
+                  url: `https://propped.org/liveblog/${p.category_slug}`,
+                  author: { "@type": "Organization", name: "Propped" },
                 },
               })),
             }),

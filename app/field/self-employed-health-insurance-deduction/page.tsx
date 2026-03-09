@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "The Self-Employed Health Insurance Deduction",
   description: "Self-employed people can deduct 100% of their health insurance premiums. Here's exactly how it works, what qualifies, and how to claim it correctly.",
   keywords: ["self-employed health insurance deduction", "health insurance deduction 1099", "deduct health insurance premiums self employed", "schedule c health insurance deduction"],
-  alternates: { canonical: "https://selfemployedfyi.com/field/self-employed-health-insurance-deduction" },
+  alternates: { canonical: "https://propped.org/field/self-employed-health-insurance-deduction" },
 };
 
 const article = getArticle("self-employed-health-insurance-deduction")!;
@@ -35,22 +35,22 @@ export default function Article() {
         income tax but not your self-employment tax.
       </p>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 font-mono text-sm space-y-2">
-        <div className="flex justify-between text-slate-400"><span>Net business income</span><span>$100,000</span></div>
-        <div className="flex justify-between text-slate-400"><span>SE tax deduction (half)</span><span>($7,065)</span></div>
-        <div className="flex justify-between text-slate-400"><span>Health insurance premiums</span><span>($8,400)</span></div>
-        <div className="flex justify-between font-semibold text-white border-t border-slate-700 pt-2 mt-2"><span>Adjusted gross income</span><span>$84,535</span></div>
-        <div className="flex justify-between text-emerald-300 text-xs mt-2"><span>Tax savings vs. not deducting (22% bracket)</span><span>~$1,848</span></div>
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 font-mono text-sm space-y-2">
+        <div className="flex justify-between text-zinc-400"><span>Net business income</span><span>$100,000</span></div>
+        <div className="flex justify-between text-zinc-400"><span>SE tax deduction (half)</span><span>($7,065)</span></div>
+        <div className="flex justify-between text-zinc-400"><span>Health insurance premiums</span><span>($8,400)</span></div>
+        <div className="flex justify-between font-semibold text-white border-t border-zinc-700 pt-2 mt-2"><span>Adjusted gross income</span><span>$84,535</span></div>
+        <div className="flex justify-between text-brand-300 text-xs mt-2"><span>Tax savings vs. not deducting (22% bracket)</span><span>~$1,848</span></div>
       </div>
 
       <h2>What qualifies</h2>
 
-      <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 my-2 space-y-2 text-sm text-slate-400">
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Medical insurance premiums (individual, family plans)</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Dental insurance premiums</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Vision insurance premiums</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Long-term care insurance premiums (up to age-based limits)</div>
-        <div className="flex items-start gap-2"><span className="text-emerald-400 shrink-0">+</span>Premiums paid for a spouse and dependents</div>
+      <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 my-2 space-y-2 text-sm text-zinc-400">
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Medical insurance premiums (individual, family plans)</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Dental insurance premiums</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Vision insurance premiums</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Long-term care insurance premiums (up to age-based limits)</div>
+        <div className="flex items-start gap-2"><span className="text-brand-400 shrink-0">+</span>Premiums paid for a spouse and dependents</div>
         <div className="flex items-start gap-2"><span className="text-red-400 shrink-0">-</span>Months when you were eligible for employer-subsidized coverage (cannot double dip)</div>
         <div className="flex items-start gap-2"><span className="text-red-400 shrink-0">-</span>Premiums paid through an HSA</div>
       </div>
