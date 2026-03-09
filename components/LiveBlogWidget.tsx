@@ -38,6 +38,10 @@ const COLOR_BADGE: Record<string, string> = {
   slate:   "bg-slate-800/60 border-slate-700/60 text-slate-300",
 };
 
+// Only show byline for Freehold writers, not legacy source publication names
+const FREEHOLD_WRITERS = ["Josh Smart"];
+function isWriter(name: string) { return FREEHOLD_WRITERS.includes(name); }
+
 function timeAgo(dateStr: string): string {
   const diff = Date.now() - new Date(dateStr).getTime();
   const mins = Math.floor(diff / 60000);
@@ -186,8 +190,8 @@ export default function LiveBlogWidget() {
 
                   <div className="flex-shrink-0 text-right hidden sm:block">
                     <p className="text-xs text-slate-600">{timeAgo(post.published_at)}</p>
-                    {post.source_name && (
-                      <p className="text-[10px] text-slate-700 mt-0.5">{post.source_name}</p>
+                    {post.source_name && isWriter(post.source_name) && (
+                      <p className="text-[10px] text-slate-500 mt-0.5">by {post.source_name}</p>
                     )}
                   </div>
                 </Link>

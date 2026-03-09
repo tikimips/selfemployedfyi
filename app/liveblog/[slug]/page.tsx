@@ -225,8 +225,8 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
                     <span className={`w-1.5 h-1.5 rounded-full ${c.dot}`} />
                     {cat.name}
                   </span>
-                  {post.source_name && (
-                    <span className="text-xs text-slate-600">Via {post.source_name}</span>
+                  {post.source_name && ["Josh Smart"].includes(post.source_name) && (
+                    <span className="text-xs text-slate-500">by {post.source_name}</span>
                   )}
                   <time
                     className="text-xs text-slate-600 ml-auto"
@@ -275,8 +275,8 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
                   </div>
                 )}
 
-                {/* Source link */}
-                {post.source_url && (
+                {/* Source link — only shown if explicitly set (legacy posts) */}
+                {post.source_url && false && (
                   <a
                     href={post.source_url}
                     target="_blank"

@@ -151,8 +151,8 @@ export default function PostPage() {
             <Clock size={11} />
             {timeAgo(post.published_at)}
           </span>
-          {post.source_name && (
-            <span className="text-xs text-slate-600">Via {post.source_name}</span>
+          {post.source_name && ["Josh Smart"].includes(post.source_name) && (
+            <span className="text-xs text-slate-500">by {post.source_name}</span>
           )}
         </div>
 
@@ -201,18 +201,7 @@ export default function PostPage() {
           </div>
         )}
 
-        {/* Source link */}
-        {post.source_url && (
-          <a
-            href={post.source_url}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-300 border border-slate-800 hover:border-slate-600 rounded-lg px-4 py-2.5 transition-all mb-10"
-          >
-            <ExternalLink size={14} />
-            Read full story on {post.source_name || "source"}
-          </a>
-        )}
+        {/* No external source link — posts are original Freehold content */}
 
         {/* Back */}
         <div className="border-t border-slate-800 pt-8">
