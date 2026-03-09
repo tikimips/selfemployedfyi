@@ -145,7 +145,7 @@ export default function LiveBlogWidget() {
               return (
                 <Link
                   key={post.id}
-                  href={`/liveblog/${slug}`}
+                  href={`/liveblog/post/${post.id}`}
                   className="flex items-start gap-4 bg-slate-900 border border-slate-800 hover:border-slate-600 rounded-xl p-4 transition-all group"
                 >
                   {/* Thumbnail */}

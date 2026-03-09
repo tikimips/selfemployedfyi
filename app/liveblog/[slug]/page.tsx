@@ -240,7 +240,9 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
 
                 {/* Title */}
                 <h2 className="text-xl font-bold text-white mb-3 leading-snug" itemProp="headline">
-                  {post.title}
+                  <Link href={`/liveblog/post/${post.id}`} className="hover:text-emerald-300 transition-colors">
+                    {post.title}
+                  </Link>
                 </h2>
 
                 {/* Summary */}

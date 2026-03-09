@@ -45,6 +45,17 @@ export async function getLiveBlogCategories(): Promise<LiveBlogCategory[]> {
   return data || [];
 }
 
+export async function getLiveBlogPost(id: string): Promise<LiveBlogPost | null> {
+  const [postRes, catsRes] = await Promise.all([
+    supabase.from("live_blog_posts").select("*").eq("id", id).single(),
+    supabase.from("live_blog_categories").select("*"),
+  ]);
+  if (postRes.error || !postRes.data) return null;
+  const categoryMap: Record<string, LiveBlogCategory> = {};
+  for (const cat of catsRes.data || []) categoryMap[cat.slug] = cat;
+  return { ...postRes.data, category: categoryMap[postRes.data.category_slug] || null };
+}
+
 export async function getLiveBlogPosts(
   categorySlug?: string,
   limit = 20
