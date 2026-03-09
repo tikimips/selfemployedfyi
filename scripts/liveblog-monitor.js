@@ -31,7 +31,7 @@ if (fs.existsSync(envPath)) {
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "AIzaSyBOzWBN4yt5NaFHLbPBNATHCzSEBHv05Fs";
 
 // ── RSS Sources ──────────────────────────────────────────────────────────────
 
@@ -166,32 +166,22 @@ async function httpGet(url) {
   });
 }
 
-async function callOpenAI(prompt) {
+async function callGemini(prompt) {
+  const systemCtx = `You are the editorial voice of Freehold — a platform for freelancers, founders, and the self-employed. Your job: take a news headline and produce a punchy, relevant live blog update. Style: direct, conversational, millennial-smart. No corporate speak. No em dashes. Write for people who invoice clients, own their own business, pay quarterly taxes. Always connect the story to what it means for the self-employed.`;
+
   const body = JSON.stringify({
-    model: "gpt-4o-mini",
-    messages: [
-      {
-        role: "system",
-        content: `You are the editorial voice of Freehold — a platform for freelancers, founders, and the self-employed.
-Your job: take a news headline and produce a punchy, relevant live blog update.
-Style: direct, conversational, millennial-smart. No corporate speak. No em dashes. 
-Write for people who invoice clients, own their own business, pay quarterly taxes.
-Always connect the story to what it means for the self-employed.`,
-      },
-      { role: "user", content: prompt },
-    ],
-    temperature: 0.7,
-    max_tokens: 600,
+    contents: [{ parts: [{ text: systemCtx + "\n\n" + prompt }] }],
+    generationConfig: { temperature: 0.7, maxOutputTokens: 600 },
   });
 
   return new Promise((resolve, reject) => {
+    const path = `/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
     const options = {
-      hostname: "api.openai.com",
-      path: "/v1/chat/completions",
+      hostname: "generativelanguage.googleapis.com",
+      path,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${OPENAI_API_KEY}`,
         "Content-Length": Buffer.byteLength(body),
       },
     };
@@ -201,8 +191,8 @@ Always connect the story to what it means for the self-employed.`,
       res.on("end", () => {
         try {
           const parsed = JSON.parse(data);
-          if (parsed.error) reject(new Error(parsed.error.message));
-          else resolve(parsed.choices?.[0]?.message?.content || "");
+          if (parsed.error) reject(new Error(parsed.error.message || JSON.stringify(parsed.error)));
+          else resolve(parsed.candidates?.[0]?.content?.parts?.[0]?.text || "");
         } catch (e) {
           reject(e);
         }
@@ -234,7 +224,7 @@ Generate a Freehold live blog post. Return JSON only with these fields:
 }`;
 
   try {
-    const raw = await callOpenAI(prompt);
+    const raw = await callGemini(prompt);
     // Extract JSON from response
     const jsonMatch = raw.match(/\{[\s\S]*\}/);
     if (!jsonMatch) throw new Error("No JSON in response");
@@ -255,7 +245,7 @@ Generate a Freehold live blog post. Return JSON only with these fields:
       published_at: item.isoDate || item.pubDate || new Date().toISOString(),
     };
   } catch (err) {
-    console.error(`GPT error for "${title}":`, err.message);
+    console.error(`Gemini error for "${title}":`, err.message);
     // Fallback: use original title/desc without AI
     const image = pickImage(category);
     return {
