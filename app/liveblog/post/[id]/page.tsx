@@ -1,42 +1,25 @@
-import { Metadata } from "next";
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { getLiveBlogPost, getLiveBlogPosts } from "@/lib/supabase";
 import { ArrowLeft, ExternalLink, Clock } from "lucide-react";
-import { notFound } from "next/navigation";
+import { createClient } from "@supabase/supabase-js";
 
-const BASE_URL = "https://selfemployedfyi.com";
-export const revalidate = 300;
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 
-interface Props {
-  params: { id: string };
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = await getLiveBlogPost(params.id);
-  if (!post) return { title: "Post Not Found | Freehold" };
-  return {
-    title: `${post.title} | Freehold Live Blog`,
-    description: post.summary,
-    alternates: { canonical: `${BASE_URL}/liveblog/post/${post.id}` },
-    openGraph: {
-      title: post.title,
-      description: post.summary,
-      url: `${BASE_URL}/liveblog/post/${post.id}`,
-      type: "article",
-      images: post.image_url ? [{ url: post.image_url, width: 1200, height: 675 }] : [],
-    },
-  };
-}
-
-const COLOR_MAP: Record<string, { dot: string; badge: string; accent: string }> = {
-  emerald: { dot: "bg-emerald-400", badge: "bg-emerald-950/50 border-emerald-800/50 text-emerald-300", accent: "text-emerald-400" },
-  blue:    { dot: "bg-blue-400",    badge: "bg-blue-950/50 border-blue-800/50 text-blue-300",         accent: "text-blue-400"    },
-  amber:   { dot: "bg-amber-400",   badge: "bg-amber-950/50 border-amber-800/50 text-amber-300",      accent: "text-amber-400"   },
-  green:   { dot: "bg-green-400",   badge: "bg-green-950/50 border-green-800/50 text-green-300",      accent: "text-green-400"   },
-  purple:  { dot: "bg-purple-400",  badge: "bg-purple-950/50 border-purple-800/50 text-purple-300",   accent: "text-purple-400"  },
-  slate:   { dot: "bg-slate-400",   badge: "bg-slate-800/50 border-slate-700/50 text-slate-300",      accent: "text-slate-400"   },
+const COLOR_MAP: Record<string, { dot: string; badge: string }> = {
+  emerald: { dot: "bg-emerald-400", badge: "bg-emerald-950/50 border-emerald-800/50 text-emerald-300" },
+  blue:    { dot: "bg-blue-400",    badge: "bg-blue-950/50 border-blue-800/50 text-blue-300"         },
+  amber:   { dot: "bg-amber-400",   badge: "bg-amber-950/50 border-amber-800/50 text-amber-300"      },
+  green:   { dot: "bg-green-400",   badge: "bg-green-950/50 border-green-800/50 text-green-300"      },
+  purple:  { dot: "bg-purple-400",  badge: "bg-purple-950/50 border-purple-800/50 text-purple-300"   },
+  slate:   { dot: "bg-slate-400",   badge: "bg-slate-800/50 border-slate-700/50 text-slate-300"      },
 };
 
 function timeAgo(dateStr: string): string {
@@ -49,59 +32,118 @@ function timeAgo(dateStr: string): string {
   return new Date(dateStr).toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
 
-export default async function PostPage({ params }: Props) {
-  const post = await getLiveBlogPost(params.id);
-  if (!post) notFound();
+export default function PostPage() {
+  const params = useParams();
+  const id = params.id as string;
 
-  const c = COLOR_MAP[post.category?.color || "slate"];
-  const catSlug = post.category_slug;
+  const [post, setPost] = useState<any>(null);
+  const [category, setCategory] = useState<any>(null);
+  const [related, setRelated] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
-  // Related posts from same category
-  let related = await getLiveBlogPosts(catSlug, 4);
-  related = related.filter((p) => p.id !== post.id).slice(0, 3);
+  useEffect(() => {
+    if (!id) return;
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "NewsArticle",
-    headline: post.title,
-    description: post.summary,
-    datePublished: post.published_at,
-    dateModified: post.published_at,
-    url: `${BASE_URL}/liveblog/post/${post.id}`,
-    image: post.image_url ? { "@type": "ImageObject", url: post.image_url, width: 1200, height: 675 } : undefined,
-    author: { "@type": "Organization", name: "Freehold" },
-    publisher: { "@type": "Organization", name: "Freehold", url: BASE_URL },
-  };
+    async function load() {
+      setLoading(true);
+
+      // Fetch post
+      const { data: postData, error: postErr } = await supabase
+        .from("live_blog_posts")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+      if (postErr || !postData) {
+        setNotFound(true);
+        setLoading(false);
+        return;
+      }
+
+      setPost(postData);
+
+      // Fetch category + related in parallel
+      const [catRes, relRes] = await Promise.all([
+        supabase
+          .from("live_blog_categories")
+          .select("*")
+          .eq("slug", postData.category_slug)
+          .single(),
+        supabase
+          .from("live_blog_posts")
+          .select("id, title, image_url, published_at")
+          .eq("category_slug", postData.category_slug)
+          .neq("id", id)
+          .order("published_at", { ascending: false })
+          .limit(3),
+      ]);
+
+      if (catRes.data) setCategory(catRes.data);
+      if (relRes.data) setRelated(relRes.data);
+
+      setLoading(false);
+    }
+
+    load();
+  }, [id]);
+
+  const c = COLOR_MAP[category?.color || "slate"];
+
+  if (loading) {
+    return (
+      <main className="min-h-screen bg-slate-950">
+        <Nav />
+        <div className="max-w-2xl mx-auto px-4 pt-16 space-y-4">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="bg-slate-900 rounded-xl h-8 animate-pulse" style={{ width: `${70 + i * 7}%` }} />
+          ))}
+        </div>
+      </main>
+    );
+  }
+
+  if (notFound || !post) {
+    return (
+      <main className="min-h-screen bg-slate-950">
+        <Nav />
+        <div className="max-w-2xl mx-auto px-4 py-20 text-center">
+          <p className="text-2xl mb-2">📰</p>
+          <p className="text-slate-400">Post not found.</p>
+          <Link href="/liveblog" className="text-emerald-400 hover:text-emerald-300 mt-4 inline-block text-sm">
+            ← Back to Live Blog
+          </Link>
+        </div>
+        <Footer />
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-slate-950">
       <Nav />
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-
       <article className="max-w-2xl mx-auto px-4 pt-10 pb-16">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs text-slate-500 mb-8">
+        <div className="flex items-center gap-2 text-xs text-slate-500 mb-8 flex-wrap">
           <Link href="/liveblog" className="hover:text-slate-300 transition-colors">Live Blog</Link>
-          <span>/</span>
-          {post.category && (
+          {category && (
             <>
-              <Link href={`/liveblog/${catSlug}`} className="hover:text-slate-300 transition-colors">
-                {post.category.icon} {post.category.name}
-              </Link>
               <span>/</span>
+              <Link href={`/liveblog/${post.category_slug}`} className="hover:text-slate-300 transition-colors">
+                {category.icon} {category.name}
+              </Link>
             </>
           )}
-          <span className="text-slate-600 truncate max-w-[200px]">{post.title.slice(0, 40)}…</span>
         </div>
 
-        {/* Category badge + time */}
+        {/* Badge + time */}
         <div className="flex items-center gap-3 mb-4 flex-wrap">
-          {post.category && (
-            <Link href={`/liveblog/${catSlug}`}>
+          {category && (
+            <Link href={`/liveblog/${post.category_slug}`}>
               <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full border cursor-pointer hover:opacity-80 transition-opacity ${c.badge}`}>
                 <span className={`w-1.5 h-1.5 rounded-full ${c.dot}`} />
-                {post.category.icon} {post.category.name}
+                {category.icon} {category.name}
               </span>
             </Link>
           )}
@@ -141,8 +183,8 @@ export default async function PostPage({ params }: Props) {
 
         {/* Content */}
         {post.content && post.content !== post.summary && (
-          <div className="prose prose-invert prose-sm max-w-none text-slate-300 leading-relaxed space-y-4 mb-8">
-            {post.content.split("\n\n").map((para, i) => (
+          <div className="text-slate-300 leading-relaxed space-y-4 mb-8 text-[15px]">
+            {post.content.split("\n\n").filter(Boolean).map((para: string, i: number) => (
               <p key={i}>{para.replace(/\n/g, " ")}</p>
             ))}
           </div>
@@ -151,7 +193,7 @@ export default async function PostPage({ params }: Props) {
         {/* Tags */}
         {post.tags && post.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-8">
-            {post.tags.map((tag) => (
+            {post.tags.map((tag: string) => (
               <span key={tag} className="text-xs text-slate-500 bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-full">
                 #{tag}
               </span>
@@ -172,24 +214,24 @@ export default async function PostPage({ params }: Props) {
           </a>
         )}
 
-        {/* Back to category */}
+        {/* Back */}
         <div className="border-t border-slate-800 pt-8">
           <Link
-            href={`/liveblog/${catSlug}`}
+            href={`/liveblog/${post.category_slug}`}
             className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors"
           >
             <ArrowLeft size={14} />
-            {post.category ? `Back to ${post.category.name}` : "Back to live blog"}
+            {category ? `Back to ${category.name}` : "Back to live blog"}
           </Link>
         </div>
       </article>
 
-      {/* Related posts */}
+      {/* Related */}
       {related.length > 0 && (
         <section className="border-t border-slate-800/50 py-10 px-4">
           <div className="max-w-2xl mx-auto">
             <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">
-              More from {post.category?.name || "Live Blog"}
+              More from {category?.name || "Live Blog"}
             </p>
             <div className="space-y-3">
               {related.map((r) => (
