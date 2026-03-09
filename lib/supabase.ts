@@ -63,16 +63,26 @@ export async function getLiveBlogPosts(
 }
 
 export async function getRecentLiveBlogPosts(limit = 5): Promise<LiveBlogPost[]> {
-  const { data, error } = await supabase
-    .from("live_blog_posts")
-    .select("*, live_blog_categories!live_blog_posts_category_slug_fkey(*)")
-    .order("published_at", { ascending: false })
-    .limit(limit);
-  if (error) throw error;
-  // Flatten joined category
-  return (data || []).map((row: any) => ({
+  // Fetch posts and categories separately (no FK constraint required)
+  const [postsRes, catsRes] = await Promise.all([
+    supabase
+      .from("live_blog_posts")
+      .select("*")
+      .order("published_at", { ascending: false })
+      .limit(limit),
+    supabase.from("live_blog_categories").select("*"),
+  ]);
+
+  if (postsRes.error) throw postsRes.error;
+
+  const categoryMap: Record<string, LiveBlogCategory> = {};
+  for (const cat of catsRes.data || []) {
+    categoryMap[cat.slug] = cat;
+  }
+
+  return (postsRes.data || []).map((row: any) => ({
     ...row,
-    category: row.live_blog_categories,
+    category: categoryMap[row.category_slug] || null,
   }));
 }
 
