@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const title = `${cat.name} — Live Blog | Freehold`;
     const desc = cat.description;
-    const url = `${BASE_URL}/liveblog/${cat.slug}.htm`;
+    const url = `${BASE_URL}/liveblog/${cat.slug}`;
 
     return {
       title,
@@ -112,7 +112,7 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
   }
 
   const c = COLOR_MAP[cat.color] || COLOR_MAP.slate;
-  const canonicalUrl = `${BASE_URL}/liveblog/${cat.slug}.htm`;
+  const canonicalUrl = `${BASE_URL}/liveblog/${cat.slug}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -301,7 +301,7 @@ export default async function LiveBlogCategoryPage({ params }: Props) {
               .map((other) => (
                 <Link
                   key={other.slug}
-                  href={`/liveblog/${other.slug}.htm`}
+                  href={`/liveblog/${other.slug}`}
                   className="inline-flex items-center gap-2 bg-slate-900 border border-slate-800 hover:border-slate-600 rounded-lg px-3 py-2 text-sm text-slate-300 hover:text-white transition-all"
                 >
                   <span>{other.icon}</span>

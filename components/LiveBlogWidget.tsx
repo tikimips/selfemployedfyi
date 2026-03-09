@@ -145,7 +145,7 @@ export default function LiveBlogWidget() {
               return (
                 <Link
                   key={post.id}
-                  href={`/liveblog/${slug}.htm`}
+                  href={`/liveblog/${slug}`}
                   className="flex items-start gap-4 bg-slate-900 border border-slate-800 hover:border-slate-600 rounded-xl p-4 transition-all group"
                 >
                   {/* Thumbnail */}
@@ -225,7 +225,7 @@ export default function LiveBlogWidget() {
                   headline: p.title,
                   description: p.summary,
                   datePublished: p.published_at,
-                  url: `https://selfemployedfyi.com/liveblog/${p.category_slug}.htm`,
+                  url: `https://selfemployedfyi.com/liveblog/${p.category_slug}`,
                   author: { "@type": "Organization", name: "Freehold" },
                 },
               })),

@@ -130,7 +130,7 @@ export default async function LiveBlogPage() {
               return (
                 <Link
                   key={cat.slug}
-                  href={`/liveblog/${cat.slug}.htm`}
+                  href={`/liveblog/${cat.slug}`}
                   className={`group relative bg-slate-900 border ${c.border} ${c.bg} rounded-xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-black/30`}
                 >
                   {/* Live indicator */}
