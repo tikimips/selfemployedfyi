@@ -1,6 +1,6 @@
 import Calculator from "@/components/Calculator";
 import Link from "next/link";
-import { ArrowRight, CheckCircle, TrendingDown, FileText, Users, Calculator as CalcIcon, Clock } from "lucide-react";
+import { ArrowRight, CheckCircle, TrendingDown, FileText, Users, Clock, TrendingUp } from "lucide-react";
 
 function scrollToCalc() {
   "use client";
@@ -149,21 +149,38 @@ export default function Home() {
       <section className="py-8 px-4">
         <div className="max-w-4xl mx-auto">
           <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">More tools</p>
-          <Link
-            href="/calculators/quarterly-taxes"
-            className="flex items-center justify-between bg-slate-900 border border-slate-800 hover:border-emerald-700/50 rounded-xl p-4 transition-all group"
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 bg-amber-900/40 border border-amber-800/40 rounded-lg flex items-center justify-center shrink-0">
-                <Clock size={16} className="text-amber-400" />
+          <div className="grid sm:grid-cols-2 gap-3">
+            <Link
+              href="/calculators/quarterly-taxes"
+              className="flex items-center justify-between bg-slate-900 border border-slate-800 hover:border-emerald-700/50 rounded-xl p-4 transition-all group"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 bg-amber-900/40 border border-amber-800/40 rounded-lg flex items-center justify-center shrink-0">
+                  <Clock size={16} className="text-amber-400" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-white">Quarterly Tax Estimator</p>
+                  <p className="text-xs text-slate-500">Q1 deadline: April 15</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-semibold text-white">Quarterly Tax Estimator</p>
-                <p className="text-xs text-slate-500">How much do I owe? Q1 deadline: April 15</p>
+              <ArrowRight size={16} className="text-slate-600 group-hover:text-emerald-400 transition-colors" />
+            </Link>
+            <Link
+              href="/calculators/true-hourly-rate"
+              className="flex items-center justify-between bg-slate-900 border border-slate-800 hover:border-emerald-700/50 rounded-xl p-4 transition-all group"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 bg-red-900/40 border border-red-800/40 rounded-lg flex items-center justify-center shrink-0">
+                  <TrendingUp size={16} className="text-red-400" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-white">True Hourly Rate</p>
+                  <p className="text-xs text-slate-500">What do you actually make?</p>
+                </div>
               </div>
-            </div>
-            <ArrowRight size={16} className="text-slate-600 group-hover:text-emerald-400 transition-colors" />
-          </Link>
+              <ArrowRight size={16} className="text-slate-600 group-hover:text-emerald-400 transition-colors" />
+            </Link>
+          </div>
         </div>
       </section>
 
