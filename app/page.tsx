@@ -1,5 +1,8 @@
 import Calculator from "@/components/Calculator";
 import Link from "next/link";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import { articles } from "@/lib/articles";
 import { ArrowRight, CheckCircle, TrendingDown, FileText, Users, Clock, TrendingUp } from "lucide-react";
 
 function scrollToCalc() {
@@ -10,22 +13,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* ── Nav ── */}
-      <nav className="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50">
-        <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-emerald-500 rounded-lg flex items-center justify-center">
-              <span className="text-white text-xs font-black">FH</span>
-            </div>
-            <span className="font-bold text-white">Freehold</span>
-          </div>
-          <a
-            href="#calculator"
-            className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold px-4 py-1.5 rounded-lg transition-colors"
-          >
-            Get My Numbers
-          </a>
-        </div>
-      </nav>
+      <Nav />
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden pt-20 pb-16 px-4">
@@ -214,24 +202,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Footer ── */}
-      <footer className="border-t border-slate-800/50 py-8 px-4">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <div className="w-5 h-5 bg-emerald-500 rounded flex items-center justify-center">
-              <span className="text-white text-[9px] font-black">FH</span>
+      {/* ── Field Guide preview ── */}
+      <section className="py-16 px-4 border-t border-slate-800/50">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Field Guide</p>
+              <h2 className="text-2xl font-bold text-white">Everything else you need to know.</h2>
             </div>
-            <span className="text-slate-500 text-sm font-medium">
-              Freehold
-            </span>
+            <Link href="/field" className="hidden sm:flex items-center gap-1.5 text-sm text-emerald-400 hover:text-emerald-300 font-medium transition-colors">
+              View all guides <ArrowRight size={14} />
+            </Link>
           </div>
-          <p className="text-xs text-slate-600 text-center">
-            For educational purposes only. Not financial or legal advice.
-            Consult a licensed mortgage professional before making any
-            decisions.
-          </p>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {articles.slice(0, 3).map((a) => (
+              <Link key={a.slug} href={`/field/${a.slug}`} className="group bg-slate-900 border border-slate-800 hover:border-slate-600 rounded-xl p-4 transition-all">
+                <span className="inline-block text-xs font-semibold text-emerald-400 mb-2">{a.stageLabel}</span>
+                <p className="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-emerald-300 transition-colors">{a.title}</p>
+                <p className="text-xs text-slate-500">{a.readTime} min read</p>
+              </Link>
+            ))}
+          </div>
+          <Link href="/field" className="sm:hidden flex items-center gap-1.5 text-sm text-emerald-400 font-medium mt-4 transition-colors">
+            View all guides <ArrowRight size={14} />
+          </Link>
         </div>
-      </footer>
+      </section>
+
+      {/* ── Footer ── */}
+      <Footer />
     </main>
   );
 }

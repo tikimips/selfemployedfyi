@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 import TrueHourlyCalculator from "@/components/TrueHourlyCalculator";
-import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "True Hourly Rate Calculator — What Do You Actually Make?",
@@ -66,24 +67,7 @@ export default function TrueHourlyPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Nav */}
-      <nav className="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50">
-        <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-emerald-500 rounded-lg flex items-center justify-center">
-              <span className="text-white text-xs font-black">FH</span>
-            </div>
-            <span className="font-bold text-white">Freehold</span>
-          </Link>
-          <Link
-            href="/"
-            className="flex items-center gap-1.5 text-slate-400 hover:text-slate-200 text-sm transition-colors"
-          >
-            <ArrowLeft size={14} />
-            Back to tools
-          </Link>
-        </div>
-      </nav>
+      <Nav />
 
       {/* Header */}
       <section className="pt-12 pb-2 px-4">
@@ -137,20 +121,7 @@ export default function TrueHourlyPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-800/50 py-8 px-4">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-5 h-5 bg-emerald-500 rounded flex items-center justify-center">
-              <span className="text-white text-[9px] font-black">FH</span>
-            </div>
-            <span className="text-slate-500 text-sm font-medium">Freehold</span>
-          </Link>
-          <p className="text-xs text-slate-600 text-center">
-            For educational purposes only. Not financial or tax advice.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }
