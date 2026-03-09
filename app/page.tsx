@@ -13,9 +13,9 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 bg-emerald-500 rounded-lg flex items-center justify-center">
-              <span className="text-white text-xs font-black">SE</span>
+              <span className="text-white text-xs font-black">FH</span>
             </div>
-            <span className="font-bold text-white">SelfEmployedFYI</span>
+            <span className="font-bold text-white">Freehold</span>
           </div>
           <a
             href="#calculator"
@@ -35,7 +35,7 @@ export default function Home() {
         <div className="relative max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-800/50 text-emerald-300 text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
             <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
-            Built for freelancers & the self-employed
+            Tools & guides for people who work for themselves
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.1] tracking-tight mb-5">
@@ -179,10 +179,10 @@ export default function Home() {
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <div className="w-5 h-5 bg-emerald-500 rounded flex items-center justify-center">
-              <span className="text-white text-[9px] font-black">SE</span>
+              <span className="text-white text-[9px] font-black">FH</span>
             </div>
             <span className="text-slate-500 text-sm font-medium">
-              SelfEmployedFYI
+              Freehold
             </span>
           </div>
           <p className="text-xs text-slate-600 text-center">

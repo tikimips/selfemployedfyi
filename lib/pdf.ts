@@ -44,7 +44,7 @@ export async function generatePDFReport(
   setTxt(slate950);
   doc.setFontSize(14);
   doc.setFont("helvetica", "bold");
-  doc.text("SelfEmployedFYI", margin, 12);
+  doc.text("Freehold", margin, 12);
 
   doc.setFontSize(9);
   doc.setFont("helvetica", "normal");
@@ -279,5 +279,5 @@ export async function generatePDFReport(
   doc.text(disclaimerLines, margin, y);
 
   // ── Save ──
-  doc.save(`selfemployedfyi-mortgage-report-${Date.now()}.pdf`);
+  doc.save(`freehold-mortgage-report-${Date.now()}.pdf`);
 }

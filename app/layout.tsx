@@ -4,31 +4,31 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const BASE_URL = "https://selfemployedfyi.vercel.app";
+const BASE_URL = "https://selfemployedfyi.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "SelfEmployedFYI — Mortgage Calculator for the Self-Employed",
-    template: "%s | SelfEmployedFYI",
+    default: "Freehold — Tools & Guides for People Who Work for Themselves",
+    template: "%s | Freehold",
   },
   description:
-    "Free mortgage qualification calculator for freelancers and self-employed. See exactly what lenders calculate from your tax returns — and close the gap between what you earn and what you qualify for.",
+    "Freehold is the platform for freelancers, founders, and the self-employed. Calculators, guides, and tools to help you understand your taxes, mortgage, finances, and business — at every stage.",
   keywords: [
+    "self-employed tools",
+    "freelancer resources",
     "self-employed mortgage calculator",
-    "freelancer mortgage qualifying income",
+    "freelancer tax calculator",
+    "self-employed tax deductions",
+    "solo business tools",
     "1099 mortgage calculator",
-    "schedule c mortgage income",
     "non-QM mortgage self-employed",
-    "self-employed home loan",
-    "mortgage qualifying income calculator",
-    "bank statement loan calculator",
-    "self-employed turned down mortgage",
-    "how do lenders calculate self-employed income",
+    "quarterly tax estimator",
+    "freelancer financial tools",
   ],
-  authors: [{ name: "SelfEmployedFYI" }],
-  creator: "SelfEmployedFYI",
-  publisher: "SelfEmployedFYI",
+  authors: [{ name: "Freehold" }],
+  creator: "Freehold",
+  publisher: "Freehold",
   robots: {
     index: true,
     follow: true,
@@ -45,25 +45,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: BASE_URL,
-    siteName: "SelfEmployedFYI",
-    title: "SelfEmployedFYI — Mortgage Calculator for the Self-Employed",
+    siteName: "Freehold",
+    title: "Freehold — Tools & Guides for People Who Work for Themselves",
     description:
-      "You make $200K. The bank thinks you make $60K. Find out your real mortgage-qualifying income in 2 minutes — free.",
+      "Calculators, guides, and tools for freelancers and the self-employed. Know your numbers. Own your future.",
     images: [
       {
         url: `${BASE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "SelfEmployedFYI — Know Your Mortgage-Ready Income",
+        alt: "Freehold — The Platform for Independent Operators",
       },
     ],
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SelfEmployedFYI — Mortgage Calculator for the Self-Employed",
+    title: "Freehold — Tools & Guides for People Who Work for Themselves",
     description:
-      "You make $200K. The bank thinks you make $60K. See your real mortgage-qualifying income in 2 minutes.",
+      "Calculators, guides, and tools for freelancers and the self-employed. Know your numbers. Own your future.",
     images: [`${BASE_URL}/og-image.png`],
   },
 };
@@ -86,9 +86,9 @@ export default function RootLayout({
                   "@type": "WebSite",
                   "@id": `${BASE_URL}/#website`,
                   url: BASE_URL,
-                  name: "SelfEmployedFYI",
+                  name: "Freehold",
                   description:
-                    "Free mortgage qualification calculator for freelancers and self-employed people.",
+                    "The platform for freelancers, founders, and the self-employed. Tools, calculators, and guides at every stage of building your independent business.",
                   publisher: {
                     "@id": `${BASE_URL}/#organization`,
                   },
@@ -96,10 +96,10 @@ export default function RootLayout({
                 {
                   "@type": "Organization",
                   "@id": `${BASE_URL}/#organization`,
-                  name: "SelfEmployedFYI",
+                  name: "Freehold",
                   url: BASE_URL,
                   description:
-                    "Tools to help self-employed people understand and navigate mortgage qualification.",
+                    "Freehold builds tools and resources for people who work for themselves.",
                 },
                 {
                   "@type": "WebApplication",
