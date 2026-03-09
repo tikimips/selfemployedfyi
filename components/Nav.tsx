@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import UserAvatar from "@/components/UserAvatar";
 
 const links = [
   { label: "Field", href: "/field" },
@@ -34,12 +35,7 @@ export default function Nav() {
               {l.label}
             </Link>
           ))}
-          <Link
-            href="/field"
-            className="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold px-4 py-1.5 rounded-lg transition-colors"
-          >
-            Get Updates
-          </Link>
+          <UserAvatar />
         </div>
 
         {/* Mobile toggle */}
