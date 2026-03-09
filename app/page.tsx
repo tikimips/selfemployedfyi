@@ -2,6 +2,7 @@ import Calculator from "@/components/Calculator";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LiveBlogWidget from "@/components/LiveBlogWidget";
 import { articles } from "@/lib/articles";
 import { ArrowRight, CheckCircle, TrendingDown, FileText, Users, Clock, TrendingUp } from "lucide-react";
 
@@ -201,6 +202,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── Live Blog Widget ── */}
+      <LiveBlogWidget />
 
       {/* ── Field Guide preview ── */}
       <section className="py-16 px-4 border-t border-slate-800/50">

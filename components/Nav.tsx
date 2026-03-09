@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 const links = [
   { label: "Field", href: "/field" },
   { label: "Ledger", href: "/#tools" },
+  { label: "Live Blog", href: "/liveblog" },
 ];
 
 export default function Nav() {
