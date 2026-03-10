@@ -28,26 +28,92 @@ if (fs.existsSync(envPath)) {
 
 const SUPABASE_URL      = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const OPENAI_API_KEY    = process.env.OPENAI_API_KEY;
+const GEMINI_API_KEY    = process.env.GEMINI_API_KEY || "AIzaSyBOzWBN4yt5NaFHLbPBNATHCzSEBHv05Fs";
 
 // ── RSS Sources ──────────────────────────────────────────────────────────────
+// mode: "news"         → traditional news sources, reported-style rewrite
+// mode: "thought_leader" → monitor for topic signals, write original Propped
+//                          editorial — never reference or attribute the source
+
 const SOURCES = [
-  { key: "cnbc-markets",     url: "https://www.cnbc.com/id/10000664/device/rss/rss.html",                       category: "economy"    },
-  { key: "cnbc-investing",   url: "https://www.cnbc.com/id/15839069/device/rss/rss.html",                       category: "stockcheck" },
-  { key: "yahoo-finance",    url: "https://finance.yahoo.com/news/rssindex",                                     category: "stockcheck" },
-  { key: "yahoo-bizfin",     url: "https://finance.yahoo.com/rss/topstories",                                    category: "moneymoves" },
-  { key: "entrepreneur",     url: "https://www.entrepreneur.com/latest.rss",                                     category: "bizbuzz"    },
-  { key: "inc",              url: "https://www.inc.com/rss.html",                                                category: "bizbuzz"    },
-  { key: "forbes-investing", url: "https://www.forbes.com/investing/feed2/",                                     category: "stockcheck" },
-  { key: "investopedia",     url: "https://www.investopedia.com/feedbuilder/feed/getfeed?feedName=rss_headline", category: "moneymoves" },
-  { key: "thestreet",        url: "https://www.thestreet.com/.rss/full/",                                        category: "stockcheck" },
-  { key: "marketwatch",      url: "https://feeds.marketwatch.com/marketwatch/topstories/",                       category: "economy"    },
-  { key: "marketwatch-real", url: "https://feeds.marketwatch.com/marketwatch/realtimeheadlines/",                category: "stockcheck" },
-  { key: "kiplinger",        url: "https://www.kiplinger.com/rss/channel/news",                                  category: "ratewatch"  },
-  { key: "taxfoundation",    url: "https://taxfoundation.org/feed/",                                             category: "taxtalk"    },
-  { key: "irs",              url: "https://www.irs.gov/newsroom/irs-news.rss",                                   category: "taxtalk"    },
-  { key: "nerdwallet",       url: "https://www.nerdwallet.com/blog/feed/",                                       category: "moneymoves" },
-  { key: "bankrate",         url: "https://www.bankrate.com/rss/",                                               category: "ratewatch"  },
+  // ── Finance & Business News ──────────────────────────────────────────────
+  { key: "cnbc-markets",     mode: "news", url: "https://www.cnbc.com/id/10000664/device/rss/rss.html",                       category: "economy"    },
+  { key: "cnbc-investing",   mode: "news", url: "https://www.cnbc.com/id/15839069/device/rss/rss.html",                       category: "stockcheck" },
+  { key: "yahoo-finance",    mode: "news", url: "https://finance.yahoo.com/news/rssindex",                                     category: "stockcheck" },
+  { key: "yahoo-bizfin",     mode: "news", url: "https://finance.yahoo.com/rss/topstories",                                    category: "moneymoves" },
+  { key: "entrepreneur",     mode: "news", url: "https://www.entrepreneur.com/latest.rss",                                     category: "bizbuzz"    },
+  { key: "inc",              mode: "news", url: "https://www.inc.com/rss.html",                                                category: "bizbuzz"    },
+  { key: "thestreet",        mode: "news", url: "https://www.thestreet.com/.rss/full/",                                        category: "stockcheck" },
+  { key: "marketwatch",      mode: "news", url: "https://feeds.marketwatch.com/marketwatch/topstories/",                       category: "economy"    },
+  { key: "marketwatch-real", mode: "news", url: "https://feeds.marketwatch.com/marketwatch/realtimeheadlines/",                category: "stockcheck" },
+  { key: "taxfoundation",    mode: "news", url: "https://taxfoundation.org/feed/",                                             category: "taxtalk"    },
+  { key: "nerdwallet",       mode: "news", url: "https://www.nerdwallet.com/blog/feed/",                                       category: "moneymoves" },
+
+  // ── Thought Leaders & Founder Voices ─────────────────────────────────────
+  // Monitor for topic signals — write original Propped editorial, no attribution
+  {
+    key: "paulgraham",
+    mode: "thought_leader",
+    url: "https://feeds.feedburner.com/PaulGrahamEssays",
+    category: "bizbuzz",
+    context: "startup philosophy, founder mindset, how to build companies that matter",
+  },
+  {
+    key: "samaltman",
+    mode: "thought_leader",
+    url: "https://blog.samaltman.com/posts.atom",
+    category: "bizbuzz",
+    context: "AI, startups, big swings, what it takes to build something important",
+  },
+  {
+    key: "lenny",
+    mode: "thought_leader",
+    url: "https://www.lennysnewsletter.com/feed",
+    category: "bizbuzz",
+    context: "product strategy, growth, building products people love, creator economy",
+  },
+  {
+    key: "justinwelsh",
+    mode: "thought_leader",
+    url: "https://justinwelsh.substack.com/feed",
+    category: "bizbuzz",
+    context: "one-person business, solopreneur systems, monetizing your knowledge",
+  },
+  {
+    key: "sahilbloom",
+    mode: "thought_leader",
+    url: "https://sahilbloom.substack.com/feed",
+    category: "moneymoves",
+    context: "wealth frameworks, leverage, career and financial growth for high-achievers",
+  },
+  {
+    key: "allin-podcast",
+    mode: "thought_leader",
+    url: "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/a91018a4-ea4f-4130-bf55-ae270180c327/44710ecc-10bb-48d1-93c7-ae270180c33e/podcast.rss",
+    category: "economy",
+    context: "tech, startups, venture capital, macro trends, what's really happening in the economy",
+  },
+  {
+    key: "how-i-built-this",
+    mode: "thought_leader",
+    url: "https://rss.art19.com/how-i-built-this",
+    category: "bizbuzz",
+    context: "founder stories, how companies actually started, the messy reality of building a business",
+  },
+  {
+    key: "invest-like-best",
+    mode: "thought_leader",
+    url: "https://feeds.megaphone.fm/investlikethebest",
+    category: "moneymoves",
+    context: "investing, business building, deep conversations with operators and investors",
+  },
+  {
+    key: "yc-blog",
+    mode: "thought_leader",
+    url: "https://www.ycombinator.com/blog/rss.xml",
+    category: "bizbuzz",
+    context: "startup tactics, fundraising, building companies, product-market fit, early-stage decisions",
+  },
 ];
 
 // ── Category keyword classifier ──────────────────────────────────────────────
@@ -117,22 +183,20 @@ function classifyCategory(title, description, defaultCategory) {
   return bestCat;
 }
 
-async function callOpenAI(prompt) {
+async function callGemini(prompt) {
   const body = JSON.stringify({
-    model: "gpt-4o-mini",
-    messages: [{ role: "user", content: prompt }],
-    temperature: 0.75,
-    max_tokens: 700,
+    contents: [{ parts: [{ text: prompt }] }],
+    generationConfig: { temperature: 0.75, maxOutputTokens: 700 },
   });
 
   return new Promise((resolve, reject) => {
+    const apiPath = `/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
     const options = {
-      hostname: "api.openai.com",
-      path: "/v1/chat/completions",
+      hostname: "generativelanguage.googleapis.com",
+      path: apiPath,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${OPENAI_API_KEY}`,
         "Content-Length": Buffer.byteLength(body),
       },
     };
@@ -142,8 +206,8 @@ async function callOpenAI(prompt) {
       res.on("end", () => {
         try {
           const parsed = JSON.parse(data);
-          if (parsed.error) reject(new Error(parsed.error.message));
-          else resolve(parsed.choices?.[0]?.message?.content || "");
+          if (parsed.error) reject(new Error(parsed.error.message || JSON.stringify(parsed.error)));
+          else resolve(parsed.candidates?.[0]?.content?.parts?.[0]?.text || "");
         } catch (e) { reject(e); }
       });
     });
@@ -153,37 +217,68 @@ async function callOpenAI(prompt) {
   });
 }
 
-async function generatePost(item, defaultCategory) {
-  const title = (item.title || "").trim();
-  const desc  = (item.contentSnippet || item.content || item.summary || "").trim();
-  const category = classifyCategory(title, desc, defaultCategory);
+// ── Prompts ──────────────────────────────────────────────────────────────────
 
-  const prompt = `You are Josh Smart, a staff writer at Propped — a platform for freelancers, founders, and the self-employed. You just spotted a news story and are writing an original Propped post inspired by it.
+const SYSTEM_VOICE = `You are Josh Smart, a staff writer at Propped. Propped is for scrappy entrepreneurs, freelancers, founders, and self-employed people who are building something real. Your voice is: direct, sharp, no-BS, millennial-smart. No em dashes. No corporate speak. No sycophancy. Every post should feel like advice from a trusted friend who's been in the room.`;
 
-Topic inspiration: "${title}"
-Context: "${desc.substring(0, 400)}"
+function newsPrompt(title, desc) {
+  return `${SYSTEM_VOICE}
 
-Write an ORIGINAL Propped live blog post from scratch. Do NOT mention where you saw this story. Do NOT mention the original source or publication. Write as if you discovered this yourself and are reporting it through the Propped lens.
+You spotted a news story and you're writing a quick Propped take on it.
 
-Style rules:
-- Direct, conversational, millennial-smart
-- No em dashes (use commas or periods instead)
-- No corporate speak
-- Always connect to what it means for freelancers, founders, or self-employed people
-- Be specific, use numbers where relevant
-- Punchy headline, not clickbait
+Story: "${title}"
+Details: "${desc.substring(0, 500)}"
 
-Return JSON only:
+Write an original Propped live blog post. Do NOT name the source or publication. Write it as your own reporting through the Propped lens.
+
+Return JSON only — no markdown, no explanation:
 {
-  "title": "Your original headline (10-15 words, grabs attention)",
-  "summary": "2-3 sentences that hook the reader and explain why this matters to self-employed people. No em dashes.",
-  "content": "4-6 sentences with your original take. Go deeper. What should freelancers actually do with this information? Be concrete. No em dashes.",
+  "title": "Punchy original headline (10-15 words, for a scrappy entrepreneur audience)",
+  "summary": "2-3 tight sentences. Why does this matter to someone building their own thing? Hook them fast. No em dashes.",
+  "content": "4-6 sentences going deeper. What's the real implication? What should a freelancer or founder actually do with this? Be specific — use numbers, percentages, or concrete examples where you can. No em dashes.",
   "tags": ["tag1", "tag2", "tag3"]
 }`;
+}
+
+function thoughtLeaderPrompt(title, desc, context) {
+  return `${SYSTEM_VOICE}
+
+You just read something from a well-known thinker in the startup/business world. You're not covering THEIR piece — you're using the topic as a jumping-off point to write your own original take for scrappy entrepreneurs.
+
+Topic signal: "${title}"
+Context: "${desc.substring(0, 400)}"
+Thematic territory this source covers: ${context}
+
+Write a completely original Propped editorial post on this theme or topic. Do NOT reference any source, publication, person, podcast, or newsletter — not even indirectly ("one founder recently said..." is off-limits). Write as if this is purely your own thinking and observation, grounded in what entrepreneurs are actually experiencing.
+
+Make it actionable and specific. This audience is building real businesses, not just consuming content.
+
+Return JSON only — no markdown, no explanation:
+{
+  "title": "Original, specific headline for a founder/entrepreneur audience (10-15 words)",
+  "summary": "2-3 sentences. Your sharpest insight on this topic, up front. Make them want to keep reading. No em dashes.",
+  "content": "5-7 sentences of original thinking. Give them something they can use today. Be concrete — frameworks, numbers, specific moves. End with a forward-looking observation or challenge. No em dashes.",
+  "tags": ["tag1", "tag2", "tag3"]
+}`;
+}
+
+// ── Post generator ───────────────────────────────────────────────────────────
+
+async function generatePost(item, source) {
+  const title = (item.title || "").trim();
+  const desc  = (item.contentSnippet || item.content || item.summary || "").trim();
+  const category = classifyCategory(title, desc, source.category);
+
+  const prompt = source.mode === "thought_leader"
+    ? thoughtLeaderPrompt(title, desc, source.context || "startups and entrepreneurship")
+    : newsPrompt(title, desc);
 
   try {
-    const raw = await callOpenAI(prompt);
-    const jsonMatch = raw.match(/\{[\s\S]*\}/);
+    const raw = await callGemini(prompt);
+
+    // Strip markdown code fences if Gemini wraps JSON
+    const cleaned = raw.replace(/^```(?:json)?\n?/m, "").replace(/\n?```$/m, "").trim();
+    const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
     if (!jsonMatch) throw new Error("No JSON in response");
     const parsed = JSON.parse(jsonMatch[0]);
 
@@ -196,14 +291,14 @@ Return JSON only:
       content:       parsed.content  || desc,
       image_url:     image.url,
       image_alt:     (parsed.title   || title).substring(0, 200),
-      source_url:    null,          // never store source URL
-      source_name:   "Josh Smart",  // always our writer
+      source_url:    null,
+      source_name:   null,  // no attribution — ever
       tags:          Array.isArray(parsed.tags) ? parsed.tags.slice(0, 5) : [],
-      published_at:  new Date().toISOString(), // current time, not RSS pubDate
+      published_at:  new Date().toISOString(),
     };
   } catch (err) {
-    console.error(`  Gemini error for "${title.substring(0, 60)}": ${err.message}`);
-    return null; // skip on failure rather than fallback with raw source content
+    console.error(`  AI error for "${title.substring(0, 60)}": ${err.message}`);
+    return null;
   }
 }
 
@@ -265,7 +360,7 @@ async function main() {
       console.log(`    ${newItems.length} new item(s) — generating...`);
 
       for (const item of newItems.reverse()) {
-        const post = await generatePost(item, source.category);
+        const post = await generatePost(item, source);
         if (!post) continue; // skip if Gemini failed
 
         const { error } = await supabase.from("live_blog_posts").insert([post]);
