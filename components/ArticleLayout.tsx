@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "./Nav";
 import Footer from "./Footer";
+import ReadToMe from "./ReadToMe";
 import { ArrowLeft, Clock } from "lucide-react";
 import type { Article } from "@/lib/articles";
 
@@ -53,6 +54,9 @@ export default function ArticleLayout({ article, children }: ArticleLayoutProps)
           </p>
           <div className="mt-6 border-t border-zinc-800" />
         </header>
+
+        {/* Read To Me */}
+        <ReadToMe />
 
         {/* Body */}
         <div className="article-body space-y-5 text-[17px] leading-relaxed text-zinc-300">
